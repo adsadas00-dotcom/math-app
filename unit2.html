@@ -183,20 +183,20 @@
   </div>
 </div>
 
-<script src="data_ch1.js"></script>
+<script src="data_ch2.js"></script>
 <script>
 // URLパラメータから単元IDを取得、なければ最初の単元
 const params = new URLSearchParams(location.search);
 let currentIdx = 0;
 const idParam = params.get('id');
 if (idParam) {
-  const found = CHAPTER1_UNITS.findIndex(u => u.id === idParam);
+  const found = CHAPTER2_UNITS.findIndex(u => u.id === idParam);
   if (found >= 0) currentIdx = found;
 }
 
 function loadUnit(idx) {
   currentIdx = idx;
-  const UNIT = CHAPTER1_UNITS[idx];
+  const UNIT = CHAPTER2_UNITS[idx];
 
   // URLを更新
   history.replaceState(null, '', `?id=${UNIT.id}`);
@@ -209,7 +209,7 @@ function loadUnit(idx) {
 
   // ナビ
   document.getElementById('prevBtn').disabled = idx === 0;
-  document.getElementById('nextBtn').disabled = idx === CHAPTER1_UNITS.length - 1;
+  document.getElementById('nextBtn').disabled = idx === CHAPTER2_UNITS.length - 1;
 
   // 動画
   const vw = document.getElementById('videoWrapper');
@@ -291,7 +291,7 @@ function selectChoice(btn, correct, hint) {
 }
 
 function updateScore() {
-  const UNIT = CHAPTER1_UNITS[currentIdx];
+  const UNIT = CHAPTER2_UNITS[currentIdx];
   const total = UNIT.warmup.length + UNIT.exercise.length;
   const correct = document.querySelectorAll('.problem-card.correct').length;
   document.getElementById('scoreValue').textContent = `${correct} / ${total}`;
@@ -300,7 +300,7 @@ function updateScore() {
 
 function navigate(dir) {
   const next = currentIdx + dir;
-  if (next >= 0 && next < CHAPTER1_UNITS.length) loadUnit(next);
+  if (next >= 0 && next < CHAPTER2_UNITS.length) loadUnit(next);
 }
 
 // 戻るボタンのリンクを章・科目に応じて自動設定
