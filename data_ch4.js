@@ -26,7 +26,7 @@ const CHAPTER4_UNITS = [
         </ul>`
     },
     warmup: [
-      { id:"WU-1", expr:"y = 2x で x = 3 のとき y は？", answer:"y = 6", choices:["y=6","y=5","y=8","y=2/3"], hint:"y=2×3=6" },
+      { id:"WU-1", expr:"y = 2x で x = 3 のとき y は？", answer:"y = 6", choices:["y=6","y=5","y=8","y=<span class="frac"><span class="num">2</span><span class="den">3</span></span>"], hint:"y=2×3=6" },
       { id:"WU-2", expr:"y = x + 4 で x = −1 のとき y は？", answer:"y = 3", choices:["y=3","y=5","y=−3","y=−5"], hint:"y=(−1)+4=3" },
       { id:"WU-3", expr:"1 ≤ x ≤ 5 の変域で含まれない整数は？", answer:"6", choices:["1","3","5","6"], hint:"1以上5以下なので6は含まれない" },
       { id:"WU-4", expr:"−2 < x < 3 の変域に含まれる整数はいくつ？", answer:"4個", choices:["4個","5個","6個","3個"], hint:"−1, 0, 1, 2 の4個（端の値は含まない）" },
@@ -64,16 +64,16 @@ const CHAPTER4_UNITS = [
         </ul>`
     },
     warmup: [
-      { id:"WU-1", expr:"y = 4x で x = 3 のとき y は？", answer:"12", choices:["12","7","−12","4/3"], hint:"y=4×3=12" },
+      { id:"WU-1", expr:"y = 4x で x = 3 のとき y は？", answer:"12", choices:["12","7","−12","<span class="frac"><span class="num">4</span><span class="den">3</span></span>"], hint:"y=4×3=12" },
       { id:"WU-2", expr:"y = −2x で x = 5 のとき y は？", answer:"−10", choices:["−10","10","3","−3"], hint:"y=−2×5=−10" },
       { id:"WU-3", expr:"y が x に比例し x = 2 のとき y = 8。比例定数は？", answer:"4", choices:["4","6","16","2"], hint:"y=ax → 8=a×2 → a=4" },
-      { id:"WU-4", expr:"y = 5x で x が2倍になると y は？", answer:"2倍になる", choices:["2倍になる","変わらない","4倍になる","1/2になる"], hint:"比例はxが2倍→yも2倍" },
-      { id:"WU-5", expr:"y = ax で x = 6, y = 18 のとき a は？", answer:"3", choices:["3","12","108","1/3"], hint:"18=a×6 → a=3" },
+      { id:"WU-4", expr:"y = 5x で x が2倍になると y は？", answer:"2倍になる", choices:["2倍になる","変わらない","4倍になる","<span class="frac"><span class="num">1</span><span class="den">2</span></span>になる"], hint:"比例はxが2倍→yも2倍" },
+      { id:"WU-5", expr:"y = ax で x = 6, y = 18 のとき a は？", answer:"3", choices:["3","12","108","<span class="frac"><span class="num">1</span><span class="den">3</span></span>"], hint:"18=a×6 → a=3" },
     ],
     exercise: [
       { id:"EX-1", expr:"y が x に比例し x = 4 のとき y = −12。y を x の式で表すと？", answer:"y = −3x", choices:["y=−3x","y=3x","y=−8x","y=−48x"], hint:"−12=a×4 → a=−3 → y=−3x" },
       { id:"EX-2", expr:"y = −3x で x = −4 のとき y は？", answer:"12", choices:["12","−12","7","−7"], hint:"y=−3×(−4)=12" },
-      { id:"EX-3", expr:"y = 6x で y = 42 のとき x は？", answer:"7", choices:["7","36","252","1/7"], hint:"42=6x → x=7" },
+      { id:"EX-3", expr:"y = 6x で y = 42 のとき x は？", answer:"7", choices:["7","36","252","<span class="frac"><span class="num">1</span><span class="den">7</span></span>"], hint:"42=6x → x=7" },
       { id:"EX-4", expr:"y が x に比例し x = −3 のとき y = 9。x = 5 のとき y は？", answer:"−15", choices:["−15","15","−45","3"], hint:"a=9÷(−3)=−3 → y=−3x → y=−3×5=−15" },
       { id:"EX-5", expr:"y = 2x で x の変域が −3 ≤ x ≤ 4 のとき y の最大値は？", answer:"8", choices:["8","−6","6","−8"], hint:"x=4のとき y=8 が最大" },
       { id:"EX-6", expr:"y = −5x で x = −2 のとき y は？", answer:"10", choices:["10","−10","3","−3"], hint:"y=−5×(−2)=10" },
@@ -102,7 +102,7 @@ const CHAPTER4_UNITS = [
         </ul>`
     },
     warmup: [
-      { id:"WU-1", expr:"x = 2, y = 10 のとき比例定数 a は？", answer:"5", choices:["5","8","20","1/5"], hint:"a=y÷x=10÷2=5" },
+      { id:"WU-1", expr:"x = 2, y = 10 のとき比例定数 a は？", answer:"5", choices:["5","8","20","<span class="frac"><span class="num">1</span><span class="den">5</span></span>"], hint:"a=y÷x=10÷2=5" },
       { id:"WU-2", expr:"x = 4, y = −8 のとき a は？", answer:"−2", choices:["−2","2","−32","−4"], hint:"a=−8÷4=−2" },
       { id:"WU-3", expr:"x = −3, y = 9 のとき a は？", answer:"−3", choices:["−3","3","−27","6"], hint:"a=9÷(−3)=−3" },
       { id:"WU-4", expr:"x = 5, y = 5 のとき a は？", answer:"1", choices:["1","0","25","10"], hint:"a=5÷5=1" },
@@ -113,8 +113,8 @@ const CHAPTER4_UNITS = [
       { id:"EX-2", expr:"x = −4, y = 12 のとき y を x の式で表すと？", answer:"y = −3x", choices:["y=−3x","y=3x","y=−48x","y=8x"], hint:"a=12÷(−4)=−3 → y=−3x" },
       { id:"EX-3", expr:"y = ax で x = 6 のとき y = −24。x = −2 のとき y は？", answer:"8", choices:["8","−8","48","−48"], hint:"a=−24÷6=−4 → y=−4x → y=−4×(−2)=8" },
       { id:"EX-4", expr:"y = ax で x = −5 のとき y = 20。x = 3 のとき y は？", answer:"−12", choices:["−12","12","60","−60"], hint:"a=20÷(−5)=−4 → y=−4x → y=−4×3=−12" },
-      { id:"EX-5", expr:"y/x = −7 のとき比例定数は？", answer:"−7", choices:["−7","7","1/7","−1/7"], hint:"y/x=a → a=−7" },
-      { id:"EX-6", expr:"x = 8, y = −4 のとき y を x の式で表すと？", answer:"y = −x/2", choices:["y=−x/2","y=x/2","y=−2x","y=2x"], hint:"a=−4÷8=−1/2 → y=−x/2" },
+      { id:"EX-5", expr:"y/x = −7 のとき比例定数は？", answer:"−7", choices:["−7","7","<span class="frac"><span class="num">1</span><span class="den">7</span></span>","−<span class="frac"><span class="num">1</span><span class="den">7</span></span>"], hint:"y/x=a → a=−7" },
+      { id:"EX-6", expr:"x = 8, y = −4 のとき y を x の式で表すと？", answer:"y = −x/2", choices:["y=−x/2","y=x/2","y=−2x","y=2x"], hint:"a=−4÷8=−<span class="frac"><span class="num">1</span><span class="den">2</span></span> → y=−x/2" },
     ]
   },
 
@@ -136,7 +136,36 @@ const CHAPTER4_UNITS = [
             <li>(3, 2)：x = 3, y = 2 の点</li>
             <li>第1象限（+,+）、第2象限（−,+）、第3象限（−,−）、第4象限（+,−）</li>
           </ul>
-        </div>`
+        </div>
+        <svg viewBox="0 0 200 200" width="200" height="200" style="display:block;margin:12px auto;background:#1a1a2e;border-radius:8px;">
+          <line x1="10" y1="100" x2="190" y2="100" stroke="#c9a84c" stroke-width="1.5"/>
+          <line x1="100" y1="10" x2="100" y2="190" stroke="#c9a84c" stroke-width="1.5"/>
+          <polygon points="190,100 183,96 183,104" fill="#c9a84c"/>
+          <polygon points="100,10 96,17 104,17" fill="#c9a84c"/>
+          <text x="192" y="104" fill="#c9a84c" font-size="11">x</text>
+          <text x="104" y="10" fill="#c9a84c" font-size="11">y</text>
+          <text x="92" y="113" fill="#888" font-size="9">O</text>
+          <line x1="130" y1="97" x2="130" y2="103" stroke="#888" stroke-width="1"/>
+          <line x1="160" y1="97" x2="160" y2="103" stroke="#888" stroke-width="1"/>
+          <line x1="70" y1="97" x2="70" y2="103" stroke="#888" stroke-width="1"/>
+          <line x1="40" y1="97" x2="40" y2="103" stroke="#888" stroke-width="1"/>
+          <line x1="97" y1="70" x2="103" y2="70" stroke="#888" stroke-width="1"/>
+          <line x1="97" y1="130" x2="103" y2="130" stroke="#888" stroke-width="1"/>
+          <text x="130" y="113" fill="#888" font-size="8" text-anchor="middle">1</text>
+          <text x="160" y="113" fill="#888" font-size="8" text-anchor="middle">2</text>
+          <text x="70" y="113" fill="#888" font-size="8" text-anchor="middle">−1</text>
+          <text x="40" y="113" fill="#888" font-size="8" text-anchor="middle">−2</text>
+          <text x="113" y="73" fill="#888" font-size="8">1</text>
+          <text x="113" y="133" fill="#888" font-size="8">−1</text>
+          <text x="148" y="52" fill="#aaa" font-size="9" opacity="0.6">第1象限</text>
+          <text x="30" y="52" fill="#aaa" font-size="9" opacity="0.6">第2象限</text>
+          <text x="30" y="160" fill="#aaa" font-size="9" opacity="0.6">第3象限</text>
+          <text x="140" y="160" fill="#aaa" font-size="9" opacity="0.6">第4象限</text>
+          <circle cx="160" cy="70" r="4" fill="#e94560"/>
+          <text x="164" y="67" fill="#e94560" font-size="9">A(2,1)</text>
+          <circle cx="40" cy="130" r="4" fill="#3a7ca5"/>
+          <text x="8" y="128" fill="#3a7ca5" font-size="9">B(−2,−1)</text>
+        </svg>`
     },
     warmup: [
       { id:"WU-1", expr:"点 (3, 5) の x 座標は？", answer:"3", choices:["3","5","8","15"], hint:"(x, y) なので x = 3" },
@@ -175,7 +204,28 @@ const CHAPTER4_UNITS = [
         </div>
         <ul class="steps">
           <li><span class="step-num">描き方</span><span>原点と、もう1点（例：x=1のときの点）を結ぶ</span></li>
-        </ul>`
+        </ul>
+        <svg viewBox="0 0 200 200" width="200" height="200" style="display:block;margin:12px auto;background:#1a1a2e;border-radius:8px;">
+          <!-- 軸 -->
+          <line x1="10" y1="100" x2="190" y2="100" stroke="#c9a84c" stroke-width="1.5"/>
+          <line x1="100" y1="10" x2="100" y2="190" stroke="#c9a84c" stroke-width="1.5"/>
+          <polygon points="190,100 183,96 183,104" fill="#c9a84c"/>
+          <polygon points="100,10 96,17 104,17" fill="#c9a84c"/>
+          <text x="192" y="104" fill="#c9a84c" font-size="11">x</text>
+          <text x="104" y="10" fill="#c9a84c" font-size="11">y</text>
+          <text x="93" y="112" fill="#888" font-size="9">O</text>
+          <!-- y=2x のグラフ（傾き2：x=40pxごとにy=80px） -->
+          <line x1="55" y1="190" x2="145" y2="10" stroke="#e94560" stroke-width="2"/>
+          <text x="148" y="22" fill="#e94560" font-size="11">y=2x</text>
+          <!-- y=-x のグラフ（参考、傾き-1） -->
+          <line x1="20" y1="60" x2="180" y2="180" stroke="#3a7ca5" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+          <text x="155" y="185" fill="#3a7ca5" font-size="10" opacity="0.8">y=−x</text>
+          <!-- 原点 -->
+          <circle cx="100" cy="100" r="3" fill="#c9a84c"/>
+          <!-- 点(1, 2) -->
+          <circle cx="130" cy="40" r="3" fill="#e94560"/>
+          <text x="133" y="38" fill="#e94560" font-size="8">(1,2)</text>
+        </svg>`
     },
     warmup: [
       { id:"WU-1", expr:"y = 2x のグラフは右上がり・右下がりどちら？", answer:"右上がり", choices:["右上がり","右下がり","水平","垂直"], hint:"a=2>0 → 右上がり" },
@@ -185,7 +235,7 @@ const CHAPTER4_UNITS = [
       { id:"WU-5", expr:"y = 4x と y = x で傾きが急なのは？", answer:"y = 4x", choices:["y=4x","y=x","同じ","比べられない"], hint:"|4|>|1| なので y=4x の方が傾きが急" },
     ],
     exercise: [
-      { id:"EX-1", expr:"y = 3x のグラフ上の点 (2, □) の □ は？", answer:"6", choices:["6","9","5","2/3"], hint:"y=3×2=6" },
+      { id:"EX-1", expr:"y = 3x のグラフ上の点 (2, □) の □ は？", answer:"6", choices:["6","9","5","<span class="frac"><span class="num">2</span><span class="den">3</span></span>"], hint:"y=3×2=6" },
       { id:"EX-2", expr:"y = −x のグラフ上の点 (−4, □) の □ は？", answer:"4", choices:["4","−4","−16","16"], hint:"y=−1×(−4)=4" },
       { id:"EX-3", expr:"原点と (2, −6) を通るグラフの式は？", answer:"y = −3x", choices:["y=−3x","y=3x","y=−x/3","y=−6x"], hint:"a=−6÷2=−3 → y=−3x" },
       { id:"EX-4", expr:"y = 2x と y = −2x のグラフの関係は？", answer:"x軸について対称", choices:["x軸について対称","y軸について対称","原点について対称","無関係"], hint:"aが符号違いの比例グラフはx軸について対称" },
@@ -224,9 +274,9 @@ const CHAPTER4_UNITS = [
     ],
     exercise: [
       { id:"EX-1", expr:"原点と (−3, −9) を通る直線の式は？", answer:"y = 3x", choices:["y=3x","y=−3x","y=9x","y=x/3"], hint:"a=(−9)÷(−3)=3 → y=3x" },
-      { id:"EX-2", expr:"原点と (6, −4) を通る直線の式は？", answer:"y = −2x/3", choices:["y=−2x/3","y=2x/3","y=−3x/2","y=−10x"], hint:"a=−4÷6=−2/3 → y=−2x/3" },
+      { id:"EX-2", expr:"原点と (6, −4) を通る直線の式は？", answer:"y = −2x/3", choices:["y=−2x/3","y=2x/3","y=−3x/2","y=−10x"], hint:"a=−4÷6=−<span class="frac"><span class="num">2</span><span class="den">3</span></span> → y=−2x/3" },
       { id:"EX-3", expr:"y = ax が (2, 8) を通るとき、(−3, □) の □ は？", answer:"−12", choices:["−12","12","−24","6"], hint:"a=8÷2=4 → y=4x → y=4×(−3)=−12" },
-      { id:"EX-4", expr:"y = ax が (−4, 6) を通るとき a は？", answer:"−3/2", choices:["−3/2","3/2","−24","3/4"], hint:"a=6÷(−4)=−3/2" },
+      { id:"EX-4", expr:"y = ax が (−4, 6) を通るとき a は？", answer:"−<span class="frac"><span class="num">3</span><span class="den">2</span></span>", choices:["−<span class="frac"><span class="num">3</span><span class="den">2</span></span>","<span class="frac"><span class="num">3</span><span class="den">2</span></span>","−24","<span class="frac"><span class="num">3</span><span class="den">4</span></span>"], hint:"a=6÷(−4)=−<span class="frac"><span class="num">3</span><span class="den">2</span></span>" },
       { id:"EX-5", expr:"y = ax が (3, 12) を通るとき、y = 20 になる x は？", answer:"5", choices:["5","15","4","60"], hint:"a=12÷3=4 → y=4x → 20=4x → x=5" },
       { id:"EX-6", expr:"y = −4x 上の点で、x 座標と y 座標の和が 15 になる点は？", answer:"(−5, 20)", choices:["(−5,20)","(−3,12)","(3,−12)","(5,−20)"], hint:"x+y=15、y=−4x代入：x+(−4x)=15→−3x=15→x=−5→y=20" },
     ]
@@ -244,7 +294,7 @@ const CHAPTER4_UNITS = [
         <div class="rule-box">
           <div class="rule-title">反比例の性質</div>
           <ul>
-            <li>x が2倍になると y は 1/2 倍になる</li>
+            <li>x が2倍になると y は <span class="frac"><span class="num">1</span><span class="den">2</span></span> 倍になる</li>
             <li>xy = a（積が一定）</li>
             <li>x = 0 のとき y は存在しない</li>
           </ul>
@@ -258,7 +308,7 @@ const CHAPTER4_UNITS = [
       { id:"WU-2", expr:"y = −6/x で x = 2 のとき y は？", answer:"−3", choices:["−3","3","−12","−4"], hint:"y=−6÷2=−3" },
       { id:"WU-3", expr:"y が x に反比例し x = 4 のとき y = 5。比例定数 a は？", answer:"20", choices:["20","1.25","9","−1"], hint:"a=xy=4×5=20" },
       { id:"WU-4", expr:"xy = −8 を y の式で表すと？", answer:"y = −8/x", choices:["y=−8/x","y=−8x","y=8/x","y=x−8"], hint:"xy=−8 → y=−8/x" },
-      { id:"WU-5", expr:"y = 10/x で x が2倍になると y は？", answer:"1/2になる", choices:["1/2になる","2倍になる","変わらない","4倍になる"], hint:"反比例はxが2倍→yは1/2" },
+      { id:"WU-5", expr:"y = 10/x で x が2倍になると y は？", answer:"<span class="frac"><span class="num">1</span><span class="den">2</span></span>になる", choices:["<span class="frac"><span class="num">1</span><span class="den">2</span></span>になる","2倍になる","変わらない","4倍になる"], hint:"反比例はxが2倍→yは<span class="frac"><span class="num">1</span><span class="den">2</span></span>" },
     ],
     exercise: [
       { id:"EX-1", expr:"y が x に反比例し x = 3 のとき y = −4。y を x の式で表すと？", answer:"y = −12/x", choices:["y=−12/x","y=12/x","y=−4x/3","y=−7x"], hint:"a=xy=3×(−4)=−12 → y=−12/x" },
@@ -287,7 +337,20 @@ const CHAPTER4_UNITS = [
             <li>x 軸・y 軸には近づくが交わらない（漸近線）</li>
             <li>原点について対称な形</li>
           </ul>
-        </div>`
+        </div>
+        <svg viewBox="0 0 200 200" width="200" height="200" style="display:block;margin:12px auto;background:#1a1a2e;border-radius:8px;">
+          <line x1="10" y1="100" x2="190" y2="100" stroke="#c9a84c" stroke-width="1.5"/>
+          <line x1="100" y1="10" x2="100" y2="190" stroke="#c9a84c" stroke-width="1.5"/>
+          <polygon points="190,100 183,96 183,104" fill="#c9a84c"/>
+          <polygon points="100,10 96,17 104,17" fill="#c9a84c"/>
+          <text x="192" y="104" fill="#c9a84c" font-size="11">x</text>
+          <text x="104" y="10" fill="#c9a84c" font-size="11">y</text>
+          <text x="93" y="112" fill="#888" font-size="9">O</text>
+          <polyline points="110,40 115,52 120,60 130,70 140,79 155,89 175,97" fill="none" stroke="#e94560" stroke-width="2.5"/>
+          <polyline points="90,160 85,148 80,140 70,130 60,121 45,111 25,103" fill="none" stroke="#e94560" stroke-width="2.5"/>
+          <text x="160" y="86" fill="#e94560" font-size="9">y=6/x</text>
+          <text x="20" y="98" fill="#e94560" font-size="9">（a＞0）</text>
+        </svg>`
     },
     warmup: [
       { id:"WU-1", expr:"y = 6/x のグラフはどの象限にある？", answer:"第1・第3象限", choices:["第1・第3象限","第2・第4象限","第1・第2象限","すべての象限"], hint:"a=6>0 → 第1・第3象限" },
@@ -369,7 +432,7 @@ const CHAPTER4_UNITS = [
       { id:"WU-2", expr:"面積24cm²の長方形の縦xcm、横ycmの関係は？", answer:"反比例", choices:["比例","反比例","どちらでもない","関数でない"], hint:"xy=24 → y=24/x → 反比例" },
       { id:"WU-3", expr:"時速xkmで4時間走ったときの距離y（km）は？", answer:"y = 4x", choices:["y=4x","y=x/4","y=4/x","y=x+4"], hint:"距離=速さ×時間 → y=4x" },
       { id:"WU-4", expr:"120kmの道をx時間で走るときの速さy（km/h）は？", answer:"y = 120/x", choices:["y=120x","y=120/x","y=x/120","y=x+120"], hint:"速さ=距離÷時間 → y=120/x → 反比例" },
-      { id:"WU-5", expr:"y = 3x で x = 5 のとき y は？", answer:"15", choices:["15","8","2/3","−15"], hint:"y=3×5=15" },
+      { id:"WU-5", expr:"y = 3x で x = 5 のとき y は？", answer:"15", choices:["15","8","<span class="frac"><span class="num">2</span><span class="den">3</span></span>","−15"], hint:"y=3×5=15" },
     ],
     exercise: [
       { id:"EX-1", expr:"毎分xLで水を入れるとき、30Lのタンクが満タンになる時間y分。yをxの式で表すと？", answer:"y = 30/x", choices:["y=30/x","y=30x","y=x/30","y=x+30"], hint:"xy=30 → y=30/x（反比例）" },

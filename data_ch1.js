@@ -320,9 +320,9 @@ const CHAPTER1_UNITS = [
       { id:"EX-1", expr:"(−36) ÷ (−9) = ?", answer:"+4", choices:["+4","−4","+27","−27"], hint:"同符号→正、36÷9=4 → +4" },
       { id:"EX-2", expr:"(+45) ÷ (−5) = ?", answer:"−9", choices:["+9","−9","+40","−40"], hint:"異符号→負、45÷5=9 → −9" },
       { id:"EX-3", expr:"(−56) ÷ (+8) = ?", answer:"−7", choices:["+7","−7","−48","+48"], hint:"異符号→負、56÷8=7 → −7" },
-      { id:"EX-4", expr:"(+3) ÷ (−1/2) = ?", answer:"−6", choices:["−6","+6","−1.5","+1.5"], hint:"÷(−1/2) = ×(−2)　→　3×(−2)=−6" },
+      { id:"EX-4", expr:"(+3) ÷ (−<span class="frac"><span class="num">1</span><span class="den">2</span></span>) = ?", answer:"−6", choices:["−6","+6","−1.5","+1.5"], hint:"÷(−<span class="frac"><span class="num">1</span><span class="den">2</span></span>) = ×(−2)　→　3×(−2)=−6" },
       { id:"EX-5", expr:"(−24) ÷ (+6) ÷ (−2) = ?", answer:"+2", choices:["+2","−2","+8","−8"], hint:"(−24)÷(+6)=−4、(−4)÷(−2)=+2" },
-      { id:"EX-6", expr:"(−2/3) ÷ (+4) = ?", answer:"−1/6", choices:["−1/6","+1/6","−8/3","+8/3"], hint:"÷4 = ×(1/4)　→　(−2/3)×(1/4) = −2/12 = −1/6" },
+      { id:"EX-6", expr:"(−<span class="frac"><span class="num">2</span><span class="den">3</span></span>) ÷ (+4) = ?", answer:"−<span class="frac"><span class="num">1</span><span class="den">6</span></span>", choices:["−<span class="frac"><span class="num">1</span><span class="den">6</span></span>","+<span class="frac"><span class="num">1</span><span class="den">6</span></span>","−<span class="frac"><span class="num">8</span><span class="den">3</span></span>","+<span class="frac"><span class="num">8</span><span class="den">3</span></span>"], hint:"÷4 = ×(<span class="frac"><span class="num">1</span><span class="den">4</span></span>)　→　(−<span class="frac"><span class="num">2</span><span class="den">3</span></span>)×(<span class="frac"><span class="num">1</span><span class="den">4</span></span>) = −<span class="frac"><span class="num">2</span><span class="den">12</span></span> = −<span class="frac"><span class="num">1</span><span class="den">6</span></span>" },
     ]
   },
 

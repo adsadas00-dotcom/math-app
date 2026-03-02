@@ -40,7 +40,7 @@ const CHAPTER5_UNITS = [
       { id:"EX-3", expr:"直線、線分、半直線のうち長さが決まるのは？", answer:"線分のみ", choices:["直線のみ","線分のみ","半直線のみ","全部"], hint:"直線と半直線は無限に伸びるので長さが決まらない" },
       { id:"EX-4", expr:"AB = 24cm で M は中点、N は AM の中点。AN は？", answer:"6cm", choices:["6cm","12cm","8cm","4cm"], hint:"AM=12cm、AN=AM/2=6cm" },
       { id:"EX-5", expr:"2点間を結ぶ最短の線は？", answer:"線分", choices:["直線","線分","半直線","曲線"], hint:"2点間の最短経路は線分（直線上の部分）" },
-      { id:"EX-6", expr:"AB = 30cm で点 P が AP:PB = 2:3 を満たすとき AP は？", answer:"12cm", choices:["12cm","18cm","6cm","15cm"], hint:"AP = 30 × 2/(2+3) = 30 × 2/5 = 12cm" },
+      { id:"EX-6", expr:"AB = 30cm で点 P が AP:PB = 2:3 を満たすとき AP は？", answer:"12cm", choices:["12cm","18cm","6cm","15cm"], hint:"AP = 30 × 2/(2+3) = 30 × <span class="frac"><span class="num">2</span><span class="den">5</span></span> = 12cm" },
     ]
   },
 
@@ -152,7 +152,7 @@ const CHAPTER5_UNITS = [
       { id:"EX-1", expr:"平行移動で変わらないものは？", answer:"形・大きさ・向き", choices:["形・大きさ・向き","形のみ","向きのみ","位置"], hint:"平行移動は形・大きさ・向きすべて変わらない" },
       { id:"EX-2", expr:"180°の回転移動を何という？", answer:"点対称移動", choices:["点対称移動","線対称移動","平行移動","直角移動"], hint:"180°回転 = 点対称移動" },
       { id:"EX-3", expr:"対称移動で対応する2点を結ぶ線分と対称軸の関係は？", answer:"垂直に交わり中点を通る", choices:["垂直に交わり中点を通る","平行","45°で交わる","軸上にある"], hint:"対称軸は対応する2点の垂直二等分線" },
-      { id:"EX-4", expr:"回転移動で対応する2点と回転の中心の距離は？", answer:"等しい", choices:["等しい","2倍","1/2","無関係"], hint:"回転移動では中心からの距離は変わらない" },
+      { id:"EX-4", expr:"回転移動で対応する2点と回転の中心の距離は？", answer:"等しい", choices:["等しい","2倍","<span class="frac"><span class="num">1</span><span class="den">2</span></span>","無関係"], hint:"回転移動では中心からの距離は変わらない" },
       { id:"EX-5", expr:"点A(2,3)をx軸について対称移動した点は？", answer:"(2,−3)", choices:["(2,−3)","(−2,3)","(−2,−3)","(3,2)"], hint:"x軸対称はyの符号を変える → (2,−3)" },
       { id:"EX-6", expr:"点A(2,3)を原点について180°回転した点は？", answer:"(−2,−3)", choices:["(2,−3)","(−2,3)","(−2,−3)","(3,−2)"], hint:"原点中心180°回転 = 両符号変える → (−2,−3)" },
     ]
@@ -178,7 +178,7 @@ const CHAPTER5_UNITS = [
         <p style="margin-top:10px;">垂直二等分線上の点は、A, B からの距離が<strong>等しい</strong>。</p>`
     },
     warmup: [
-      { id:"WU-1", expr:"垂直二等分線は線分のどこを通る？", answer:"中点", choices:["中点","端点","1/3の点","どこでもよい"], hint:"垂直二等分線は中点を通る" },
+      { id:"WU-1", expr:"垂直二等分線は線分のどこを通る？", answer:"中点", choices:["中点","端点","<span class="frac"><span class="num">1</span><span class="den">3</span></span>の点","どこでもよい"], hint:"垂直二等分線は中点を通る" },
       { id:"WU-2", expr:"垂直二等分線と線分のなす角は？", answer:"90°", choices:["90°","45°","60°","180°"], hint:"垂直 → 90°" },
       { id:"WU-3", expr:"垂直二等分線の作図に使う道具は？", answer:"コンパスと定規", choices:["コンパスと定規","分度器と定規","定規のみ","コンパスのみ"], hint:"作図にはコンパスと定規を使う" },
       { id:"WU-4", expr:"垂直二等分線上の点Pは、A, Bからの距離がどうなる？", answer:"PA = PB", choices:["PA=PB","PA>PB","PA<PB","無関係"], hint:"垂直二等分線上の点はA,Bから等距離" },
@@ -256,14 +256,14 @@ const CHAPTER5_UNITS = [
       { id:"WU-1", expr:"円周上の2点を結ぶ線分を何という？", answer:"弦", choices:["弦","弧","半径","直径"], hint:"円周上の2点を結ぶ線分 → 弦" },
       { id:"WU-2", expr:"円周の一部を何という？", answer:"弧", choices:["弦","弧","半径","直径"], hint:"円周の一部 → 弧" },
       { id:"WU-3", expr:"中心を通る弦を何という？", answer:"直径", choices:["半径","弦","弧","直径"], hint:"中心を通る最長の弦 → 直径" },
-      { id:"WU-4", expr:"中心角が90°の弧は全円周のどれくらい？", answer:"1/4", choices:["1/4","1/2","1/3","1/6"], hint:"90° ÷ 360° = 1/4" },
-      { id:"WU-5", expr:"中心角が2倍になると弧の長さは？", answer:"2倍", choices:["2倍","4倍","1/2","変わらない"], hint:"弧の長さは中心角に比例 → 2倍" },
+      { id:"WU-4", expr:"中心角が90°の弧は全円周のどれくらい？", answer:"<span class="frac"><span class="num">1</span><span class="den">4</span></span>", choices:["<span class="frac"><span class="num">1</span><span class="den">4</span></span>","<span class="frac"><span class="num">1</span><span class="den">2</span></span>","<span class="frac"><span class="num">1</span><span class="den">3</span></span>","<span class="frac"><span class="num">1</span><span class="den">6</span></span>"], hint:"90° ÷ 360° = <span class="frac"><span class="num">1</span><span class="den">4</span></span>" },
+      { id:"WU-5", expr:"中心角が2倍になると弧の長さは？", answer:"2倍", choices:["2倍","4倍","<span class="frac"><span class="num">1</span><span class="den">2</span></span>","変わらない"], hint:"弧の長さは中心角に比例 → 2倍" },
     ],
     exercise: [
-      { id:"EX-1", expr:"半径5cmの円で中心角72°の弧の長さは？（円周率π使用）", answer:"2π cm", choices:["2π cm","10π cm","π cm","5π cm"], hint:"弧=2π×5×72/360=10π×1/5=2π cm" },
+      { id:"EX-1", expr:"半径5cmの円で中心角72°の弧の長さは？（円周率π使用）", answer:"2π cm", choices:["2π cm","10π cm","π cm","5π cm"], hint:"弧=2π×5×72/360=10π×<span class="frac"><span class="num">1</span><span class="den">5</span></span>=2π cm" },
       { id:"EX-2", expr:"半径6cmの円で中心角60°の弧の長さは？（π使用）", answer:"2π cm", choices:["2π cm","6π cm","12π cm","π cm"], hint:"弧=2π×6×60/360=12π/6=2π cm" },
       { id:"EX-3", expr:"円の中心角180°の弧は何？", answer:"半円の弧", choices:["半円の弧","直径","弦","全円周"], hint:"180°=360°の半分 → 半円の弧" },
-      { id:"EX-4", expr:"半径4cmの円で弧の長さが円周の1/3のとき中心角は？", answer:"120°", choices:["120°","90°","60°","180°"], hint:"円周の1/3 → 中心角=360°×1/3=120°" },
+      { id:"EX-4", expr:"半径4cmの円で弧の長さが円周の<span class="frac"><span class="num">1</span><span class="den">3</span></span>のとき中心角は？", answer:"120°", choices:["120°","90°","60°","180°"], hint:"円周の<span class="frac"><span class="num">1</span><span class="den">3</span></span> → 中心角=360°×<span class="frac"><span class="num">1</span><span class="den">3</span></span>=120°" },
       { id:"EX-5", expr:"半径3cmの円の円周の長さは？（π使用）", answer:"6π cm", choices:["6π cm","3π cm","9π cm","12π cm"], hint:"円周=2πr=2π×3=6π cm" },
       { id:"EX-6", expr:"半径rcmの円で中心角a°の弧の長さの公式は？", answer:"2πr × a/360", choices:["2πr×a/360","πr²×a/360","2πr","πr²"], hint:"弧の長さ=円周×(中心角/360°)=2πr×a/360" },
     ]
@@ -283,7 +283,7 @@ const CHAPTER5_UNITS = [
           <ul>
             <li><span class="math-highlight">弧の長さ l = 2πr × a/360</span></li>
             <li><span class="math-highlight">面積 S = πr² × a/360</span></li>
-            <li>または <span class="math-highlight">S = (1/2) × l × r</span>（弧と半径で面積）</li>
+            <li>または <span class="math-highlight">S = (<span class="frac"><span class="num">1</span><span class="den">2</span></span>) × l × r</span>（弧と半径で面積）</li>
           </ul>
         </div>
         <ul class="steps">
@@ -293,19 +293,19 @@ const CHAPTER5_UNITS = [
         </ul>`
     },
     warmup: [
-      { id:"WU-1", expr:"半径3cm、中心角180°の扇形の弧の長さは？", answer:"3π cm", choices:["3π cm","6π cm","9π cm","π cm"], hint:"l=2π×3×180/360=6π×1/2=3π cm" },
-      { id:"WU-2", expr:"半径4cm、中心角90°の扇形の面積は？", answer:"4π cm²", choices:["4π cm²","16π cm²","8π cm²","2π cm²"], hint:"S=π×16×90/360=16π×1/4=4π cm²" },
+      { id:"WU-1", expr:"半径3cm、中心角180°の扇形の弧の長さは？", answer:"3π cm", choices:["3π cm","6π cm","9π cm","π cm"], hint:"l=2π×3×180/360=6π×<span class="frac"><span class="num">1</span><span class="den">2</span></span>=3π cm" },
+      { id:"WU-2", expr:"半径4cm、中心角90°の扇形の面積は？", answer:"4π cm²", choices:["4π cm²","16π cm²","8π cm²","2π cm²"], hint:"S=π×16×90/360=16π×<span class="frac"><span class="num">1</span><span class="den">4</span></span>=4π cm²" },
       { id:"WU-3", expr:"半径6cm、中心角60°の扇形の弧の長さは？", answer:"2π cm", choices:["2π cm","6π cm","12π cm","π cm"], hint:"l=2π×6×60/360=12π/6=2π cm" },
       { id:"WU-4", expr:"半径2cm、中心角90°の扇形の面積は？", answer:"π cm²", choices:["π cm²","4π cm²","2π cm²","8π cm²"], hint:"S=π×4×90/360=4π/4=π cm²" },
-      { id:"WU-5", expr:"半径5cm、中心角72°の扇形の弧の長さは？", answer:"2π cm", choices:["2π cm","5π cm","10π cm","π cm"], hint:"l=2π×5×72/360=10π×1/5=2π cm" },
+      { id:"WU-5", expr:"半径5cm、中心角72°の扇形の弧の長さは？", answer:"2π cm", choices:["2π cm","5π cm","10π cm","π cm"], hint:"l=2π×5×72/360=10π×<span class="frac"><span class="num">1</span><span class="den">5</span></span>=2π cm" },
     ],
     exercise: [
       { id:"EX-1", expr:"半径9cm、中心角120°の扇形の弧の長さは？", answer:"6π cm", choices:["6π cm","9π cm","3π cm","12π cm"], hint:"l=2π×9×120/360=18π/3=6π cm" },
       { id:"EX-2", expr:"半径6cm、中心角120°の扇形の面積は？", answer:"12π cm²", choices:["12π cm²","36π cm²","6π cm²","24π cm²"], hint:"S=π×36×120/360=36π/3=12π cm²" },
       { id:"EX-3", expr:"半径8cm、中心角90°の扇形の面積は？", answer:"16π cm²", choices:["16π cm²","64π cm²","8π cm²","32π cm²"], hint:"S=π×64×90/360=64π/4=16π cm²" },
       { id:"EX-4", expr:"半径10cm、中心角36°の扇形の弧の長さは？", answer:"2π cm", choices:["2π cm","10π cm","20π cm","π cm"], hint:"l=2π×10×36/360=20π/10=2π cm" },
-      { id:"EX-5", expr:"弧の長さ4π cm、半径6cmの扇形の面積は？", answer:"12π cm²", choices:["12π cm²","24π cm²","6π cm²","8π cm²"], hint:"S=(1/2)×l×r=(1/2)×4π×6=12π cm²" },
-      { id:"EX-6", expr:"半径6cm、中心角240°の扇形の面積は？", answer:"24π cm²", choices:["24π cm²","36π cm²","12π cm²","48π cm²"], hint:"S=π×36×240/360=36π×2/3=24π cm²" },
+      { id:"EX-5", expr:"弧の長さ4π cm、半径6cmの扇形の面積は？", answer:"12π cm²", choices:["12π cm²","24π cm²","6π cm²","8π cm²"], hint:"S=(<span class="frac"><span class="num">1</span><span class="den">2</span></span>)×l×r=(<span class="frac"><span class="num">1</span><span class="den">2</span></span>)×4π×6=12π cm²" },
+      { id:"EX-6", expr:"半径6cm、中心角240°の扇形の面積は？", answer:"24π cm²", choices:["24π cm²","36π cm²","12π cm²","48π cm²"], hint:"S=π×36×240/360=36π×<span class="frac"><span class="num">2</span><span class="den">3</span></span>=24π cm²" },
     ]
   },
 

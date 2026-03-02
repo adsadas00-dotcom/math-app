@@ -229,23 +229,23 @@ const CHAPTER2_UNITS = [
         <ul class="steps">
           <li><span class="step-num">例1</span><span>x/2 + x/3 = 3x/6 + 2x/6 = <span class="math-highlight">5x/6</span></span></li>
           <li><span class="step-num">例2</span><span>(x+1)/2 + (x−1)/3 = 3(x+1)/6 + 2(x−1)/6 = (3x+3+2x−2)/6 = <span class="math-highlight">(5x+1)/6</span></span></li>
-          <li><span class="step-num">例3</span><span>1/2 × (4x + 6) = 2x + 3</span></li>
+          <li><span class="step-num">例3</span><span><span class="frac"><span class="num">1</span><span class="den">2</span></span> × (4x + 6) = 2x + 3</span></li>
         </ul>`
     },
     warmup: [
       { id:"WU-1", expr:"x/3 + x/3 = ?", answer:"2x/3", choices:["2x/3","2x/9","x/6","2x/6"], hint:"同じ分母：係数をたす → 2x/3" },
       { id:"WU-2", expr:"x/2 + x/4 = ?", answer:"3x/4", choices:["2x/6","3x/4","x/4","2x/4"], hint:"通分：2x/4+x/4 = 3x/4" },
-      { id:"WU-3", expr:"1/2 × (2x + 4) = ?", answer:"x + 2", choices:["x+4","2x+2","x+2","x+4/2"], hint:"1/2×2x=x、1/2×4=2 → x+2" },
+      { id:"WU-3", expr:"<span class="frac"><span class="num">1</span><span class="den">2</span></span> × (2x + 4) = ?", answer:"x + 2", choices:["x+4","2x+2","x+2","x+4/2"], hint:"<span class="frac"><span class="num">1</span><span class="den">2</span></span>×2x=x、<span class="frac"><span class="num">1</span><span class="den">2</span></span>×4=2 → x+2" },
       { id:"WU-4", expr:"(3x − 6) / 3 = ?", answer:"x − 2", choices:["x−6","3x−2","x−2","x+2"], hint:"3x/3=x、−6/3=−2 → x−2" },
       { id:"WU-5", expr:"x/2 − x/3 = ?", answer:"x/6", choices:["x/6","0","x/5","2x/5"], hint:"通分（分母6）：3x/6−2x/6 = x/6" },
     ],
     exercise: [
       { id:"EX-1", expr:"(x+1)/2 + (x−1)/2 = ?", answer:"x", choices:["x","2x","x+1","(2x)/2"], hint:"分母同じ：(x+1+x−1)/2 = 2x/2 = x" },
       { id:"EX-2", expr:"2x/3 + x/6 = ?", answer:"5x/6", choices:["3x/9","5x/6","5x/9","3x/6"], hint:"通分（分母6）：4x/6+x/6 = 5x/6" },
-      { id:"EX-3", expr:"1/3 × (6a − 9) = ?", answer:"2a − 3", choices:["2a−9","6a−3","2a−3","2a+3"], hint:"1/3×6a=2a、1/3×(−9)=−3 → 2a−3" },
-      { id:"EX-4", expr:"(x+2)/3 − (x−1)/3 = ?", answer:"1", choices:["1","0","2x/3","2/3"], hint:"(x+2−x+1)/3 = 3/3 = 1" },
+      { id:"EX-3", expr:"<span class="frac"><span class="num">1</span><span class="den">3</span></span> × (6a − 9) = ?", answer:"2a − 3", choices:["2a−9","6a−3","2a−3","2a+3"], hint:"<span class="frac"><span class="num">1</span><span class="den">3</span></span>×6a=2a、<span class="frac"><span class="num">1</span><span class="den">3</span></span>×(−9)=−3 → 2a−3" },
+      { id:"EX-4", expr:"(x+2)/3 − (x−1)/3 = ?", answer:"1", choices:["1","0","2x/3","<span class="frac"><span class="num">2</span><span class="den">3</span></span>"], hint:"(x+2−x+1)/3 = 3/3 = 1" },
       { id:"EX-5", expr:"x/2 + (x+1)/3 = ?", answer:"(5x+2)/6", choices:["(5x+2)/6","(2x+1)/5","(5x+1)/6","5x/6"], hint:"通分（分母6）：3x/6+2(x+1)/6=(3x+2x+2)/6=(5x+2)/6" },
-      { id:"EX-6", expr:"3/4 × (8x − 4) = ?", answer:"6x − 3", choices:["6x−4","6x−3","6x+3","8x−3"], hint:"3/4×8x=6x、3/4×(−4)=−3 → 6x−3" },
+      { id:"EX-6", expr:"<span class="frac"><span class="num">3</span><span class="den">4</span></span> × (8x − 4) = ?", answer:"6x − 3", choices:["6x−4","6x−3","6x+3","8x−3"], hint:"<span class="frac"><span class="num">3</span><span class="den">4</span></span>×8x=6x、<span class="frac"><span class="num">3</span><span class="den">4</span></span>×(−4)=−3 → 6x−3" },
     ]
   },
 
@@ -284,7 +284,7 @@ const CHAPTER2_UNITS = [
       { id:"EX-2", expr:"a = −1 のとき、3a + 7 の値は？", answer:"4", choices:["4","10","−4","−10"], hint:"3×(−1) + 7 = −3 + 7 = 4" },
       { id:"EX-3", expr:"x = 2 のとき、x² − 3x + 1 の値は？", answer:"−1", choices:["−1","3","11","1"], hint:"4 − 6 + 1 = −1" },
       { id:"EX-4", expr:"a = −3 のとき、2a² + a の値は？", answer:"15", choices:["15","−15","21","−21"], hint:"2×9 + (−3) = 18 − 3 = 15" },
-      { id:"EX-5", expr:"x = 1/2 のとき、4x − 1 の値は？", answer:"1", choices:["1","0","2","−1"], hint:"4×(1/2) − 1 = 2 − 1 = 1" },
+      { id:"EX-5", expr:"x = <span class="frac"><span class="num">1</span><span class="den">2</span></span> のとき、4x − 1 の値は？", answer:"1", choices:["1","0","2","−1"], hint:"4×(<span class="frac"><span class="num">1</span><span class="den">2</span></span>) − 1 = 2 − 1 = 1" },
       { id:"EX-6", expr:"a = −4 のとき、−a² + 2a の値は？", answer:"−24", choices:["−24","24","8","−8"], hint:"−(−4)² + 2×(−4) = −16 + (−8) = −24" },
     ]
   },

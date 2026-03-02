@@ -115,9 +115,9 @@ const CHAPTER3_UNITS = [
     exercise: [
       { id:"EX-1", expr:"6x + 1 = 13", answer:"x = 2", choices:["x=2","x=7","x=−2","x=14"], hint:"6x=13−1=12 → x=12÷6=2" },
       { id:"EX-2", expr:"4x − 9 = 7", answer:"x = 4", choices:["x=−0.5","x=4","x=−4","x=16"], hint:"4x=7+9=16 → x=16÷4=4" },
-      { id:"EX-3", expr:"3x + 8 = 2", answer:"x = −2", choices:["x=2","x=−2","x=10/3","x=−10/3"], hint:"3x=2−8=−6 → x=−6÷3=−2" },
-      { id:"EX-4", expr:"7x − 4 = 17", answer:"x = 3", choices:["x=3","x=13/7","x=−3","x=21"], hint:"7x=17+4=21 → x=21÷7=3" },
-      { id:"EX-5", expr:"5x + 12 = −3", answer:"x = −3", choices:["x=−3","x=3","x=−9/5","x=9"], hint:"5x=−3−12=−15 → x=−15÷5=−3" },
+      { id:"EX-3", expr:"3x + 8 = 2", answer:"x = −2", choices:["x=2","x=−2","x=<span class="frac"><span class="num">10</span><span class="den">3</span></span>","x=−<span class="frac"><span class="num">10</span><span class="den">3</span></span>"], hint:"3x=2−8=−6 → x=−6÷3=−2" },
+      { id:"EX-4", expr:"7x − 4 = 17", answer:"x = 3", choices:["x=3","x=<span class="frac"><span class="num">13</span><span class="den">7</span></span>","x=−3","x=21"], hint:"7x=17+4=21 → x=21÷7=3" },
+      { id:"EX-5", expr:"5x + 12 = −3", answer:"x = −3", choices:["x=−3","x=3","x=−<span class="frac"><span class="num">9</span><span class="den">5</span></span>","x=9"], hint:"5x=−3−12=−15 → x=−15÷5=−3" },
       { id:"EX-6", expr:"−2x + 6 = 12", answer:"x = −3", choices:["x=−3","x=3","x=9","x=−9"], hint:"−2x=12−6=6 → x=6÷(−2)=−3" },
     ]
   },
@@ -146,17 +146,17 @@ const CHAPTER3_UNITS = [
         </ul>`
     },
     warmup: [
-      { id:"WU-1", expr:"4x = x + 9", answer:"x = 3", choices:["x=3","x=9","x=−3","x=9/5"], hint:"4x−x=9 → 3x=9 → x=3" },
+      { id:"WU-1", expr:"4x = x + 9", answer:"x = 3", choices:["x=3","x=9","x=−3","x=<span class="frac"><span class="num">9</span><span class="den">5</span></span>"], hint:"4x−x=9 → 3x=9 → x=3" },
       { id:"WU-2", expr:"6x = 3x + 12", answer:"x = 4", choices:["x=2","x=4","x=−4","x=12"], hint:"6x−3x=12 → 3x=12 → x=4" },
       { id:"WU-3", expr:"5x = 8x − 6", answer:"x = 2", choices:["x=2","x=−2","x=6","x=−6"], hint:"5x−8x=−6 → −3x=−6 → x=2" },
-      { id:"WU-4", expr:"2x + 8 = 5x − 1", answer:"x = 3", choices:["x=3","x=−3","x=7","x=9/7"], hint:"2x−5x=−1−8 → −3x=−9 → x=3" },
+      { id:"WU-4", expr:"2x + 8 = 5x − 1", answer:"x = 3", choices:["x=3","x=−3","x=7","x=<span class="frac"><span class="num">9</span><span class="den">7</span></span>"], hint:"2x−5x=−1−8 → −3x=−9 → x=3" },
       { id:"WU-5", expr:"7x − 3 = 4x + 9", answer:"x = 4", choices:["x=4","x=−4","x=2","x=6"], hint:"7x−4x=9+3 → 3x=12 → x=4" },
     ],
     exercise: [
       { id:"EX-1", expr:"8x = 3x + 20", answer:"x = 4", choices:["x=4","x=−4","x=20","x=2"], hint:"8x−3x=20 → 5x=20 → x=4" },
       { id:"EX-2", expr:"9x − 5 = 4x + 15", answer:"x = 4", choices:["x=4","x=−4","x=2","x=10"], hint:"9x−4x=15+5 → 5x=20 → x=4" },
       { id:"EX-3", expr:"3x + 7 = 7x − 5", answer:"x = 3", choices:["x=3","x=−3","x=1","x=12"], hint:"3x−7x=−5−7 → −4x=−12 → x=3" },
-      { id:"EX-4", expr:"2x − 4 = −x + 5", answer:"x = 3", choices:["x=3","x=−3","x=1/3","x=9"], hint:"2x+x=5+4 → 3x=9 → x=3" },
+      { id:"EX-4", expr:"2x − 4 = −x + 5", answer:"x = 3", choices:["x=3","x=−3","x=<span class="frac"><span class="num">1</span><span class="den">3</span></span>","x=9"], hint:"2x+x=5+4 → 3x=9 → x=3" },
       { id:"EX-5", expr:"6x + 1 = 2x − 7", answer:"x = −2", choices:["x=2","x=−2","x=8","x=−8"], hint:"6x−2x=−7−1 → 4x=−8 → x=−2" },
       { id:"EX-6", expr:"−3x + 10 = x − 2", answer:"x = 3", choices:["x=3","x=−3","x=2","x=8"], hint:"−3x−x=−2−10 → −4x=−12 → x=3" },
     ]
@@ -187,9 +187,9 @@ const CHAPTER3_UNITS = [
     },
     warmup: [
       { id:"WU-1", expr:"2(x + 3) = 10", answer:"x = 2", choices:["x=2","x=8","x=−2","x=5"], hint:"2x+6=10 → 2x=4 → x=2" },
-      { id:"WU-2", expr:"3(x − 1) = 9", answer:"x = 4", choices:["x=4","x=2","x=−4","x=10/3"], hint:"3x−3=9 → 3x=12 → x=4" },
+      { id:"WU-2", expr:"3(x − 1) = 9", answer:"x = 4", choices:["x=4","x=2","x=−4","x=<span class="frac"><span class="num">10</span><span class="den">3</span></span>"], hint:"3x−3=9 → 3x=12 → x=4" },
       { id:"WU-3", expr:"4(x + 5) = 8", answer:"x = −3", choices:["x=3","x=−3","x=7","x=−7"], hint:"4x+20=8 → 4x=−12 → x=−3" },
-      { id:"WU-4", expr:"2(3x − 1) = 16", answer:"x = 3", choices:["x=3","x=17/6","x=−3","x=9"], hint:"6x−2=16 → 6x=18 → x=3" },
+      { id:"WU-4", expr:"2(3x − 1) = 16", answer:"x = 3", choices:["x=3","x=<span class="frac"><span class="num">17</span><span class="den">6</span></span>","x=−3","x=9"], hint:"6x−2=16 → 6x=18 → x=3" },
       { id:"WU-5", expr:"5(x + 2) = 3(x + 4)", answer:"x = 1", choices:["x=1","x=−1","x=7","x=−7"], hint:"5x+10=3x+12 → 2x=2 → x=1" },
     ],
     exercise: [
@@ -226,17 +226,17 @@ const CHAPTER3_UNITS = [
         </ul>`
     },
     warmup: [
-      { id:"WU-1", expr:"x/3 = 4", answer:"x = 12", choices:["x=12","x=4/3","x=3","x=7"], hint:"両辺×3：x = 4×3 = 12" },
+      { id:"WU-1", expr:"x/3 = 4", answer:"x = 12", choices:["x=12","x=<span class="frac"><span class="num">4</span><span class="den">3</span></span>","x=3","x=7"], hint:"両辺×3：x = 4×3 = 12" },
       { id:"WU-2", expr:"x/2 + 3 = 7", answer:"x = 8", choices:["x=8","x=5","x=4","x=10"], hint:"両辺×2：x+6=14 → x=8" },
       { id:"WU-3", expr:"x/4 − 1 = 2", answer:"x = 12", choices:["x=12","x=3","x=4","x=8"], hint:"両辺×4：x−4=8 → x=12" },
       { id:"WU-4", expr:"x/3 + x/3 = 4", answer:"x = 6", choices:["x=6","x=12","x=2","x=4"], hint:"2x/3=4 → 両辺×3：2x=12 → x=6" },
       { id:"WU-5", expr:"x/2 = x/3 + 1", answer:"x = 6", choices:["x=6","x=−6","x=2","x=3"], hint:"両辺×6：3x=2x+6 → x=6" },
     ],
     exercise: [
-      { id:"EX-1", expr:"x/5 + 2 = 4", answer:"x = 10", choices:["x=10","x=2","x=6/5","x=30"], hint:"両辺×5：x+10=20 → x=10" },
+      { id:"EX-1", expr:"x/5 + 2 = 4", answer:"x = 10", choices:["x=10","x=2","x=<span class="frac"><span class="num">6</span><span class="den">5</span></span>","x=30"], hint:"両辺×5：x+10=20 → x=10" },
       { id:"EX-2", expr:"x/3 − x/6 = 2", answer:"x = 12", choices:["x=12","x=6","x=4","x=36"], hint:"両辺×6：2x−x=12 → x=12" },
       { id:"EX-3", expr:"(x+1)/2 = 4", answer:"x = 7", choices:["x=7","x=9","x=3","x=6"], hint:"両辺×2：x+1=8 → x=7" },
-      { id:"EX-4", expr:"(2x−1)/3 = 3", answer:"x = 5", choices:["x=5","x=4","x=8/3","x=10"], hint:"両辺×3：2x−1=9 → 2x=10 → x=5" },
+      { id:"EX-4", expr:"(2x−1)/3 = 3", answer:"x = 5", choices:["x=5","x=4","x=<span class="frac"><span class="num">8</span><span class="den">3</span></span>","x=10"], hint:"両辺×3：2x−1=9 → 2x=10 → x=5" },
       { id:"EX-5", expr:"x/2 + x/3 = 5", answer:"x = 6", choices:["x=6","x=5","x=10","x=3"], hint:"両辺×6：3x+2x=30 → 5x=30 → x=6" },
       { id:"EX-6", expr:"(x+2)/3 = (x−1)/2", answer:"x = 7", choices:["x=7","x=−7","x=1","x=4"], hint:"両辺×6：2(x+2)=3(x−1) → 2x+4=3x−3 → x=7" },
     ]
@@ -343,9 +343,9 @@ const CHAPTER3_UNITS = [
         </ul>`
     },
     warmup: [
-      { id:"WU-1", expr:"時速3kmでx時間歩いたら9km進んだ。xは？", answer:"x = 3", choices:["x=3","x=6","x=27","x=1/3"], hint:"3x=9 → x=3" },
+      { id:"WU-1", expr:"時速3kmでx時間歩いたら9km進んだ。xは？", answer:"x = 3", choices:["x=3","x=6","x=27","x=<span class="frac"><span class="num">1</span><span class="den">3</span></span>"], hint:"3x=9 → x=3" },
       { id:"WU-2", expr:"xkmの道を時速6kmで歩くと2時間かかった。xは？", answer:"x = 12", choices:["x=12","x=3","x=8","x=4"], hint:"x=6×2=12" },
-      { id:"WU-3", expr:"12kmの道を時速xkmで歩いたら3時間。xは？", answer:"x = 4", choices:["x=4","x=9","x=36","x=1/4"], hint:"3x=12 → x=4" },
+      { id:"WU-3", expr:"12kmの道を時速xkmで歩いたら3時間。xは？", answer:"x = 4", choices:["x=4","x=9","x=36","x=<span class="frac"><span class="num">1</span><span class="den">4</span></span>"], hint:"3x=12 → x=4" },
       { id:"WU-4", expr:"分速80mでx分歩いたら1200m進んだ。xは？", answer:"x = 15", choices:["x=15","x=80","x=10","x=20"], hint:"80x=1200 → x=15" },
       { id:"WU-5", expr:"時速60kmで2時間走ったときの距離は？", answer:"120km", choices:["120km","30km","62km","100km"], hint:"距離=60×2=120km" },
     ],
@@ -355,7 +355,7 @@ const CHAPTER3_UNITS = [
       { id:"EX-3", expr:"xkmの道を行き時速3km、帰り時速6kmで合計3時間。xは？", answer:"x = 6", choices:["x=6","x=4","x=9","x=3"], hint:"x/3+x/6=3 → 両辺×6：2x+x=18 → x=6" },
       { id:"EX-4", expr:"姉が分速70mで出発し10分後に弟が分速90mで追いかけた。何分後に追いつく？", answer:"35分後", choices:["35分後","5分後","7分後","70分後"], hint:"90x=70(x+10) → 20x=700 → x=35" },
       { id:"EX-5", expr:"A,B間24kmを行き時速4km、帰り時速6kmで歩いた。合計何時間？", answer:"10時間", choices:["10時間","8時間","4時間","6時間"], hint:"行き：24÷4=6時間、帰り：24÷6=4時間、計10時間" },
-      { id:"EX-6", expr:"A地とB地の間をxkmとする。往復の平均の速さが時速4.8kmのとき xkmを求めよ。（行き：時速4km、帰り：時速6km）", answer:"どんな距離でも4.8km/h", choices:["どんな距離でも4.8km/h","x=12km","x=24km","x=6km"], hint:"往復時間=x/4+x/6=5x/12、往復距離=2x、平均速さ=2x÷(5x/12)=24/5=4.8km/h（xに関係なく一定）" },
+      { id:"EX-6", expr:"A地とB地の間をxkmとする。往復の平均の速さが時速4.8kmのとき xkmを求めよ。（行き：時速4km、帰り：時速6km）", answer:"どんな距離でも4.8km/h", choices:["どんな距離でも4.8km/h","x=12km","x=24km","x=6km"], hint:"往復時間=x/4+x/6=5x/12、往復距離=2x、平均速さ=2x÷(5x/12)=<span class="frac"><span class="num">24</span><span class="den">5</span></span>=4.8km/h（xに関係なく一定）" },
     ]
   },
 
@@ -385,15 +385,15 @@ const CHAPTER3_UNITS = [
       { id:"WU-1", expr:"x円の10%は50円。xは？", answer:"x = 500", choices:["x=500","x=5","x=50","x=450"], hint:"0.1x=50 → x=500" },
       { id:"WU-2", expr:"x円の消費税10%込みの価格が1100円。xは？", answer:"x = 1000", choices:["x=1000","x=990","x=1100","x=1210"], hint:"1.1x=1100 → x=1000" },
       { id:"WU-3", expr:"40人のクラスの60%が女子。女子は何人？", answer:"24人", choices:["24人","16人","30人","20人"], hint:"40×0.6=24人" },
-      { id:"WU-4", expr:"男女比が3:2で全体40人。男子は何人？", answer:"24人", choices:["24人","16人","20人","30人"], hint:"男子=40×3/5=24人" },
+      { id:"WU-4", expr:"男女比が3:2で全体40人。男子は何人？", answer:"24人", choices:["24人","16人","20人","30人"], hint:"男子=40×<span class="frac"><span class="num">3</span><span class="den">5</span></span>=24人" },
       { id:"WU-5", expr:"x円を30%引きで買ったら700円。xは？", answer:"x = 1000", choices:["x=1000","x=910","x=490","x=700"], hint:"0.7x=700 → x=1000" },
     ],
     exercise: [
       { id:"EX-1", expr:"ある数xの25%は15。xは？", answer:"x = 60", choices:["x=60","x=3.75","x=40","x=75"], hint:"0.25x=15 → x=60" },
       { id:"EX-2", expr:"先月より30%増えて260人になった。先月は何人？", answer:"200人", choices:["200人","182人","338人","230人"], hint:"1.3x=260 → x=200" },
-      { id:"EX-3", expr:"男女比が5:3で女子が24人。全体は何人？", answer:"64人", choices:["64人","56人","40人","72人"], hint:"全体×3/8=24 → 全体=64人" },
+      { id:"EX-3", expr:"男女比が5:3で女子が24人。全体は何人？", answer:"64人", choices:["64人","56人","40人","72人"], hint:"全体×<span class="frac"><span class="num">3</span><span class="den">8</span></span>=24 → 全体=64人" },
       { id:"EX-4", expr:"食塩水200gに食塩xg、濃度5%。xは？", answer:"x = 10", choices:["x=10","x=5","x=40","x=20"], hint:"x/200=0.05 → x=10" },
-      { id:"EX-5", expr:"A:B=3:4で合計56。Aは？", answer:"24", choices:["24","32","21","28"], hint:"A=56×3/7=24" },
+      { id:"EX-5", expr:"A:B=3:4で合計56。Aは？", answer:"24", choices:["24","32","21","28"], hint:"A=56×<span class="frac"><span class="num">3</span><span class="den">7</span></span>=24" },
       { id:"EX-6", expr:"x円の商品を2割引後に消費税10%を加えたら1760円。xは？", answer:"x = 2000", choices:["x=2000","x=1600","x=2200","x=1800"], hint:"x×0.8×1.1=1760 → 0.88x=1760 → x=2000" },
     ]
   },
