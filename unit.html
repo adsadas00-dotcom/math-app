@@ -306,9 +306,9 @@ function navigate(dir) {
 // 戻るボタンのリンクを章・科目に応じて自動設定
 function setBackLink(unit) {
   const id = unit.id; // 例: "1-1-1", "2-3-2"
-  const grade = id.split('-')[0]; // "1", "2", "3"
+  // 単元一覧は常にunits_math1.html
   // 科目はchapterの内容で判定（今は数学のみ）
-  const backUrl = `units_math${grade}.html`;
+  const backUrl = "units_math1.html";
   document.getElementById('backBtn').href = backUrl;
 }
 
