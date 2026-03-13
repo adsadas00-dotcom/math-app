@@ -15,11 +15,8 @@
 //    ここを変えると全ページの上部広告が一括で変わる
 // ============================================================
 const TOP_AD_HTML = `
-  <div style="text-align:center; padding:10px; background:#FFF3CD; border-top:2px dashed #FFD700; border-bottom:2px dashed #FFD700;">
-    <a href="ここにアフィリンクを入れる" target="_blank" rel="noopener">
-      <!-- バナー画像の場合: <img src="バナーURL" alt="広告" style="max-width:100%; height:auto;"> -->
-      <span style="font-size:0.85rem; font-weight:700; color:#B45309;">📢 広告スペース（アフィリエイト）</span>
-    </a>
+  <div style="text-align:center; padding:10px; background:#F1F5F9; border-top:2px dashed #CBD5E1; border-bottom:2px dashed #CBD5E1;">
+    <span style="font-size:0.8rem; font-weight:700; color:#94A3B8;">🚧 広告スペース 工事中 🚧</span>
   </div>
 `;
 
