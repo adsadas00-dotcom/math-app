@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1-1 正の数・負の数とは | 中1数学 | サクッと復習</title>
+  <meta name="description" content="中1数学「正の数・負の数とは」の解説・練習問題。動画でわかりやすく理解して、問題でしっかり定着！">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #3B82F6; --blue-light: #DBEAFE; --blue-dark: #1D4ED8;
+      --red: #EF4444; --red-light: #FEE2E2;
+      --green: #22C55E; --green-light: #DCFCE7;
+      --orange: #F97316;
+      --dark: #1E293B; --gray: #64748B; --light-bg: #F0F7FF;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: var(--light-bg); color: var(--dark); }
+
+    /* ヘッダー */
+    .page-header {
+      background: linear-gradient(135deg, #3B82F6, #60A5FA);
+      padding: 16px 20px; display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(59,130,246,0.3);
+    }
+    .header-left { display: flex; align-items: center; gap: 12px; }
+    .unit-badge {
+      background: rgba(255,255,255,0.25); color: white;
+      font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 0.9rem;
+      padding: 4px 12px; border-radius: 8px;
+    }
+    .header-title { color: white; font-size: 1rem; font-weight: 900; }
+    .back-btn {
+      background: rgba(255,255,255,0.2); color: white; border: none;
+      padding: 8px 14px; border-radius: 10px; font-size: 0.8rem; font-weight: 700;
+      text-decoration: none; cursor: pointer; transition: all 0.2s;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .back-btn:hover { background: rgba(255,255,255,0.35); }
+
+    .content { max-width: 720px; margin: 0 auto; padding: 24px 16px 80px; }
+
+    /* セクションタイトル */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.75rem; font-weight: 900; letter-spacing: 0.15em;
+      color: var(--blue); margin-bottom: 12px;
+    }
+    .section-label::before { content: ''; display: block; width: 4px; height: 16px; background: var(--blue); border-radius: 2px; }
+
+    /* 動画 */
+    .video-section { margin-bottom: 32px; }
+    .video-wrap {
+      background: white; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(59,130,246,0.15);
+    }
+    .video-inner { position: relative; padding-top: 56.25%; }
+    .video-inner iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+    /* 解説カード */
+    .explain-section { margin-bottom: 32px; }
+    .card {
+      background: white; border-radius: 16px; padding: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06); margin-bottom: 16px;
+    }
+
+    /* 重要バッジ */
+    .badge-important {
+      display: inline-block; background: var(--blue); color: white;
+      font-size: 0.75rem; font-weight: 900; padding: 3px 12px;
+      border-radius: 6px; margin-bottom: 14px; letter-spacing: 0.1em;
+    }
+
+    /* 正負の数 3行テーブル */
+    .pn-table { display: flex; flex-direction: column; gap: 8px; }
+    .pn-row { display: flex; border-radius: 10px; overflow: hidden; border: 2px solid; }
+    .pn-row.positive { border-color: var(--blue); }
+    .pn-row.zero { border-color: #94A3B8; }
+    .pn-row.negative { border-color: var(--red); }
+    .pn-label {
+      width: 80px; min-width: 80px; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 900; color: white;
+    }
+    .pn-row.positive .pn-label { background: var(--blue); }
+    .pn-row.zero .pn-label { background: #64748B; }
+    .pn-row.negative .pn-label { background: var(--red); }
+    .pn-body { flex: 1; padding: 12px 16px; }
+    .pn-row.positive .pn-body { background: var(--blue-light); }
+    .pn-row.zero .pn-body { background: #F1F5F9; }
+    .pn-row.negative .pn-body { background: var(--red-light); }
+    .pn-sign { font-size: 0.9rem; font-weight: 900; margin-bottom: 2px; }
+    .pn-row.positive .pn-sign { color: var(--blue); }
+    .pn-row.zero .pn-sign { color: #64748B; }
+    .pn-row.negative .pn-sign { color: var(--red); }
+    .pn-desc { font-size: 1rem; font-weight: 700; }
+
+    /* 数直線 SVG */
+    .numberline-wrap {
+      background: white; border-radius: 12px; padding: 20px 12px;
+      border: 1px solid #E0EAFF;
+    }
+
+    /* 整数・自然数 */
+    .int-table { border: 2px solid var(--blue-light); border-radius: 12px; overflow: hidden; }
+    .int-row { display: flex; padding: 12px 16px; align-items: flex-start; gap: 12px; }
+    .int-row:not(:last-child) { border-bottom: 1px solid #E0EAFF; }
+    .int-name { font-weight: 900; font-size: 0.95rem; min-width: 60px; }
+    .int-body { font-size: 0.9rem; line-height: 1.6; }
+    .int-body .note { color: var(--gray); font-size: 0.82rem; }
+
+    /* 数の分類図 */
+    .classify-box {
+      border: 2px solid var(--blue-light); border-radius: 12px; padding: 16px;
+    }
+    .classify-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .classify-row:last-child { margin-bottom: 0; }
+    .classify-tag {
+      background: var(--blue-light); color: var(--blue);
+      font-weight: 900; font-size: 0.85rem; padding: 6px 16px;
+      border-radius: 8px; border: 2px solid var(--blue); min-width: 80px; text-align: center;
+    }
+    .classify-tag.wide { min-width: 120px; }
+    .classify-nums { font-size: 0.9rem; font-weight: 700; }
+    .warn-text { color: var(--red); font-weight: 900; font-size: 0.9rem; margin-top: 10px; }
+
+    /* よくある間違い */
+    .mistake-section { margin-bottom: 32px; }
+    .mistake-header {
+      background: var(--red); color: white; text-align: center;
+      font-size: 1rem; font-weight: 900; padding: 10px;
+      border-radius: 12px 12px 0 0; letter-spacing: 0.1em;
+    }
+    .mistake-body { background: white; border-radius: 0 0 12px 12px; padding: 12px; border: 2px solid var(--red); border-top: none; }
+    .ng-ok-row {
+      display: flex; align-items: center; gap: 8px; padding: 12px;
+      background: var(--red-light); border-radius: 10px; margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .ng-ok-row:last-child { margin-bottom: 0; }
+    .tag-ng { background: var(--red); color: white; font-weight: 900; font-size: 0.8rem; padding: 4px 10px; border-radius: 6px; flex-shrink: 0; }
+    .tag-ok { background: var(--green); color: white; font-weight: 900; font-size: 0.8rem; padding: 4px 10px; border-radius: 6px; flex-shrink: 0; }
+    .ng-text { font-size: 0.9rem; font-weight: 700; flex: 1; min-width: 100px; }
+    .arrow { color: var(--gray); font-size: 1rem; }
+    .ok-text { font-size: 0.9rem; font-weight: 700; color: #166534; flex: 2; min-width: 120px; }
+
+    /* 練習問題 */
+    .practice-section { margin-bottom: 32px; }
+    .practice-header {
+      background: var(--blue); color: white; text-align: center;
+      font-size: 1rem; font-weight: 900; padding: 12px;
+      border-radius: 12px 12px 0 0; letter-spacing: 0.15em;
+    }
+    .practice-body { background: white; border-radius: 0 0 16px 16px; padding: 0; border: 2px solid var(--blue); border-top: none; overflow: hidden; }
+    .q-block { padding: 16px 18px; border-bottom: 1px solid #E0EAFF; }
+    .q-block:last-child { border-bottom: none; }
+    .q-row { display: flex; gap: 12px; }
+    .q-num {
+      background: var(--blue); color: white; font-weight: 900; font-size: 0.85rem;
+      min-width: 40px; height: 40px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+    }
+    .q-content { flex: 1; }
+    .q-text { font-size: 0.92rem; font-weight: 700; margin-bottom: 10px; line-height: 1.6; }
+    .q-numbers { font-size: 1rem; font-weight: 700; margin-bottom: 12px; letter-spacing: 0.05em; }
+    .frac { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 2px; line-height: 1.2; }
+    .frac .num { border-bottom: 2px solid currentColor; padding: 0 3px; font-size: 0.85em; }
+    .frac .den { padding: 0 3px; font-size: 0.85em; }
+
+    /* 答え合わせボタン */
+    .ans-btn {
+      background: var(--blue-light); color: var(--blue); border: 2px solid var(--blue);
+      font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 0.82rem;
+      padding: 7px 18px; border-radius: 8px; cursor: pointer; transition: all 0.2s;
+      margin-top: 6px;
+    }
+    .ans-btn:hover { background: var(--blue); color: white; }
+    .answer-box {
+      display: none; margin-top: 10px; background: #F97316;
+      color: white; border-radius: 10px; padding: 10px 14px;
+      font-size: 0.9rem; font-weight: 700; line-height: 1.7;
+    }
+    .answer-box.show { display: block; }
+    .hint-box {
+      display: none; margin-top: 8px; background: #EFF6FF;
+      border-left: 4px solid var(--blue); padding: 10px 14px;
+      font-size: 0.85rem; color: var(--dark); border-radius: 0 8px 8px 0;
+      line-height: 1.7;
+    }
+    .hint-box.show { display: block; }
+
+    /* 追加問題セクション */
+    .extra-header {
+      background: linear-gradient(135deg, #7C3AED, #A78BFA);
+      color: white; text-align: center; font-size: 1rem; font-weight: 900;
+      padding: 12px; border-radius: 12px 12px 0 0; letter-spacing: 0.1em;
+    }
+    .extra-body { background: white; border-radius: 0 0 16px 16px; padding: 0; border: 2px solid #7C3AED; border-top: none; overflow: hidden; }
+
+    /* 難易度バッジ */
+    .diff-badge {
+      display: inline-block; font-size: 0.65rem; font-weight: 900;
+      padding: 2px 8px; border-radius: 999px; margin-left: 8px; vertical-align: middle;
+    }
+    .diff-easy { background: #DCFCE7; color: #166534; }
+    .diff-mid { background: #FEF9C3; color: #854D0E; }
+
+    /* ナビゲーション */
+    .unit-nav {
+      display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap;
+    }
+    .nav-btn {
+      flex: 1; min-width: 140px; background: white; border: 2px solid var(--blue-light);
+      border-radius: 12px; padding: 12px 16px; text-decoration: none;
+      text-align: center; color: var(--dark); font-weight: 700; font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover { border-color: var(--blue); background: var(--blue-light); }
+    .nav-btn.primary { background: var(--blue); color: white; border-color: var(--blue); }
+    .nav-btn.primary:hover { background: var(--blue-dark); }
+    .nav-btn small { display: block; font-size: 0.72rem; opacity: 0.7; margin-top: 2px; }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.6); text-align: center; padding: 24px 20px; font-size: 0.8rem; margin-top: 0; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 8px; }
+    footer strong { display: block; color: white; margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <div class="page-header">
+    <div class="header-left">
+      <span class="unit-badge">1-1</span>
+      <span class="header-title">正の数・負の数とは</span>
+    </div>
+    <a href="units_math1.html" class="back-btn">← 単元一覧へ</a>
+  </div>
+
+  <div id="ad-space"></div>
+
+  <div class="content">
+
+    <!-- ① 動画 -->
+    <div class="video-section">
+      <div class="section-label">動画で理解しよう</div>
+      <div class="video-wrap">
+        <div class="video-inner">
+          <iframe src="https://www.youtube.com/embed/WgAYAr273OI" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- ② 解説 -->
+    <div class="explain-section">
+      <div class="section-label">解説・重要ポイント</div>
+
+      <!-- p1: 正・0・負 -->
+      <div class="card">
+        <span class="badge-important">重 要 ！</span>
+        <div class="pn-table">
+          <div class="pn-row positive">
+            <div class="pn-label">正の数</div>
+            <div class="pn-body">
+              <div class="pn-sign">＋（プラス）の符号</div>
+              <div class="pn-desc">0 より大きい数</div>
+            </div>
+          </div>
+          <div class="pn-row zero">
+            <div class="pn-label">0</div>
+            <div class="pn-body">
+              <div class="pn-sign">符号なし</div>
+              <div class="pn-desc">正でも負でもない</div>
+            </div>
+          </div>
+          <div class="pn-row negative">
+            <div class="pn-label">負の数</div>
+            <div class="pn-body">
+              <div class="pn-sign">−（マイナス）の符号</div>
+              <div class="pn-desc">0 より小さい数</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- p2: 数直線 -->
+      <div class="card">
+        <span class="badge-important">重 要 ！</span>
+        <div class="numberline-wrap">
+          <svg viewBox="0 0 620 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:600px;display:block;margin:0 auto;">
+            <!-- 矢印付き横線 -->
+            <line x1="20" y1="52" x2="600" y2="52" stroke="#1E293B" stroke-width="2.5"/>
+            <polygon points="600,52 588,46 588,58" fill="#1E293B"/>
+            <polygon points="20,52 32,46 32,58" fill="#1E293B"/>
+            <!-- 目盛り -->
+            <line x1="80" y1="44" x2="80" y2="60" stroke="#1E293B" stroke-width="2"/>
+            <line x1="155" y1="44" x2="155" y2="60" stroke="#1E293B" stroke-width="2"/>
+            <line x1="230" y1="44" x2="230" y2="60" stroke="#1E293B" stroke-width="2"/>
+            <line x1="305" y1="44" x2="305" y2="60" stroke="#1E293B" stroke-width="2"/>
+            <line x1="380" y1="44" x2="380" y2="60" stroke="#1E293B" stroke-width="2"/>
+            <line x1="455" y1="44" x2="455" y2="60" stroke="#1E293B" stroke-width="2"/>
+            <line x1="530" y1="44" x2="530" y2="60" stroke="#1E293B" stroke-width="2"/>
+            <!-- 数字 -->
+            <text x="80" y="80" text-anchor="middle" font-size="15" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP, sans-serif">−4</text>
+            <text x="155" y="80" text-anchor="middle" font-size="15" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP, sans-serif">−3</text>
+            <text x="230" y="80" text-anchor="middle" font-size="15" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP, sans-serif">−2</text>
+            <text x="305" y="80" text-anchor="middle" font-size="15" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP, sans-serif">−1</text>
+            <text x="380" y="80" text-anchor="middle" font-size="16" fill="#1E293B" font-weight="bold" font-family="Noto Sans JP, sans-serif">0</text>
+            <text x="455" y="80" text-anchor="middle" font-size="15" fill="#3B82F6" font-weight="bold" font-family="Noto Sans JP, sans-serif">+1</text>
+            <text x="530" y="80" text-anchor="middle" font-size="15" fill="#3B82F6" font-weight="bold" font-family="Noto Sans JP, sans-serif">+2</text>
+            <!-- ラベル -->
+            <text x="55" y="22" text-anchor="start" font-size="13" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP, sans-serif">← 負の数</text>
+            <text x="460" y="22" text-anchor="start" font-size="13" fill="#3B82F6" font-weight="bold" font-family="Noto Sans JP, sans-serif">正の数 →</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- p3: 整数と自然数 -->
+      <div class="card">
+        <span class="badge-important">重 要 ！</span>
+        <p style="font-size:1rem;font-weight:900;color:var(--blue);margin-bottom:12px;">② 整数と自然数</p>
+        <div class="int-table">
+          <div class="int-row">
+            <div class="int-name" style="color:var(--dark);">整数：</div>
+            <div class="int-body">
+              …−2、−1、0、+1、+2…<br>
+              <span class="note">（小数・分数を含まない）</span>
+            </div>
+          </div>
+          <div class="int-row" style="background:#F8FAFF;">
+            <div class="int-name" style="color:var(--dark);">自然数：</div>
+            <div class="int-body">
+              +1、+2、+3…<br>
+              <span class="note">（正の整数のこと）</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- p4: 数の分類 -->
+      <div class="card">
+        <span class="badge-important">重 要 ！</span>
+        <p style="font-size:1rem;font-weight:900;color:var(--blue);margin-bottom:12px;">③ 数の分類</p>
+        <div class="classify-box">
+          <div class="classify-row">
+            <div class="classify-tag">自然数</div>
+            <div class="classify-nums">+1, +2, +3 …（正の整数のみ）</div>
+          </div>
+          <div class="classify-row">
+            <div class="classify-tag wide">整数（自然数を含む）</div>
+            <div class="classify-nums">…−2, −1, 0, +1, +2 …</div>
+          </div>
+          <div class="warn-text">※ 0 は整数だが、自然数ではない！</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ よくある間違い -->
+    <div class="mistake-section">
+      <div class="section-label">よくある間違い</div>
+      <div class="mistake-header">よくある間違い</div>
+      <div class="mistake-body">
+        <div class="ng-ok-row">
+          <span class="tag-ng">NG</span>
+          <span class="ng-text">0 は正の数</span>
+          <span class="arrow">→</span>
+          <span class="tag-ok">OK</span>
+          <span class="ok-text">0 は正でも負でもない！基準の数！</span>
+        </div>
+        <div class="ng-ok-row">
+          <span class="tag-ng">NG</span>
+          <span class="ng-text">自然数に 0 が含まれる</span>
+          <span class="arrow">→</span>
+          <span class="tag-ok">OK</span>
+          <span class="ok-text">自然数は +1, +2, +3…　0 は含まない！</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ④ 練習問題（教材と同じ） -->
+    <div class="practice-section">
+      <div class="section-label">練習問題</div>
+      <div class="practice-header">練　習　問　題</div>
+      <div class="practice-body">
+
+        <!-- Q1 -->
+        <div class="q-block">
+          <div class="q-row">
+            <div class="q-num">(1)</div>
+            <div class="q-content">
+              <div class="q-text">次の数を 正の数・負の数・0 に分類せよ。</div>
+              <div class="q-numbers">
+                +5　−3　0　−0.5　+<span class="frac"><span class="num">2</span><span class="den">3</span></span>
+              </div>
+              <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+              <div class="answer-box">
+                答え　正の数：+5、+<span class="frac"><span class="num">2</span><span class="den">3</span></span>　　負の数：−3、−0.5　　0：0
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="q-block">
+          <div class="q-row">
+            <div class="q-num">(2)</div>
+            <div class="q-content">
+              <div class="q-text">次の数から 整数 と 自然数 を選べ。</div>
+              <div class="q-numbers">−2　+3　0　−0.7　+5</div>
+              <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+              <div class="answer-box">
+                答え　整数：−2、+3、0、+5　　自然数：+3、+5
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="q-block">
+          <div class="q-row">
+            <div class="q-num">(3)</div>
+            <div class="q-content">
+              <div class="q-text">−7 より大きく、+4 より小さい整数をすべて答えよ。</div>
+              <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+              <div class="hint-box">
+                −6 以上かつ +3 以下の整数をすべて列挙する
+              </div>
+              <div class="answer-box">
+                答え　−6、−5、−4、−3、−2、−1、0、+1、+2、+3
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ⑤ 追加練習問題 -->
+    <div class="practice-section">
+      <div class="extra-header">🔥 もっと練習しよう！</div>
+      <div class="extra-body">
+
+        <!-- A1 かんたん -->
+        <div class="q-block">
+          <div class="q-row">
+            <div class="q-num" style="background:#7C3AED;">(4)</div>
+            <div class="q-content">
+              <div class="q-text">
+                次の数は、正の数・負の数・0 のどれか。
+                <span class="diff-badge diff-easy">かんたん</span>
+              </div>
+              <div class="q-numbers">
+                (a) −8　　(b) +<span class="frac"><span class="num">1</span><span class="den">2</span></span>　　(c) 0　　(d) −0.01
+              </div>
+              <button class="ans-btn" style="border-color:#7C3AED;color:#7C3AED;" onclick="toggleAnswer(this)">答えを見る</button>
+              <div class="answer-box">
+                (a) 負の数　(b) 正の数　(c) 0（正でも負でもない）　(d) 負の数
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A2 かんたん -->
+        <div class="q-block">
+          <div class="q-row">
+            <div class="q-num" style="background:#7C3AED;">(5)</div>
+            <div class="q-content">
+              <div class="q-text">
+                次のうち、自然数をすべて選べ。
+                <span class="diff-badge diff-easy">かんたん</span>
+              </div>
+              <div class="q-numbers">
+                −4　0　+1　+<span class="frac"><span class="num">3</span><span class="den">2</span></span>　+7　−0.5
+              </div>
+              <button class="ans-btn" style="border-color:#7C3AED;color:#7C3AED;" onclick="toggleAnswer(this)">答えを見る</button>
+              <div class="answer-box">
+                答え　+1、+7<br>
+                （自然数 ＝ 正の整数。+3/2 は分数なので整数ではない）
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A3 かんたん -->
+        <div class="q-block">
+          <div class="q-row">
+            <div class="q-num" style="background:#7C3AED;">(6)</div>
+            <div class="q-content">
+              <div class="q-text">
+                次のうち、整数をすべて選べ。
+                <span class="diff-badge diff-easy">かんたん</span>
+              </div>
+              <div class="q-numbers">
+                +3　−1.5　0　−<span class="frac"><span class="num">2</span><span class="den">3</span></span>　−5　+0.1
+              </div>
+              <button class="ans-btn" style="border-color:#7C3AED;color:#7C3AED;" onclick="toggleAnswer(this)">答えを見る</button>
+              <div class="answer-box">
+                答え　+3、0、−5<br>
+                （整数 ＝ 小数・分数を含まない数）
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A4 中級 -->
+        <div class="q-block">
+          <div class="q-row">
+            <div class="q-num" style="background:#7C3AED;">(7)</div>
+            <div class="q-content">
+              <div class="q-text">
+                −3 より大きく +3 より小さい整数をすべて答えよ。
+                <span class="diff-badge diff-mid">中級</span>
+              </div>
+              <button class="ans-btn" style="border-color:#7C3AED;color:#7C3AED;" onclick="toggleHint(this)">ヒントを見る</button>
+              <button class="ans-btn" style="border-color:#7C3AED;color:#7C3AED;margin-left:8px;" onclick="toggleAnswer(this)">答えを見る</button>
+              <div class="hint-box">「〜より大きい」は その数を含まない。−3 より大きい整数は −2 から。+3 より小さい整数は +2 まで。</div>
+              <div class="answer-box">
+                答え　−2、−1、0、+1、+2
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A5 中級 -->
+        <div class="q-block">
+          <div class="q-row">
+            <div class="q-num" style="background:#7C3AED;">(8)</div>
+            <div class="q-content">
+              <div class="q-text">
+                次の文が正しければ○、間違っていれば✕と答えよ。
+                <span class="diff-badge diff-mid">中級</span>
+              </div>
+              <div class="q-text" style="margin-top:6px;">
+                ① 0 は正の数である。<br>
+                ② すべての自然数は整数である。<br>
+                ③ −1 は自然数である。<br>
+                ④ 整数でない負の数がある。
+              </div>
+              <button class="ans-btn" style="border-color:#7C3AED;color:#7C3AED;" onclick="toggleAnswer(this)">答えを見る</button>
+              <div class="answer-box">
+                ① ✕（0 は正でも負でもない）<br>
+                ② ○（自然数は正の整数、整数に含まれる）<br>
+                ③ ✕（自然数は +1, +2, +3… のみ）<br>
+                ④ ○（例：−0.5 は負の数だが整数ではない）
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A6 中級 -->
+        <div class="q-block">
+          <div class="q-row">
+            <div class="q-num" style="background:#7C3AED;">(9)</div>
+            <div class="q-content">
+              <div class="q-text">
+                絶対値が 4 以下の整数をすべて答えよ。
+                <span class="diff-badge diff-mid">中級</span>
+              </div>
+              <button class="ans-btn" style="border-color:#7C3AED;color:#7C3AED;" onclick="toggleHint(this)">ヒントを見る</button>
+              <button class="ans-btn" style="border-color:#7C3AED;color:#7C3AED;margin-left:8px;" onclick="toggleAnswer(this)">答えを見る</button>
+              <div class="hint-box">絶対値とは「0 からの距離」。絶対値が 4 以下 ＝ −4 以上 +4 以下の数。</div>
+              <div class="answer-box">
+                答え　−4、−3、−2、−1、0、+1、+2、+3、+4
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ナビゲーション -->
+    <div class="unit-nav">
+      <a href="units_math1.html" class="nav-btn primary">
+        ← 単元一覧にもどる
+        <small>中1数学</small>
+      </a>
+      <a href="unit1-2_math1.html" class="nav-btn">
+        次の単元へ →
+        <small>1-2 数直線と符号の表し方</small>
+      </a>
+    </div>
+
+  </div>
+
+  <div id="ad-space-bottom"></div>
+
+  <footer>
+    <strong>サクッと復習</strong>
+    個別指導塾 トライアンフ｜中学生のための無料学習アプリ<br>
+    <a href="index.html">TOP</a>
+    <a href="units_math1.html">中1数学</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    © 2025 Triumph Juku.
+  </footer>
+
+  <script src="ad.js"></script>
+  <script>
+    function toggleAnswer(btn) {
+      const block = btn.parentElement;
+      const ansBox = block.querySelector('.answer-box');
+      if (!ansBox) return;
+      ansBox.classList.toggle('show');
+      btn.textContent = ansBox.classList.contains('show') ? '答えを隠す' : '答えを見る';
+    }
+    function toggleHint(btn) {
+      const block = btn.parentElement;
+      const hintBox = block.querySelector('.hint-box');
+      if (!hintBox) return;
+      hintBox.classList.toggle('show');
+      btn.textContent = hintBox.classList.contains('show') ? 'ヒントを隠す' : 'ヒントを見る';
+    }
+  </script>
+</body>
+</html>
