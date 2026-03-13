@@ -1,412 +1,617 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TRIUMPH｜中学生のための無料学習アプリ</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Bebas+Neue&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --gold: #c9a84c;
-    --gold-light: #f0d080;
-    --dark: #0a0a0f;
-    --dark2: #111118;
-    --dark3: #1a1a28;
-    --card: #16161f;
-    --border: #2a2a3a;
-    --text: #e8e8f0;
-    --muted: #6a6a8a;
-    --math: #4a9eff;
-    --eng: #ff6b6b;
-    --green: #2ecc71;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-    background: var(--dark);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サクッと復習 | 中学生向け無料学習アプリ【5教科対応】個別指導トライアンフ</title>
 
-  /* ===== HERO ===== */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 24px;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
-    background-size: 60px 60px;
-    animation: gridMove 20s linear infinite;
-  }
-  @keyframes gridMove {
-    0% { background-position: 0 0; }
-    100% { background-position: 60px 60px; }
-  }
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.15;
-    animation: orbFloat 8s ease-in-out infinite;
-  }
-  .orb-1 { width: 500px; height: 500px; background: var(--gold); top: -100px; right: -100px; }
-  .orb-2 { width: 400px; height: 400px; background: var(--math); bottom: -50px; left: -100px; animation-delay: 3s; }
-  .orb-3 { width: 300px; height: 300px; background: var(--eng); top: 40%; left: 50%; animation-delay: 5s; }
-  @keyframes orbFloat {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-30px) scale(1.05); }
-  }
+  <!-- SEO -->
+  <meta name="description" content="中学生向け無料学習アプリ「サクッと復習」。数学・英語・国語・理科・社会の5教科、中1〜中3まで対応。動画で理解して問題で定着！個別指導塾トライアンフが運営。">
+  <meta name="keywords" content="中学生, 無料, 学習アプリ, 復習, 数学, 英語, 国語, 理科, 社会, 中1, 中2, 中3, 問題集, 塾">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://adsadas00-dotcom.github.io/math-app/">
 
-  .hero-content { position: relative; z-index: 10; text-align: center; max-width: 800px; }
+  <!-- OGP（SNSシェア用） -->
+  <meta property="og:title" content="サクッと復習 | 中学生向け無料学習アプリ">
+  <meta property="og:description" content="5教科・中1〜中3対応の無料学習アプリ。動画で理解して問題でバッチリ定着！">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adsadas00-dotcom.github.io/math-app/">
+  <meta name="twitter:card" content="summary">
 
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 100px; padding: 6px 18px; font-size: 12px; color: var(--gold);
-    letter-spacing: 3px; text-transform: uppercase; margin-bottom: 28px;
-    animation: fadeUp 0.8s ease both;
+  <!-- 構造化データ（Google検索リッチ表示用） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "サクッと復習 by 個別指導トライアンフ",
+    "description": "中学生向け無料学習アプリ。5教科・中1〜中3対応。",
+    "url": "https://adsadas00-dotcom.github.io/math-app/",
+    "audience": { "@type": "EducationalAudience", "educationalRole": "student" }
   }
-  .hero-badge::before { content: '✦'; font-size: 10px; }
+  </script>
 
-  .hero-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(72px, 15vw, 140px);
-    line-height: 0.9; letter-spacing: 4px; margin-bottom: 16px;
-    animation: fadeUp 0.8s ease 0.1s both;
-  }
-  .hero-title .gold { color: var(--gold); position: relative; }
-  .hero-title .gold::after {
-    content: ''; position: absolute; bottom: 4px; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --yellow: #FFD700;
+      --orange: #FF8C00;
+      --sky: #38BDF8;
+      --mint: #4ADE80;
+      --pink: #F472B6;
+      --white: #FFFFFF;
+      --dark: #1E293B;
+      --card-bg: #FFFBEB;
+    }
 
-  .hero-subtitle {
-    font-size: clamp(12px, 2vw, 16px); color: var(--muted);
-    margin-bottom: 12px; letter-spacing: 3px;
-    animation: fadeUp 0.8s ease 0.2s both;
-  }
-  .hero-catch {
-    font-size: clamp(16px, 2.5vw, 22px); font-weight: 700; color: var(--text);
-    margin-bottom: 48px; line-height: 1.8;
-    animation: fadeUp 0.8s ease 0.3s both;
-  }
-  .hero-catch span { color: var(--gold); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  .hero-stats {
-    display: flex; justify-content: center; gap: 40px;
-    margin-bottom: 56px; animation: fadeUp 0.8s ease 0.4s both;
-    flex-wrap: wrap;
-  }
-  .stat { text-align: center; }
-  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); line-height: 1; }
-  .stat-unit { font-size: 16px; color: var(--gold); opacity: 0.8; }
-  .stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: 1px; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #FFF9ED;
+      color: var(--dark);
+      overflow-x: hidden;
+    }
 
-  .hero-cta {
-    animation: fadeUp 0.8s ease 0.5s both;
-  }
-  .cta-btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: var(--gold); color: #0a0a0f;
-    font-weight: 900; font-size: 16px; letter-spacing: 1px;
-    padding: 16px 40px; border-radius: 100px; text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 8px 32px rgba(201,168,76,0.3);
-  }
-  .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(201,168,76,0.4); }
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(135deg, #FFE066 0%, #FFB347 50%, #FF7BAC 100%);
+      padding: 60px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-  .scroll-hint {
-    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    color: var(--muted); font-size: 11px; letter-spacing: 2px;
-    animation: fadeIn 1s ease 1s both;
-  }
-  .scroll-arrow {
-    width: 1px; height: 40px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
-    animation: scrollDown 1.5s ease-in-out infinite;
-  }
-  @keyframes scrollDown {
-    0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
-  }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 260px; height: 260px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
 
-  /* ===== 科目セクション ===== */
-  .grades-section { max-width: 1000px; margin: 0 auto; padding: 80px 24px 120px; }
+    .hero-emoji-row {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
 
-  .section-eyebrow {
-    text-align: center; font-size: 11px; letter-spacing: 4px;
-    color: var(--gold); text-transform: uppercase; margin-bottom: 12px;
-  }
-  .section-heading {
-    text-align: center; font-size: clamp(22px, 4vw, 34px);
-    font-weight: 900; margin-bottom: 64px; line-height: 1.5;
-  }
-  .section-heading span { color: var(--gold); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
 
-  .grade-block {
-    margin-bottom: 52px;
-    opacity: 0; transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .grade-block.visible { opacity: 1; transform: translateY(0); }
+    .hero-title {
+      font-family: 'Nunito', 'Noto Sans JP', sans-serif;
+      font-size: clamp(2.4rem, 8vw, 4rem);
+      font-weight: 900;
+      color: white;
+      text-shadow: 3px 4px 0px rgba(0,0,0,0.15);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
 
-  .grade-header {
-    display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
-  }
-  .grade-num {
-    font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 3px;
-    color: var(--gold); background: rgba(201,168,76,0.08);
-    border: 1px solid rgba(201,168,76,0.2); padding: 5px 16px; border-radius: 100px;
-  }
-  .grade-title { font-size: 22px; font-weight: 900; letter-spacing: 1px; }
-  .grade-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
+    .hero-sub {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      margin-top: 8px;
+      letter-spacing: 0.05em;
+    }
 
-  .subject-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .hero-catch {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.3);
+      backdrop-filter: blur(4px);
+      border-radius: 999px;
+      display: inline-block;
+      padding: 10px 24px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+    }
 
-  .subject-card {
-    position: relative; background: var(--card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 28px 24px; text-decoration: none; color: inherit;
-    overflow: hidden; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    display: flex; align-items: center; gap: 20px;
-  }
-  .subject-card::before {
-    content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.2s ease;
-  }
-  .subject-card:not(.card-soon):hover { transform: translateY(-4px); }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
 
-  .card-math { border-color: rgba(74,158,255,0.2); }
-  .card-math::before { background: linear-gradient(135deg, rgba(74,158,255,0.06), transparent); }
-  .card-math:hover { border-color: rgba(74,158,255,0.5); box-shadow: 0 20px 60px rgba(74,158,255,0.12); }
-  .card-math:hover::before { opacity: 1; }
+    .stat-badge {
+      background: white;
+      border-radius: 16px;
+      padding: 10px 18px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: popIn 0.5s ease backwards;
+    }
+    .stat-badge:nth-child(2) { animation-delay: 0.1s; }
+    .stat-badge:nth-child(3) { animation-delay: 0.2s; }
+    .stat-badge:nth-child(4) { animation-delay: 0.3s; }
 
-  .card-eng { border-color: rgba(255,107,107,0.2); }
-  .card-eng::before { background: linear-gradient(135deg, rgba(255,107,107,0.06), transparent); }
-  .card-eng:hover { border-color: rgba(255,107,107,0.5); box-shadow: 0 20px 60px rgba(255,107,107,0.12); }
-  .card-eng:hover::before { opacity: 1; }
+    @keyframes popIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
 
-  .card-soon { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+    .stat-num {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--orange);
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      color: #666;
+      font-weight: 700;
+    }
 
-  .subject-icon {
-    width: 56px; height: 56px; border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 26px; flex-shrink: 0; position: relative; z-index: 1;
-  }
-  .icon-math { background: rgba(74,158,255,0.12); }
-  .icon-eng { background: rgba(255,107,107,0.12); }
-  .icon-soon { background: rgba(100,100,120,0.1); }
+    .scroll-hint {
+      margin-top: 36px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
 
-  .subject-info { position: relative; z-index: 1; flex: 1; min-width: 0; }
-  .subject-name { font-size: 20px; font-weight: 900; margin-bottom: 4px; letter-spacing: 1px; }
-  .name-math { color: var(--math); }
-  .name-eng { color: var(--eng); }
-  .name-soon { color: var(--muted); }
+    /* ========== SECTION ========== */
+    .section {
+      padding: 52px 20px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
 
-  .subject-meta { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+    .section-label {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      color: var(--orange);
+      margin-bottom: 6px;
+    }
 
-  .subject-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag { font-size: 10px; padding: 2px 8px; border-radius: 100px; }
-  .tag-math { background: rgba(74,158,255,0.1); color: var(--math); border: 1px solid rgba(74,158,255,0.2); }
-  .tag-eng { background: rgba(255,107,107,0.1); color: var(--eng); border: 1px solid rgba(255,107,107,0.2); }
-  .tag-soon { background: rgba(100,100,120,0.1); color: var(--muted); border: 1px solid var(--border); }
-  .tag-ready { background: rgba(46,204,113,0.1); color: var(--green); border: 1px solid rgba(46,204,113,0.25); }
+    .section-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 32px;
+      color: var(--dark);
+    }
 
-  .subject-arrow {
-    position: relative; z-index: 1; font-size: 18px; color: var(--muted);
-    transition: transform 0.2s, color 0.2s; flex-shrink: 0;
-  }
-  .card-math:hover .subject-arrow { transform: translateX(4px); color: var(--math); }
-  .card-eng:hover .subject-arrow { transform: translateX(4px); color: var(--eng); }
+    /* ========== CURRICULUM GRID ========== */
+    .grade-block {
+      margin-bottom: 28px;
+    }
 
-  /* ===== FOOTER ===== */
-  footer {
-    border-top: 1px solid var(--border); padding: 40px 24px;
-    text-align: center; color: var(--muted); font-size: 12px; letter-spacing: 1px;
-  }
-  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gold); margin-bottom: 10px; letter-spacing: 6px; }
-  footer p { margin-bottom: 6px; }
+    .grade-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .grade-badge {
+      background: linear-gradient(135deg, var(--orange), var(--yellow));
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 900;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
 
-  @media (max-width: 600px) {
-    .hero-stats { gap: 20px; }
-    .stat-num { font-size: 36px; }
-    .subject-cards { grid-template-columns: 1fr; }
-    .cta-btn { padding: 14px 28px; font-size: 15px; }
-  }
-</style>
+    .grade-name {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 400px) {
+      .subject-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .subject-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px 16px;
+      text-decoration: none;
+      color: var(--dark);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      border: 2px solid transparent;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+    }
+
+    .subject-card.math    { border-color: #60A5FA; }
+    .subject-card.english { border-color: #F472B6; }
+    .subject-card.japanese{ border-color: #FB923C; }
+    .subject-card.science { border-color: #4ADE80; }
+    .subject-card.social  { border-color: #A78BFA; }
+    .subject-card.coming  { border-color: #E2E8F0; background: #F8FAFC; }
+
+    .subject-card .card-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .subject-card .card-name {
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .subject-card .card-info {
+      font-size: 0.72rem;
+      color: #64748B;
+      margin-top: 4px;
+      font-weight: 700;
+    }
+
+    .subject-card .card-open {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.7rem;
+      font-weight: 900;
+      background: #DBEAFE;
+      color: #2563EB;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .subject-card.coming .card-name {
+      color: #94A3B8;
+    }
+
+    .coming-tag {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.7rem;
+      font-weight: 900;
+      background: #F1F5F9;
+      color: #94A3B8;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    /* ========== 教科アイコンストリップ ========== */
+    .icon-strip {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 24px 20px;
+      background: white;
+    }
+
+    .icon-chip {
+      background: linear-gradient(135deg, #FFF3CD, #FFE0A0);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      animation: popIn 0.4s ease backwards;
+    }
+    .icon-chip:nth-child(2) { animation-delay: 0.07s; background: linear-gradient(135deg, #FFE4F0, #FFBAD9); }
+    .icon-chip:nth-child(3) { animation-delay: 0.14s; background: linear-gradient(135deg, #E0F2FF, #BAE0FF); }
+    .icon-chip:nth-child(4) { animation-delay: 0.21s; background: linear-gradient(135deg, #DCFCE7, #A7F3C0); }
+    .icon-chip:nth-child(5) { animation-delay: 0.28s; background: linear-gradient(135deg, #EDE9FE, #C4B5FD); }
+
+    /* ========== 下部広告（Amazonアフィ） ========== */
+    #ad-space-bottom {
+      background: #FFFBEB;
+      border-top: 3px solid #FFD700;
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .ad-bottom-title {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+
+    .ad-book-grid {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .ad-book-card {
+      background: white;
+      border-radius: 14px;
+      padding: 14px 12px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--dark);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      width: 90px;
+      transition: transform 0.2s;
+      border: 2px solid #FDE68A;
+    }
+    .ad-book-card:hover { transform: translateY(-3px); }
+
+    .ad-book-img { font-size: 2rem; margin-bottom: 6px; }
+    .ad-book-name { font-size: 0.7rem; font-weight: 700; line-height: 1.4; color: #475569; }
+
+    .ad-note {
+      font-size: 0.65rem;
+      color: #94A3B8;
+      margin-top: 12px;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 0.8rem;
+    }
+    footer strong {
+      display: block;
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    /* ========== CTAボタン ========== */
+    .hero-cta {
+      display: inline-block;
+      margin-top: 28px;
+      background: white;
+      color: var(--orange);
+      font-weight: 900;
+      font-size: 1.05rem;
+      padding: 14px 36px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .hero-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.2);
+    }
+
+    /* ========== 3つの特徴 ========== */
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 36px 20px;
+      background: white;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .feature-item {
+      text-align: center;
+      width: 140px;
+    }
+    .feature-icon {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+    .feature-title {
+      font-size: 0.85rem;
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .feature-desc {
+      font-size: 0.72rem;
+      color: #64748B;
+      line-height: 1.5;
+    }
+
+    /* ========== FOOTER リンク ========== */
+    .footer-links {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: white; }
+
+    /* ========== AD SPACE（後で使う） ========== */
+    #ad-space {
+      /* 広告スペース：ad.js で中身を差し込む予定 */
+      text-align: center;
+      padding: 12px;
+      background: #FFF3CD;
+      border-top: 2px dashed #FFD700;
+      border-bottom: 2px dashed #FFD700;
+      font-size: 0.8rem;
+      color: #B45309;
+      font-weight: 700;
+    }
+  </style>
 </head>
 <body>
 
-<section class="hero">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-
-  <div class="hero-content">
-    <div class="hero-badge">個別指導塾 学習アプリ</div>
-    <h1 class="hero-title"><span class="gold">TRIUMPH</span></h1>
-    <p class="hero-subtitle">JUNIOR HIGH SCHOOL LEARNING APP</p>
-    <p class="hero-catch">
-      動画で理解して、問題で定着。<br>
-      <span>合格への道</span>はここから始まる。
-    </p>
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-emoji-row">📚✏️🎯</div>
+    <h1 class="hero-title">サクッと復習</h1>
+    <p class="hero-sub">by 個別指導トライアンフ</p>
+    <p class="hero-catch">動画で理解して、問題でバッチリ定着！🔥</p>
     <div class="hero-stats">
-      <div class="stat">
+      <div class="stat-badge">
         <div class="stat-num">3</div>
         <div class="stat-label">学年対応</div>
       </div>
-      <div class="stat">
-        <div class="stat-num">2<span class="stat-unit">科目</span></div>
-        <div class="stat-label">数学・英語</div>
+      <div class="stat-badge">
+        <div class="stat-num">5</div>
+        <div class="stat-label">教科</div>
       </div>
-      <div class="stat">
-        <div class="stat-num">100<span class="stat-unit">+</span></div>
-        <div class="stat-label">単元収録予定</div>
+      <div class="stat-badge">
+        <div class="stat-num">100+</div>
+        <div class="stat-label">単元予定</div>
       </div>
-      <div class="stat">
-        <div class="stat-num">0<span class="stat-unit">円</span></div>
+      <div class="stat-badge">
+        <div class="stat-num">0円</div>
         <div class="stat-label">完全無料</div>
       </div>
     </div>
-    <div class="hero-cta">
-      <a class="cta-btn" href="#curriculum">学習をはじめる ↓</a>
+    <p class="scroll-hint">▼ SCROLL</p>
+    <a href="#curriculum" class="hero-cta">📖 今すぐ学習をはじめる →</a>
+  </section>
+
+  <!-- 上部広告（ad.jsで管理） -->
+  <div id="ad-space"></div>
+
+  <!-- ========== 教科アイコンエリア ========== -->
+  <div class="icon-strip">
+    <div class="icon-chip">📐 数学</div>
+    <div class="icon-chip">🔤 英語</div>
+    <div class="icon-chip">📖 国語</div>
+    <div class="icon-chip">🔬 理科</div>
+    <div class="icon-chip">🌏 社会</div>
+  </div>
+
+  <!-- ========== 3つの特徴 ========== -->
+  <div class="features">
+    <div class="feature-item">
+      <div class="feature-icon">🎬</div>
+      <div class="feature-title">動画で理解</div>
+      <div class="feature-desc">わかりやすい解説動画で、まず「なぜ？」を理解</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">✍️</div>
+      <div class="feature-title">問題で定着</div>
+      <div class="feature-desc">たくさんの練習問題で、本番でも解けるチカラに</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">💰</div>
+      <div class="feature-title">完全無料</div>
+      <div class="feature-desc">登録不要・広告なし・ずっと無料で使えます</div>
     </div>
   </div>
 
-  <div class="scroll-hint">SCROLL<div class="scroll-arrow"></div></div>
-</section>
+  <!-- ========== カリキュラム ========== -->
+  <section class="section" id="curriculum">
+    <p class="section-label">CURRICULUM</p>
+    <h2 class="section-title">学年・教科から選ぼう 👇</h2>
 
-<section class="grades-section" id="curriculum">
-  <p class="section-eyebrow">CURRICULUM</p>
-  <h2 class="section-heading">学年・科目から<span>選ぼう</span></h2>
-
-  <!-- 中学1年生 -->
-  <div class="grade-block" data-delay="0">
-    <div class="grade-header">
-      <span class="grade-num">GRADE 1</span>
-      <span class="grade-title">中学１年生</span>
-      <div class="grade-line"></div>
+    <!-- 中1 -->
+    <div class="grade-block">
+      <div class="grade-label">
+        <span class="grade-badge">GRADE 1</span>
+        <span class="grade-name">中学１年生</span>
+      </div>
+      <div class="subject-grid">
+        <a href="https://adsadas00-dotcom.github.io/units_math1.html" class="subject-card math">
+          <span class="card-icon">📐</span>
+          <div class="card-name">数学</div>
+          <div class="card-info">7章 · 68単元予定</div>
+          <span class="card-open">✓ 第1章公開中</span>
+        </a>
+        <a href="#" class="subject-card coming">
+          <span class="card-icon">🔤</span>
+          <div class="card-name">英語</div>
+          <div class="card-info">準備中</div>
+          <span class="coming-tag">COMING SOON</span>
+        </a>
+        <a href="#" class="subject-card coming">
+          <span class="card-icon">📖</span>
+          <div class="card-name">国語</div>
+          <div class="card-info">準備中</div>
+          <span class="coming-tag">COMING SOON</span>
+        </a>
+        <a href="#" class="subject-card coming">
+          <span class="card-icon">🔬</span>
+          <div class="card-name">理科</div>
+          <div class="card-info">準備中</div>
+          <span class="coming-tag">COMING SOON</span>
+        </a>
+        <a href="#" class="subject-card coming">
+          <span class="card-icon">🌏</span>
+          <div class="card-name">社会</div>
+          <div class="card-info">準備中</div>
+          <span class="coming-tag">COMING SOON</span>
+        </a>
+      </div>
     </div>
-    <div class="subject-cards">
-      <a class="subject-card card-math" href="units_math1.html">
-        <div class="subject-icon icon-math">📐</div>
-        <div class="subject-info">
-          <div class="subject-name name-math">数学</div>
-          <div class="subject-meta">7章 · 68単元収録予定</div>
-          <div class="subject-tags">
-            <span class="tag tag-ready">✓ 第1章 公開中</span>
-            <span class="tag tag-math">正負の数</span>
-            <span class="tag tag-math">方程式</span>
-          </div>
-        </div>
-        <span class="subject-arrow">→</span>
-      </a>
-      <a class="subject-card card-eng card-soon" href="#">
-        <div class="subject-icon icon-soon">🔤</div>
-        <div class="subject-info">
-          <div class="subject-name name-soon">英語</div>
-          <div class="subject-meta">準備中</div>
-          <div class="subject-tags"><span class="tag tag-soon">COMING SOON</span></div>
-        </div>
-        <span class="subject-arrow">→</span>
-      </a>
-    </div>
-  </div>
 
-  <!-- 中学2年生 -->
-  <div class="grade-block" data-delay="1">
-    <div class="grade-header">
-      <span class="grade-num">GRADE 2</span>
-      <span class="grade-title">中学２年生</span>
-      <div class="grade-line"></div>
+    <!-- 中2 -->
+    <div class="grade-block">
+      <div class="grade-label">
+        <span class="grade-badge">GRADE 2</span>
+        <span class="grade-name">中学２年生</span>
+      </div>
+      <div class="subject-grid">
+        <a href="#" class="subject-card coming"><span class="card-icon">📐</span><div class="card-name">数学</div><span class="coming-tag">COMING SOON</span></a>
+        <a href="#" class="subject-card coming"><span class="card-icon">🔤</span><div class="card-name">英語</div><span class="coming-tag">COMING SOON</span></a>
+        <a href="#" class="subject-card coming"><span class="card-icon">📖</span><div class="card-name">国語</div><span class="coming-tag">COMING SOON</span></a>
+        <a href="#" class="subject-card coming"><span class="card-icon">🔬</span><div class="card-name">理科</div><span class="coming-tag">COMING SOON</span></a>
+        <a href="#" class="subject-card coming"><span class="card-icon">🌏</span><div class="card-name">社会</div><span class="coming-tag">COMING SOON</span></a>
+      </div>
     </div>
-    <div class="subject-cards">
-      <a class="subject-card card-math card-soon" href="#">
-        <div class="subject-icon icon-soon">📐</div>
-        <div class="subject-info">
-          <div class="subject-name name-soon">数学</div>
-          <div class="subject-meta">準備中</div>
-          <div class="subject-tags"><span class="tag tag-soon">COMING SOON</span></div>
-        </div>
-        <span class="subject-arrow">→</span>
-      </a>
-      <a class="subject-card card-eng card-soon" href="#">
-        <div class="subject-icon icon-soon">🔤</div>
-        <div class="subject-info">
-          <div class="subject-name name-soon">英語</div>
-          <div class="subject-meta">準備中</div>
-          <div class="subject-tags"><span class="tag tag-soon">COMING SOON</span></div>
-        </div>
-        <span class="subject-arrow">→</span>
-      </a>
+
+    <!-- 中3 -->
+    <div class="grade-block">
+      <div class="grade-label">
+        <span class="grade-badge">GRADE 3</span>
+        <span class="grade-name">中学３年生</span>
+      </div>
+      <div class="subject-grid">
+        <a href="#" class="subject-card coming"><span class="card-icon">📐</span><div class="card-name">数学</div><span class="coming-tag">COMING SOON</span></a>
+        <a href="#" class="subject-card coming"><span class="card-icon">🔤</span><div class="card-name">英語</div><span class="coming-tag">COMING SOON</span></a>
+        <a href="#" class="subject-card coming"><span class="card-icon">📖</span><div class="card-name">国語</div><span class="coming-tag">COMING SOON</span></a>
+        <a href="#" class="subject-card coming"><span class="card-icon">🔬</span><div class="card-name">理科</div><span class="coming-tag">COMING SOON</span></a>
+        <a href="#" class="subject-card coming"><span class="card-icon">🌏</span><div class="card-name">社会</div><span class="coming-tag">COMING SOON</span></a>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- 中学3年生 -->
-  <div class="grade-block" data-delay="2">
-    <div class="grade-header">
-      <span class="grade-num">GRADE 3</span>
-      <span class="grade-title">中学３年生</span>
-      <div class="grade-line"></div>
+  <!-- 下部広告（ad.jsで管理） -->
+  <div id="ad-space-bottom"></div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <strong>サクッと復習</strong>
+    個別指導塾 トライアンフ｜中学生のための無料学習アプリ<br>
+    © 2025 Triumph Juku. All rights reserved.
+    <div class="footer-links">
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
     </div>
-    <div class="subject-cards">
-      <a class="subject-card card-math card-soon" href="#">
-        <div class="subject-icon icon-soon">📐</div>
-        <div class="subject-info">
-          <div class="subject-name name-soon">数学</div>
-          <div class="subject-meta">準備中</div>
-          <div class="subject-tags"><span class="tag tag-soon">COMING SOON</span></div>
-        </div>
-        <span class="subject-arrow">→</span>
-      </a>
-      <a class="subject-card card-eng card-soon" href="#">
-        <div class="subject-icon icon-soon">🔤</div>
-        <div class="subject-info">
-          <div class="subject-name name-soon">英語</div>
-          <div class="subject-meta">準備中</div>
-          <div class="subject-tags"><span class="tag tag-soon">COMING SOON</span></div>
-        </div>
-        <span class="subject-arrow">→</span>
-      </a>
-    </div>
-  </div>
+  </footer>
 
-</section>
-
-<footer>
-  <div class="footer-logo">TRIUMPH</div>
-  <p>個別指導塾 トライアンフ｜中学生のための無料学習アプリ</p>
-  <p style="margin-top:6px;">© 2025 Triumph Juku. All rights reserved.</p>
-</footer>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const delay = (e.target.dataset.delay || 0) * 0.15;
-        e.target.style.transitionDelay = `${delay}s`;
-        e.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.grade-block').forEach(el => observer.observe(el));
-</script>
+  <script src="ad.js"></script>
 </body>
 </html>
