@@ -316,6 +316,14 @@
       font-weight: 700;
       box-shadow: 0 2px 8px rgba(0,0,0,0.07);
       animation: popIn 0.4s ease backwards;
+      text-decoration: none;
+      color: var(--dark);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .icon-chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.13);
     }
     .icon-chip:nth-child(2) { animation-delay: 0.07s; background: linear-gradient(135deg, #FFE4F0, #FFBAD9); }
     .icon-chip:nth-child(3) { animation-delay: 0.14s; background: linear-gradient(135deg, #E0F2FF, #BAE0FF); }
@@ -479,10 +487,6 @@
         <div class="stat-label">教科</div>
       </div>
       <div class="stat-badge">
-        <div class="stat-num">100+</div>
-        <div class="stat-label">単元予定</div>
-      </div>
-      <div class="stat-badge">
         <div class="stat-num">0円</div>
         <div class="stat-label">完全無料</div>
       </div>
@@ -496,11 +500,11 @@
 
   <!-- ========== 教科アイコンエリア ========== -->
   <div class="icon-strip">
-    <div class="icon-chip">📐 数学</div>
-    <div class="icon-chip">🔤 英語</div>
-    <div class="icon-chip">📖 国語</div>
-    <div class="icon-chip">🔬 理科</div>
-    <div class="icon-chip">🌏 社会</div>
+    <a href="#subject-math" class="icon-chip">📐 数学</a>
+    <a href="#subject-english" class="icon-chip">🔤 英語</a>
+    <a href="#subject-science" class="icon-chip">🔬 理科</a>
+    <a href="#subject-social" class="icon-chip">🌏 社会</a>
+    <a href="#subject-japanese" class="icon-chip">📖 国語</a>
   </div>
 
   <!-- ========== 3つの特徴 ========== -->
@@ -525,75 +529,65 @@
   <!-- ========== カリキュラム ========== -->
   <section class="section" id="curriculum">
     <p class="section-label">CURRICULUM</p>
-    <h2 class="section-title">学年・教科から選ぼう 👇</h2>
+    <h2 class="section-title">教科から選ぼう 👇</h2>
 
-    <!-- 中1 -->
-    <div class="grade-block">
+    <!-- 数学 -->
+    <div class="grade-block" id="subject-math">
       <div class="grade-label">
-        <span class="grade-badge">GRADE 1</span>
-        <span class="grade-name">中学１年生</span>
+        <span class="grade-badge" style="background:#3B82F6;">📐 数学</span>
       </div>
       <div class="subject-grid">
-        <a href="units_math1.html" class="subject-card math">
-          <span class="card-icon">📐</span>
-          <div class="card-name">数学</div>
-          <div class="card-info">7章 · 68単元予定</div>
-          <span class="card-open">✓ 第1章公開中</span>
-        </a>
-        <a href="#" class="subject-card coming">
-          <span class="card-icon">🔤</span>
-          <div class="card-name">英語</div>
-          <div class="card-info">準備中</div>
-          <span class="coming-tag">COMING SOON</span>
-        </a>
-        <a href="#" class="subject-card coming">
-          <span class="card-icon">📖</span>
-          <div class="card-name">国語</div>
-          <div class="card-info">準備中</div>
-          <span class="coming-tag">COMING SOON</span>
-        </a>
-        <a href="#" class="subject-card coming">
-          <span class="card-icon">🔬</span>
-          <div class="card-name">理科</div>
-          <div class="card-info">準備中</div>
-          <span class="coming-tag">COMING SOON</span>
-        </a>
-        <a href="#" class="subject-card coming">
-          <span class="card-icon">🌏</span>
-          <div class="card-name">社会</div>
-          <div class="card-info">準備中</div>
-          <span class="coming-tag">COMING SOON</span>
-        </a>
+        <a href="units_math1.html" class="subject-card math"><span class="card-icon">📐</span><div class="card-name">中1数学</div></a>
+        <a href="units_math2.html" class="subject-card math"><span class="card-icon">📐</span><div class="card-name">中2数学</div></a>
+        <a href="units_math3.html" class="subject-card math"><span class="card-icon">📐</span><div class="card-name">中3数学</div></a>
       </div>
     </div>
 
-    <!-- 中2 -->
-    <div class="grade-block">
+    <!-- 英語 -->
+    <div class="grade-block" id="subject-english">
       <div class="grade-label">
-        <span class="grade-badge">GRADE 2</span>
-        <span class="grade-name">中学２年生</span>
+        <span class="grade-badge" style="background:#EC4899;">🔤 英語</span>
       </div>
       <div class="subject-grid">
-        <a href="#" class="subject-card coming"><span class="card-icon">📐</span><div class="card-name">数学</div><span class="coming-tag">COMING SOON</span></a>
-        <a href="#" class="subject-card coming"><span class="card-icon">🔤</span><div class="card-name">英語</div><span class="coming-tag">COMING SOON</span></a>
-        <a href="#" class="subject-card coming"><span class="card-icon">📖</span><div class="card-name">国語</div><span class="coming-tag">COMING SOON</span></a>
-        <a href="#" class="subject-card coming"><span class="card-icon">🔬</span><div class="card-name">理科</div><span class="coming-tag">COMING SOON</span></a>
-        <a href="#" class="subject-card coming"><span class="card-icon">🌏</span><div class="card-name">社会</div><span class="coming-tag">COMING SOON</span></a>
+        <a href="units_english1.html" class="subject-card english"><span class="card-icon">🔤</span><div class="card-name">中1英語</div></a>
+        <a href="units_english2.html" class="subject-card english"><span class="card-icon">🔤</span><div class="card-name">中2英語</div></a>
+        <a href="units_english3.html" class="subject-card english"><span class="card-icon">🔤</span><div class="card-name">中3英語</div></a>
       </div>
     </div>
 
-    <!-- 中3 -->
-    <div class="grade-block">
+    <!-- 理科 -->
+    <div class="grade-block" id="subject-science">
       <div class="grade-label">
-        <span class="grade-badge">GRADE 3</span>
-        <span class="grade-name">中学３年生</span>
+        <span class="grade-badge" style="background:#22C55E;">🔬 理科</span>
       </div>
       <div class="subject-grid">
-        <a href="#" class="subject-card coming"><span class="card-icon">📐</span><div class="card-name">数学</div><span class="coming-tag">COMING SOON</span></a>
-        <a href="#" class="subject-card coming"><span class="card-icon">🔤</span><div class="card-name">英語</div><span class="coming-tag">COMING SOON</span></a>
-        <a href="#" class="subject-card coming"><span class="card-icon">📖</span><div class="card-name">国語</div><span class="coming-tag">COMING SOON</span></a>
-        <a href="#" class="subject-card coming"><span class="card-icon">🔬</span><div class="card-name">理科</div><span class="coming-tag">COMING SOON</span></a>
-        <a href="#" class="subject-card coming"><span class="card-icon">🌏</span><div class="card-name">社会</div><span class="coming-tag">COMING SOON</span></a>
+        <a href="units_science1.html" class="subject-card science"><span class="card-icon">🔬</span><div class="card-name">中1理科</div></a>
+        <a href="units_science2.html" class="subject-card science"><span class="card-icon">🔬</span><div class="card-name">中2理科</div></a>
+        <a href="units_science3.html" class="subject-card science"><span class="card-icon">🔬</span><div class="card-name">中3理科</div></a>
+      </div>
+    </div>
+
+    <!-- 社会 -->
+    <div class="grade-block" id="subject-social">
+      <div class="grade-label">
+        <span class="grade-badge" style="background:#8B5CF6;">🌏 社会</span>
+      </div>
+      <div class="subject-grid">
+        <a href="units_social1.html" class="subject-card social"><span class="card-icon">🌏</span><div class="card-name">中1社会</div></a>
+        <a href="units_social2.html" class="subject-card social"><span class="card-icon">🌏</span><div class="card-name">中2社会</div></a>
+        <a href="units_social3.html" class="subject-card social"><span class="card-icon">🌏</span><div class="card-name">中3社会</div></a>
+      </div>
+    </div>
+
+    <!-- 国語 -->
+    <div class="grade-block" id="subject-japanese">
+      <div class="grade-label">
+        <span class="grade-badge" style="background:#F97316;">📖 国語</span>
+      </div>
+      <div class="subject-grid">
+        <a href="units_japanese1.html" class="subject-card japanese"><span class="card-icon">📖</span><div class="card-name">中1国語</div></a>
+        <a href="units_japanese2.html" class="subject-card japanese"><span class="card-icon">📖</span><div class="card-name">中2国語</div></a>
+        <a href="units_japanese3.html" class="subject-card japanese"><span class="card-icon">📖</span><div class="card-name">中3国語</div></a>
       </div>
     </div>
   </section>
