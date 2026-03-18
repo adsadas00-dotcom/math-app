@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1-2 数直線と符号の表し方 | 中1数学 | サクッと復習</title>
+  <meta name="description" content="中1数学「数直線と符号の表し方」の解説・練習問題。数直線の読み方・大小関係・符号の使い方をわかりやすく学べます。">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #3B82F6; --blue-light: #DBEAFE; --blue-dark: #1D4ED8;
+      --red: #EF4444; --red-light: #FEE2E2;
+      --green: #22C55E; --green-light: #DCFCE7;
+      --orange: #F97316; --orange-light: #FFF7ED;
+      --dark: #1E293B; --gray: #64748B; --light-bg: #F0F7FF;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Noto Sans JP", sans-serif; background: var(--light-bg); color: var(--dark); line-height: 1.7; }
+
+    .page-header { background: linear-gradient(135deg, #3B82F6, #60A5FA); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(59,130,246,0.3); }
+    .header-left { display: flex; align-items: center; gap: 12px; }
+    .unit-badge { background: rgba(255,255,255,0.25); color: white; font-family: "Nunito", sans-serif; font-weight: 900; font-size: 0.9rem; padding: 4px 12px; border-radius: 8px; }
+    .header-title { color: white; font-size: 1rem; font-weight: 900; }
+    .back-btn { background: rgba(255,255,255,0.2); color: white; border: none; padding: 8px 14px; border-radius: 10px; font-size: 0.8rem; font-weight: 700; text-decoration: none; transition: all 0.2s; font-family: "Noto Sans JP", sans-serif; }
+    .back-btn:hover { background: rgba(255,255,255,0.35); }
+
+    .content { max-width: 720px; margin: 0 auto; padding: 24px 16px 80px; }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 900; letter-spacing: 0.15em; color: var(--blue); margin-bottom: 12px; }
+    .section-label::before { content: ""; display: block; width: 4px; height: 16px; background: var(--blue); border-radius: 2px; }
+
+    .video-wrap { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(59,130,246,0.15); margin-bottom: 32px; }
+    .video-inner { position: relative; padding-top: 56.25%; }
+    .video-inner iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+    .card { background: white; border-radius: 16px; padding: 22px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); margin-bottom: 16px; }
+    .badge-important { display: inline-block; background: var(--blue); color: white; font-size: 0.75rem; font-weight: 900; padding: 3px 12px; border-radius: 6px; margin-bottom: 14px; letter-spacing: 0.1em; }
+    .card-title { font-size: 1.05rem; font-weight: 900; margin-bottom: 14px; }
+    .explain-text { font-size: 0.9rem; line-height: 1.85; margin-bottom: 14px; }
+    .explain-text b { color: var(--blue); }
+
+    .numberline-wrap { background: #F0F7FF; border-radius: 12px; padding: 20px 12px; border: 1px solid #BFDBFE; margin-bottom: 14px; }
+
+    .point-box { border-radius: 10px; padding: 12px 16px; margin-bottom: 8px; font-size: 0.88rem; line-height: 1.8; }
+    .point-box.blue  { background: var(--blue-light);  border-left: 4px solid var(--blue);  }
+    .point-box.blue  .pt { color: var(--blue);  font-weight: 900; margin-bottom: 3px; }
+    .point-box.red   { background: var(--red-light);   border-left: 4px solid var(--red);   }
+    .point-box.red   .pt { color: var(--red);   font-weight: 900; margin-bottom: 3px; }
+    .point-box.green { background: var(--green-light); border-left: 4px solid var(--green); }
+    .point-box.green .pt { color: var(--green); font-weight: 900; margin-bottom: 3px; }
+    .point-box.orange{ background: var(--orange-light);border-left: 4px solid var(--orange);}
+    .point-box.orange .pt { color: var(--orange);font-weight: 900; margin-bottom: 3px; }
+
+    .example-box { background: #FFFBEB; border: 2px solid #F59E0B; border-radius: 12px; padding: 14px 18px; margin-bottom: 12px; }
+    .example-label { display: inline-block; background: #854D0E; color: white; font-size: 0.75rem; font-weight: 900; padding: 2px 10px; border-radius: 6px; margin-bottom: 10px; }
+    .example-row { font-size: 0.92rem; font-weight: 700; margin-bottom: 6px; line-height: 1.7; }
+    .example-row:last-child { margin-bottom: 0; }
+    .ex-blue { color: var(--blue); font-weight: 900; }
+    .ex-red  { color: var(--red);  font-weight: 900; }
+
+    .ng-ok-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+    .ng-box { background: var(--red-light); border: 2px solid var(--red); border-radius: 10px; padding: 12px 14px; }
+    .ok-box { background: var(--green-light); border: 2px solid var(--green); border-radius: 10px; padding: 12px 14px; }
+    .ng-tag { display: inline-block; background: var(--red); color: white; font-size: 0.75rem; font-weight: 900; padding: 2px 10px; border-radius: 6px; margin-bottom: 8px; }
+    .ok-tag { display: inline-block; background: #16a34a; color: white; font-size: 0.75rem; font-weight: 900; padding: 2px 10px; border-radius: 6px; margin-bottom: 8px; }
+    .ng-text { font-size: 0.85rem; font-weight: 700; color: #991B1B; line-height: 1.7; }
+    .ok-text { font-size: 0.85rem; font-weight: 700; color: #166534; line-height: 1.7; }
+
+    .summary-box { background: var(--orange-light); border-left: 4px solid var(--orange); padding: 12px 16px; border-radius: 0 10px 10px 0; font-size: 0.88rem; font-weight: 700; color: #C2410C; margin-top: 12px; line-height: 1.9; }
+
+    /* 練習問題 */
+    .practice-header { background: var(--blue); color: white; text-align: center; font-size: 1rem; font-weight: 900; padding: 12px; border-radius: 12px 12px 0 0; letter-spacing: 0.15em; }
+    .practice-body { background: white; border-radius: 0 0 16px 16px; border: 2px solid var(--blue); border-top: none; overflow: hidden; margin-bottom: 24px; }
+    .q-block { padding: 16px 18px; border-bottom: 1px solid #DBEAFE; }
+    .q-block:last-child { border-bottom: none; }
+    .q-row { display: flex; gap: 12px; }
+    .q-num { background: var(--blue); color: white; font-weight: 900; font-size: 0.85rem; min-width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .q-content { flex: 1; }
+    .q-text { font-size: 0.92rem; font-weight: 700; margin-bottom: 10px; line-height: 1.7; }
+
+    /* 画像の答え隠し */
+    .img-answer-wrap {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #BFDBFE;
+      margin-bottom: 12px;
+    }
+    .img-answer-wrap img {
+      display: block;
+      width: 100%;
+    }
+    .img-cover {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 43%;
+      background: #EFF6FF;
+      border-top: 2px dashed var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 900;
+      color: var(--blue);
+      transition: height 0.35s ease;
+      cursor: pointer;
+    }
+    .img-cover.revealed {
+      height: 0;
+      border: none;
+    }
+
+    .ans-btn { background: var(--blue-light); color: var(--blue); border: 2px solid var(--blue); font-family: "Noto Sans JP", sans-serif; font-weight: 900; font-size: 0.82rem; padding: 7px 18px; border-radius: 8px; cursor: pointer; transition: all 0.2s; margin-top: 6px; margin-right: 6px; }
+    .ans-btn:hover { background: var(--blue); color: white; }
+    .ans-btn.hint { background: #FFFBEB; color: #854D0E; border-color: #F59E0B; }
+    .ans-btn.hint:hover { background: #854D0E; color: white; }
+    .answer-box { display: none; margin-top: 10px; background: var(--blue); color: white; border-radius: 10px; padding: 10px 14px; font-size: 0.9rem; font-weight: 700; line-height: 1.7; }
+    .answer-box.show { display: block; }
+    .hint-box { display: none; margin-top: 8px; background: #EFF6FF; border-left: 4px solid var(--blue); padding: 10px 14px; font-size: 0.85rem; border-radius: 0 8px 8px 0; line-height: 1.7; }
+    .hint-box.show { display: block; }
+
+    /* 追加問題 */
+    .extra-header { background: linear-gradient(135deg, #7C3AED, #A78BFA); color: white; text-align: center; font-size: 1rem; font-weight: 900; padding: 12px; border-radius: 12px 12px 0 0; letter-spacing: 0.1em; }
+    .extra-body { background: white; border-radius: 0 0 16px 16px; border: 2px solid #7C3AED; border-top: none; overflow: hidden; margin-bottom: 24px; }
+    .diff-badge { display: inline-block; font-size: 0.65rem; font-weight: 900; padding: 2px 8px; border-radius: 999px; margin-left: 8px; vertical-align: middle; }
+    .diff-easy { background: #DCFCE7; color: #166534; }
+    .diff-mid  { background: #FEF9C3; color: #854D0E; }
+
+    .frac { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 2px; line-height: 1.2; }
+    .frac .num { border-bottom: 2px solid currentColor; padding: 0 3px; font-size: 0.85em; }
+    .frac .den { padding: 0 3px; font-size: 0.85em; }
+
+    .unit-nav { display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap; }
+    .nav-btn { flex: 1; min-width: 140px; background: white; border: 2px solid var(--blue-light); border-radius: 12px; padding: 12px 16px; text-decoration: none; text-align: center; color: var(--dark); font-weight: 700; font-size: 0.85rem; transition: all 0.2s; }
+    .nav-btn:hover { border-color: var(--blue); background: var(--blue-light); }
+    .nav-btn.primary { background: var(--blue); color: white; border-color: var(--blue); }
+    .nav-btn.primary:hover { background: var(--blue-dark); }
+    .nav-btn small { display: block; font-size: 0.72rem; opacity: 0.7; margin-top: 2px; }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.6); text-align: center; padding: 24px 20px; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 8px; }
+    footer strong { display: block; color: white; margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="header-left">
+    <span class="unit-badge">1-2</span>
+    <span class="header-title">数直線と符号の表し方</span>
+  </div>
+  <a href="units_math1.html" class="back-btn">← 単元一覧へ</a>
+</div>
+
+<div id="ad-space"></div>
+
+<div class="content">
+
+  <!-- 動画 -->
+  <div class="section-label">動画で理解しよう</div>
+  <div class="video-wrap">
+    <div class="video-inner">
+      <iframe src="https://www.youtube.com/embed/BNLpw1j3Jbo" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- 解説 -->
+  <div class="section-label">解説・重要ポイント</div>
+
+  <!-- ① 数直線の基本 -->
+  <div class="card">
+    <span class="badge-important">重 要 ！</span>
+    <div class="card-title" style="color:var(--blue);">① 数直線とは</div>
+    <p class="explain-text">
+      数直線とは、数を直線の上に順番に並べたものです。<br>
+      中心の <b>0</b> を基準に、<b>右側が正の数・左側が負の数</b>になります。
+    </p>
+    <div class="numberline-wrap">
+      <svg viewBox="0 0 560 90" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:560px;display:block;margin:0 auto;">
+        <line x1="20" y1="48" x2="540" y2="48" stroke="#1E293B" stroke-width="2.5"/>
+        <polygon points="540,48 528,42 528,54" fill="#1E293B"/>
+        <polygon points="20,48 32,42 32,54" fill="#1E293B"/>
+        <line x1="60"  y1="40" x2="60"  y2="56" stroke="#1E293B" stroke-width="2"/>
+        <line x1="113" y1="40" x2="113" y2="56" stroke="#1E293B" stroke-width="2"/>
+        <line x1="166" y1="40" x2="166" y2="56" stroke="#1E293B" stroke-width="2"/>
+        <line x1="219" y1="40" x2="219" y2="56" stroke="#1E293B" stroke-width="2"/>
+        <line x1="272" y1="40" x2="272" y2="56" stroke="#1E293B" stroke-width="2.5"/>
+        <line x1="325" y1="40" x2="325" y2="56" stroke="#1E293B" stroke-width="2"/>
+        <line x1="378" y1="40" x2="378" y2="56" stroke="#1E293B" stroke-width="2"/>
+        <line x1="431" y1="40" x2="431" y2="56" stroke="#1E293B" stroke-width="2"/>
+        <line x1="484" y1="40" x2="484" y2="56" stroke="#1E293B" stroke-width="2"/>
+        <text x="60"  y="74" text-anchor="middle" font-size="13" fill="#3B82F6" font-weight="bold" font-family="Noto Sans JP">−5</text>
+        <text x="113" y="74" text-anchor="middle" font-size="13" fill="#3B82F6" font-weight="bold" font-family="Noto Sans JP">−4</text>
+        <text x="166" y="74" text-anchor="middle" font-size="13" fill="#3B82F6" font-weight="bold" font-family="Noto Sans JP">−3</text>
+        <text x="219" y="74" text-anchor="middle" font-size="13" fill="#3B82F6" font-weight="bold" font-family="Noto Sans JP">−2</text>
+        <text x="272" y="74" text-anchor="middle" font-size="14" fill="#1E293B" font-weight="bold" font-family="Noto Sans JP">0</text>
+        <text x="325" y="74" text-anchor="middle" font-size="13" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP">+1</text>
+        <text x="378" y="74" text-anchor="middle" font-size="13" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP">+2</text>
+        <text x="431" y="74" text-anchor="middle" font-size="13" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP">+3</text>
+        <text x="484" y="74" text-anchor="middle" font-size="13" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP">+4</text>
+        <text x="80"  y="20" text-anchor="start" font-size="12" fill="#3B82F6" font-weight="bold" font-family="Noto Sans JP">← 負の数</text>
+        <text x="380" y="20" text-anchor="start" font-size="12" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP">正の数 →</text>
+      </svg>
+    </div>
+    <div class="point-box blue">
+      <div class="pt">基本ルール</div>
+      0を中心に <b>右 → 正の数（＋）</b>　　<b>左 → 負の数（−）</b><br>
+      0から離れるほど、正の方向へは大きく、負の方向へは小さくなる。
+    </div>
+    <div class="example-box">
+      <span class="example-label">例</span>
+      <div class="example-row"><span class="ex-red">+3</span> は 0から<b>右に3</b>のところ</div>
+      <div class="example-row"><span class="ex-blue">−2</span> は 0から<b>左に2</b>のところ</div>
+    </div>
+  </div>
+
+  <!-- ② 大小関係 -->
+  <div class="card">
+    <span class="badge-important">重 要 ！</span>
+    <div class="card-title" style="color:var(--blue);">② 数の大小関係</div>
+    <p class="explain-text">
+      数直線では、<b>右にある数ほど大きく・左にある数ほど小さい</b>です。<br>
+      この「右が大きい」というルールが、数の大小を比べるときの基本になります。
+    </p>
+    <div class="numberline-wrap">
+      <svg viewBox="0 0 560 90" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:560px;display:block;margin:0 auto;">
+        <line x1="20" y1="48" x2="540" y2="48" stroke="#1E293B" stroke-width="2.5"/>
+        <polygon points="540,48 528,42 528,54" fill="#1E293B"/>
+        <polygon points="20,48 32,42 32,54" fill="#1E293B"/>
+        <line x1="60"  y1="40" x2="60"  y2="56" stroke="#1E293B" stroke-width="2"/>
+        <line x1="166" y1="40" x2="166" y2="56" stroke="#1E293B" stroke-width="2"/>
+        <line x1="272" y1="40" x2="272" y2="56" stroke="#1E293B" stroke-width="2.5"/>
+        <line x1="378" y1="40" x2="378" y2="56" stroke="#1E293B" stroke-width="2"/>
+        <line x1="484" y1="40" x2="484" y2="56" stroke="#1E293B" stroke-width="2"/>
+        <text x="60"  y="74" text-anchor="middle" font-size="13" fill="#3B82F6" font-weight="bold" font-family="Noto Sans JP">−5</text>
+        <text x="166" y="74" text-anchor="middle" font-size="13" fill="#3B82F6" font-weight="bold" font-family="Noto Sans JP">−3</text>
+        <text x="272" y="74" text-anchor="middle" font-size="14" fill="#1E293B" font-weight="bold" font-family="Noto Sans JP">0</text>
+        <text x="378" y="74" text-anchor="middle" font-size="13" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP">+3</text>
+        <text x="484" y="74" text-anchor="middle" font-size="13" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP">+5</text>
+        <text x="50"  y="20" text-anchor="start" font-size="11" fill="#3B82F6" font-weight="bold" font-family="Noto Sans JP">← こちらが小さい</text>
+        <text x="350" y="20" text-anchor="start" font-size="11" fill="#EF4444" font-weight="bold" font-family="Noto Sans JP">こちらが大きい →</text>
+      </svg>
+    </div>
+    <div class="point-box blue">
+      <div class="pt">正の数と負の数の大小</div>
+      <b>正の数は必ず負の数より大きい</b><br>
+      例：+1 の方が −100 より大きい！
+    </div>
+    <div class="point-box red">
+      <div class="pt">負の数どうしの大小 ← ここが間違えやすい！</div>
+      <b>マイナスが大きいほど小さい数</b>になる<br>
+      例：−10 の方が −1 より小さい<br>
+      数直線で左にあるほど小さいので、−10は−1より左にある。
+    </div>
+  </div>
+
+  <!-- ③ 符号の表し方 -->
+  <div class="card">
+    <span class="badge-important">重 要 ！</span>
+    <div class="card-title" style="color:var(--blue);">③ 符号の表し方</div>
+    <p class="explain-text">
+      正の数には <b>＋（プラス）</b>、負の数には <b>−（マイナス）</b> をつけます。<br>
+      ただし、<b>正の数の＋は省略できる</b>ので +3 と 3 は同じ意味です。
+    </p>
+    <div class="point-box green">
+      <div class="pt">＋の省略について</div>
+      +3 ＝ 3　（同じ意味）<br>
+      −は省略できない！　−3 はそのまま −3 と書く。
+    </div>
+    <div class="point-box orange">
+      <div class="pt">「〜より○大きい・小さい数」の表し方</div>
+      「0より7小さい数」→ <b>−7</b><br>
+      「−3より5大きい数」→ −3から右に5進む → −3＋5 ＝ <b>+2</b>
+    </div>
+    <p style="font-size:0.85rem;font-weight:900;color:var(--red);margin:14px 0 8px;">⚠️ よくある間違い</p>
+    <div class="ng-ok-wrap">
+      <div class="ng-box">
+        <span class="ng-tag">NG</span>
+        <div class="ng-text">「−5は−2より大きい」と思ってしまう<br>（マイナスの数字だけ見て大小を判断）</div>
+      </div>
+      <div class="ok-box">
+        <span class="ok-tag">OK</span>
+        <div class="ok-text">数直線で−5は−2より<b>左</b>にある<br>→ −5は−2より<b>小さい</b></div>
+      </div>
+    </div>
+    <div class="summary-box">
+      ✅ 迷ったら数直線を書こう！　右が大きい・左が小さい　これだけ！
+    </div>
+  </div>
+
+  <!-- 練習問題 -->
+  <div class="section-label">練習問題</div>
+  <div class="practice-header">練　習　問　題　①　数直線を読もう</div>
+  <div class="practice-body">
+    <!-- (1) A〜Dが表す数 -->
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num">(1)</div>
+        <div class="q-content">
+          <div class="q-text">A〜Dが表す数を答えよ。</div>
+          <div class="numberline-wrap" style="margin-bottom:10px;">
+            <svg viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:560px;display:block;margin:0 auto;">
+              <line x1="30" y1="60" x2="540" y2="60" stroke="#1E293B" stroke-width="2.5"/>
+              <polygon points="540,60 528,54 528,66" fill="#1E293B"/>
+              <polygon points="30,60 42,54 42,66" fill="#1E293B"/>
+              <line x1="35"  y1="53" x2="35"  y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="85"  y1="53" x2="85"  y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="135" y1="53" x2="135" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="185" y1="53" x2="185" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="235" y1="53" x2="235" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="285" y1="50" x2="285" y2="70" stroke="#1E293B" stroke-width="2"/>
+              <line x1="335" y1="53" x2="335" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="385" y1="53" x2="385" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="435" y1="53" x2="435" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="485" y1="53" x2="485" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <text x="35"  y="85" text-anchor="middle" font-size="12" fill="#3B82F6" font-weight="bold">−5</text>
+              <text x="85"  y="85" text-anchor="middle" font-size="12" fill="#3B82F6" font-weight="bold">−4</text>
+              <text x="135" y="85" text-anchor="middle" font-size="12" fill="#3B82F6" font-weight="bold">−3</text>
+              <text x="185" y="85" text-anchor="middle" font-size="12" fill="#3B82F6" font-weight="bold">−2</text>
+              <text x="235" y="85" text-anchor="middle" font-size="12" fill="#3B82F6" font-weight="bold">−1</text>
+              <text x="285" y="85" text-anchor="middle" font-size="13" fill="#1E293B" font-weight="bold">0</text>
+              <text x="335" y="85" text-anchor="middle" font-size="12" fill="#EF4444" font-weight="bold">+1</text>
+              <text x="385" y="85" text-anchor="middle" font-size="12" fill="#EF4444" font-weight="bold">+2</text>
+              <text x="435" y="85" text-anchor="middle" font-size="12" fill="#EF4444" font-weight="bold">+3</text>
+              <text x="485" y="85" text-anchor="middle" font-size="12" fill="#EF4444" font-weight="bold">+4</text>
+              <!-- A=-3, B=-0.5, C=+2, D=+4 -->
+              <circle cx="135" cy="60" r="6" fill="#3B82F6"/>
+              <text x="135" y="38" text-anchor="middle" font-size="15" fill="#3B82F6" font-weight="900">A</text>
+              <circle cx="260" cy="60" r="6" fill="#3B82F6"/>
+              <text x="260" y="38" text-anchor="middle" font-size="15" fill="#3B82F6" font-weight="900">B</text>
+              <circle cx="385" cy="60" r="6" fill="#EF4444"/>
+              <text x="385" y="38" text-anchor="middle" font-size="15" fill="#EF4444" font-weight="900">C</text>
+              <circle cx="485" cy="60" r="6" fill="#EF4444"/>
+              <text x="485" y="38" text-anchor="middle" font-size="15" fill="#EF4444" font-weight="900">D</text>
+            </svg>
+          </div>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="answer-box">A＝−3　　B＝−0.5　　C＝+2　　D＝+4</div>
+        </div>
+      </div>
+    </div>
+    <!-- (2) 下の数はA〜Dのどれ -->
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num">(2)</div>
+        <div class="q-content">
+          <div class="q-text">下の数はA〜Dのどれか答えよ。<br>
+            ① −4　　② −<span class="frac"><span class="num">3</span><span class="den">2</span></span>　　③ +<span class="frac"><span class="num">3</span><span class="den">2</span></span>　　④ +4
+          </div>
+          <div class="numberline-wrap" style="margin:10px 0;">
+            <svg viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:560px;display:block;margin:0 auto;">
+              <line x1="30" y1="60" x2="540" y2="60" stroke="#1E293B" stroke-width="2.5"/>
+              <polygon points="540,60 528,54 528,66" fill="#1E293B"/>
+              <polygon points="30,60 42,54 42,66" fill="#1E293B"/>
+              <line x1="35"  y1="53" x2="35"  y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="85"  y1="53" x2="85"  y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="135" y1="53" x2="135" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="185" y1="53" x2="185" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="235" y1="53" x2="235" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="285" y1="50" x2="285" y2="70" stroke="#1E293B" stroke-width="2"/>
+              <line x1="335" y1="53" x2="335" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="385" y1="53" x2="385" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="435" y1="53" x2="435" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <line x1="485" y1="53" x2="485" y2="67" stroke="#1E293B" stroke-width="1.5"/>
+              <text x="35"  y="85" text-anchor="middle" font-size="12" fill="#3B82F6" font-weight="bold">−5</text>
+              <text x="85"  y="85" text-anchor="middle" font-size="12" fill="#3B82F6" font-weight="bold">−4</text>
+              <text x="135" y="85" text-anchor="middle" font-size="12" fill="#3B82F6" font-weight="bold">−3</text>
+              <text x="185" y="85" text-anchor="middle" font-size="12" fill="#3B82F6" font-weight="bold">−2</text>
+              <text x="235" y="85" text-anchor="middle" font-size="12" fill="#3B82F6" font-weight="bold">−1</text>
+              <text x="285" y="85" text-anchor="middle" font-size="13" fill="#1E293B" font-weight="bold">0</text>
+              <text x="335" y="85" text-anchor="middle" font-size="12" fill="#EF4444" font-weight="bold">+1</text>
+              <text x="385" y="85" text-anchor="middle" font-size="12" fill="#EF4444" font-weight="bold">+2</text>
+              <text x="435" y="85" text-anchor="middle" font-size="12" fill="#EF4444" font-weight="bold">+3</text>
+              <text x="485" y="85" text-anchor="middle" font-size="12" fill="#EF4444" font-weight="bold">+4</text>
+              <!-- A=-4, B=-1.5, C=+1.5, D=+4 -->
+              <circle cx="85"  cy="60" r="6" fill="#3B82F6"/>
+              <text x="85"  y="38" text-anchor="middle" font-size="15" fill="#3B82F6" font-weight="900">A</text>
+              <circle cx="210" cy="60" r="6" fill="#3B82F6"/>
+              <text x="210" y="38" text-anchor="middle" font-size="15" fill="#3B82F6" font-weight="900">B</text>
+              <circle cx="360" cy="60" r="6" fill="#EF4444"/>
+              <text x="360" y="38" text-anchor="middle" font-size="15" fill="#EF4444" font-weight="900">C</text>
+              <circle cx="485" cy="60" r="6" fill="#EF4444"/>
+              <text x="485" y="38" text-anchor="middle" font-size="15" fill="#EF4444" font-weight="900">D</text>
+            </svg>
+          </div>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="answer-box">① A　　② B　　③ C　　④ D</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="practice-header">練　習　問　題　②　大小関係・符号</div>
+  <div class="practice-body">
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num">(1)</div>
+        <div class="q-content">
+          <div class="q-text">+4、−2、0、−5、+1 を小さい順に並べよ。</div>
+          <button class="ans-btn hint" onclick="toggleHint(this)">ヒントを見る</button>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="hint-box">数直線の左から順に並べるとOK。左にあるほど小さい。</div>
+          <div class="answer-box">−5、−2、0、+1、+4</div>
+        </div>
+      </div>
+    </div>
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num">(2)</div>
+        <div class="q-content">
+          <div class="q-text">どちらが大きいか答えよ。<br>① −3 と +1　　② −5 と −2</div>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="answer-box">
+            ① +1 が大きい　（+1は数直線で右にある）<br>
+            ② −2 が大きい　（−2は数直線で右にある）
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num">(3)</div>
+        <div class="q-content">
+          <div class="q-text">符号を使って表せ。<br>① 0より6大きい数　　② 0より4小さい数</div>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="answer-box">① +6　　② −4</div>
+        </div>
+      </div>
+    </div>
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num">(4)</div>
+        <div class="q-content">
+          <div class="q-text">−3より5大きい数はいくつか。</div>
+          <button class="ans-btn hint" onclick="toggleHint(this)">ヒントを見る</button>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="hint-box">「−3より5大きい」＝数直線で−3から右に5進む。−3＋5を計算しよう。</div>
+          <div class="answer-box">−3から右に5進む　→　−3＋5＝+2　　答え：+2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 追加問題（＞＜問題は削除） -->
+  <div class="extra-header">🔥 もっと練習しよう！</div>
+  <div class="extra-body">
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num" style="background:#7C3AED;">(5)</div>
+        <div class="q-content">
+          <div class="q-text">次の数を数直線上に表したとき、0から最も遠い数はどれか。<span class="diff-badge diff-easy">かんたん</span><br>
+          −6　　+3　　−1　　+5</div>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="answer-box">−6　（0から左に6のところ。+3は右に3、−1は左に1、+5は右に5）</div>
+        </div>
+      </div>
+    </div>
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num" style="background:#7C3AED;">(6)</div>
+        <div class="q-content">
+          <div class="q-text">次の文が正しければ○、間違っていれば✕と答えよ。<span class="diff-badge diff-easy">かんたん</span><br>
+          ① −8は−3より大きい。<br>
+          ② 正の数は0より大きい。<br>
+          ③ +5と5は同じ数を表す。</div>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="answer-box">
+            ① ✕（−8は−3より小さい。数直線で左にある）<br>
+            ② ○<br>
+            ③ ○（正の数の+は省略できる）
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num" style="background:#7C3AED;">(7)</div>
+        <div class="q-content">
+          <div class="q-text">−2より3小さい数はいくつか。<span class="diff-badge diff-mid">中級</span></div>
+          <button class="ans-btn hint" onclick="toggleHint(this)">ヒントを見る</button>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="hint-box">「小さい」＝数直線で左に進む。−2から左に3進む。−2−3を計算しよう。</div>
+          <div class="answer-box">−2から左に3進む　→　−2−3＝−5　　答え：−5</div>
+        </div>
+      </div>
+    </div>
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num" style="background:#7C3AED;">(8)</div>
+        <div class="q-content">
+          <div class="q-text">−3、+1、−7、+5、0 を大きい順に並べよ。<span class="diff-badge diff-mid">中級</span></div>
+          <button class="ans-btn hint" onclick="toggleHint(this)">ヒントを見る</button>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="hint-box">数直線の右から順に並べるとOK。右にあるほど大きい。</div>
+          <div class="answer-box">+5、+1、0、−3、−7</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="unit-nav">
+    <a href="units_math1.html" class="nav-btn primary">← 単元一覧にもどる<small>中1数学</small></a>
+    <a href="unit1-1_math1.html" class="nav-btn">← 前の単元<small>1-1 正の数・負の数とは</small></a>
+    <a href="unit1-3_math1.html" class="nav-btn">次の単元 →<small>1-3 絶対値</small></a>
+  </div>
+
+</div>
+
+<div id="ad-space-bottom"></div>
+
+<footer>
+  <strong>サクッと復習</strong>
+  個別指導塾 トライアンフ｜中学生のための無料学習アプリ<br>
+  <a href="index.html">TOP</a>
+  <a href="units_math1.html">中1数学</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  © 2025 Triumph Juku.
+</footer>
+
+<script src="ad.js"></script>
+<script>
+  function toggleAnswer(btn) {
+    const block = btn.parentElement;
+    const box = block.querySelector(".answer-box");
+    if (!box) return;
+    box.classList.toggle("show");
+    btn.textContent = box.classList.contains("show") ? "答えを隠す" : "答えを見る";
+  }
+  function toggleHint(btn) {
+    const block = btn.parentElement;
+    const box = block.querySelector(".hint-box");
+    if (!box) return;
+    box.classList.toggle("show");
+    btn.textContent = box.classList.contains("show") ? "ヒントを隠す" : "ヒントを見る";
+  }
+  function revealImg(n) {
+    const cover = document.getElementById("imgCover" + n);
+    if (cover) cover.classList.add("revealed");
+  }
+</script>
+</body>
+</html>
