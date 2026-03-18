@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1-3 絶対値 | 中1数学 | サクッと復習</title>
+  <meta name="description" content="中1数学「絶対値」の解説・練習問題。絶対値の意味・性質・求め方をわかりやすく学べます。">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #3B82F6; --blue-light: #DBEAFE; --blue-dark: #1D4ED8;
+      --red: #EF4444; --red-light: #FEE2E2;
+      --green: #22C55E; --green-light: #DCFCE7;
+      --orange: #F97316; --orange-light: #FFF7ED;
+      --dark: #1E293B; --gray: #64748B; --light-bg: #F0F7FF;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Noto Sans JP", sans-serif; background: var(--light-bg); color: var(--dark); line-height: 1.7; }
+
+    .page-header { background: linear-gradient(135deg, #3B82F6, #60A5FA); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(59,130,246,0.3); }
+    .header-left { display: flex; align-items: center; gap: 12px; }
+    .unit-badge { background: rgba(255,255,255,0.25); color: white; font-family: "Nunito", sans-serif; font-weight: 900; font-size: 0.9rem; padding: 4px 12px; border-radius: 8px; }
+    .header-title { color: white; font-size: 1rem; font-weight: 900; }
+    .back-btn { background: rgba(255,255,255,0.2); color: white; border: none; padding: 8px 14px; border-radius: 10px; font-size: 0.8rem; font-weight: 700; text-decoration: none; transition: all 0.2s; font-family: "Noto Sans JP", sans-serif; }
+    .back-btn:hover { background: rgba(255,255,255,0.35); }
+
+    .content { max-width: 720px; margin: 0 auto; padding: 24px 16px 80px; }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 900; letter-spacing: 0.15em; color: var(--blue); margin-bottom: 12px; }
+    .section-label::before { content: ""; display: block; width: 4px; height: 16px; background: var(--blue); border-radius: 2px; }
+
+    .video-wrap { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(59,130,246,0.15); margin-bottom: 32px; }
+    .video-inner { position: relative; padding-top: 56.25%; }
+    .video-inner iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+    .card { background: white; border-radius: 16px; padding: 22px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); margin-bottom: 16px; }
+    .badge-important { display: inline-block; background: var(--blue); color: white; font-size: 0.75rem; font-weight: 900; padding: 3px 12px; border-radius: 6px; margin-bottom: 14px; letter-spacing: 0.1em; }
+    .card-title { font-size: 1.05rem; font-weight: 900; margin-bottom: 14px; }
+    .explain-text { font-size: 0.9rem; line-height: 1.85; margin-bottom: 14px; }
+    .explain-text b { color: var(--blue); }
+
+    .numberline-wrap { background: #F0F7FF; border-radius: 12px; padding: 20px 12px; border: 1px solid #BFDBFE; margin-bottom: 14px; }
+
+    .point-box { border-radius: 10px; padding: 12px 16px; margin-bottom: 8px; font-size: 0.88rem; line-height: 1.8; }
+    .point-box.blue  { background: var(--blue-light);  border-left: 4px solid var(--blue); }
+    .point-box.blue  .pt { color: var(--blue);  font-weight: 900; margin-bottom: 3px; }
+    .point-box.red   { background: var(--red-light);   border-left: 4px solid var(--red); }
+    .point-box.red   .pt { color: var(--red);   font-weight: 900; margin-bottom: 3px; }
+    .point-box.green { background: var(--green-light); border-left: 4px solid var(--green); }
+    .point-box.green .pt { color: #16a34a; font-weight: 900; margin-bottom: 3px; }
+    .point-box.orange{ background: var(--orange-light);border-left: 4px solid var(--orange); }
+    .point-box.orange .pt { color: var(--orange); font-weight: 900; margin-bottom: 3px; }
+
+    /* 絶対値例ボックス */
+    .abs-row { display: flex; align-items: center; background: white; border-radius: 10px; padding: 12px 16px; margin-bottom: 8px; border-left: 5px solid var(--blue); box-shadow: 0 2px 8px rgba(0,0,0,0.05); font-size: 0.92rem; font-weight: 700; gap: 12px; }
+    .abs-row.red-border { border-left-color: var(--red); }
+    .abs-row.gray-border { border-left-color: var(--gray); }
+    .abs-label { color: var(--gray); font-size: 0.82rem; flex: 1; }
+    .abs-val { font-size: 1.4rem; font-weight: 900; color: var(--orange); min-width: 36px; text-align: right; }
+
+    /* 絶対値等しいボックス */
+    .abs-equal-box { background: var(--green-light); border-radius: 10px; padding: 12px 16px; margin-bottom: 8px; font-size: 0.92rem; font-weight: 700; border-left: 5px solid var(--green); }
+    .abs-equal-q { color: var(--dark); margin-bottom: 4px; }
+    .abs-equal-a { color: #C2410C; font-size: 1rem; font-weight: 900; }
+
+    .summary-box { background: var(--orange-light); border-left: 4px solid var(--orange); padding: 12px 16px; border-radius: 0 10px 10px 0; font-size: 0.88rem; font-weight: 700; color: #C2410C; margin-top: 12px; line-height: 1.9; }
+
+    /* 練習問題 */
+    .practice-header { background: var(--blue); color: white; text-align: center; font-size: 1rem; font-weight: 900; padding: 12px; border-radius: 12px 12px 0 0; letter-spacing: 0.15em; }
+    .practice-body { background: white; border-radius: 0 0 16px 16px; border: 2px solid var(--blue); border-top: none; overflow: hidden; margin-bottom: 24px; }
+    .q-block { padding: 16px 18px; border-bottom: 1px solid #DBEAFE; }
+    .q-block:last-child { border-bottom: none; }
+    .q-row { display: flex; gap: 12px; }
+    .q-num { background: var(--blue); color: white; font-weight: 900; font-size: 0.85rem; min-width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .q-content { flex: 1; }
+    .q-text { font-size: 0.92rem; font-weight: 700; margin-bottom: 10px; line-height: 1.7; }
+
+    .ans-btn { background: var(--blue-light); color: var(--blue); border: 2px solid var(--blue); font-family: "Noto Sans JP", sans-serif; font-weight: 900; font-size: 0.82rem; padding: 7px 18px; border-radius: 8px; cursor: pointer; transition: all 0.2s; margin-top: 6px; margin-right: 6px; }
+    .ans-btn:hover { background: var(--blue); color: white; }
+    .ans-btn.hint { background: #FFFBEB; color: #854D0E; border-color: #F59E0B; }
+    .ans-btn.hint:hover { background: #854D0E; color: white; }
+    .answer-box { display: none; margin-top: 10px; background: var(--blue); color: white; border-radius: 10px; padding: 10px 14px; font-size: 0.9rem; font-weight: 700; line-height: 1.9; }
+    .answer-box.show { display: block; }
+    .hint-box { display: none; margin-top: 8px; background: #EFF6FF; border-left: 4px solid var(--blue); padding: 10px 14px; font-size: 0.85rem; border-radius: 0 8px 8px 0; line-height: 1.7; }
+    .hint-box.show { display: block; }
+
+    /* 追加問題 */
+    .extra-header { background: linear-gradient(135deg, #7C3AED, #A78BFA); color: white; text-align: center; font-size: 1rem; font-weight: 900; padding: 12px; border-radius: 12px 12px 0 0; letter-spacing: 0.1em; }
+    .extra-body { background: white; border-radius: 0 0 16px 16px; border: 2px solid #7C3AED; border-top: none; overflow: hidden; margin-bottom: 24px; }
+    .diff-badge { display: inline-block; font-size: 0.65rem; font-weight: 900; padding: 2px 8px; border-radius: 999px; margin-left: 8px; vertical-align: middle; }
+    .diff-easy { background: #DCFCE7; color: #166534; }
+    .diff-mid  { background: #FEF9C3; color: #854D0E; }
+
+    /* 絶対値記号 */
+    .abs { display: inline-block; border-left: 2.5px solid currentColor; border-right: 2.5px solid currentColor; padding: 0 3px; margin: 0 1px; }
+
+    .unit-nav { display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap; }
+    .nav-btn { flex: 1; min-width: 140px; background: white; border: 2px solid var(--blue-light); border-radius: 12px; padding: 12px 16px; text-decoration: none; text-align: center; color: var(--dark); font-weight: 700; font-size: 0.85rem; transition: all 0.2s; }
+    .nav-btn:hover { border-color: var(--blue); background: var(--blue-light); }
+    .nav-btn.primary { background: var(--blue); color: white; border-color: var(--blue); }
+    .nav-btn.primary:hover { background: var(--blue-dark); }
+    .nav-btn small { display: block; font-size: 0.72rem; opacity: 0.7; margin-top: 2px; }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.6); text-align: center; padding: 24px 20px; font-size: 0.8rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 8px; }
+    footer strong { display: block; color: white; margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="header-left">
+    <span class="unit-badge">1-3</span>
+    <span class="header-title">絶対値</span>
+  </div>
+  <a href="units_math1.html" class="back-btn">← 単元一覧へ</a>
+</div>
+
+<div id="ad-space"></div>
+
+<div class="content">
+
+  <!-- 動画 -->
+  <div class="section-label">動画で理解しよう</div>
+  <div class="video-wrap">
+    <div class="video-inner">
+      <iframe src="https://www.youtube.com/embed/7eL_bk58v20" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- 解説 -->
+  <div class="section-label">解説・重要ポイント</div>
+
+  <!-- ① 絶対値とは -->
+  <div class="card">
+    <span class="badge-important">重 要 ！</span>
+    <div class="card-title" style="color:var(--blue);">① 絶対値とは</div>
+    <p class="explain-text">
+      絶対値とは、<b>数直線上で0からその数までの距離</b>のことです。<br>
+      記号は両側に縦棒をつけて表します（例：|−3| ＝ 3）
+    </p>
+
+    <!-- 数直線SVG：-3と+4を示す -->
+    <div class="numberline-wrap">
+      <svg viewBox="0 0 580 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:580px;display:block;margin:0 auto;">
+        <!-- 軸 -->
+        <line x1="30" y1="55" x2="560" y2="55" stroke="#1E293B" stroke-width="2.5"/>
+        <polygon points="560,55 548,49 548,61" fill="#1E293B"/>
+        <polygon points="30,55 42,49 42,61" fill="#1E293B"/>
+        <!-- 目盛り: -5=55, -4=107, -3=159, -2=211, -1=263, 0=315, +1=367, +2=419, +3=471, +4=523, +5=535 -->
+        <!-- step=52 -->
+        <line x1="55"  y1="48" x2="55"  y2="62" stroke="#1E293B" stroke-width="1.5"/>
+        <line x1="107" y1="48" x2="107" y2="62" stroke="#1E293B" stroke-width="1.5"/>
+        <line x1="159" y1="48" x2="159" y2="62" stroke="#1E293B" stroke-width="1.5"/>
+        <line x1="211" y1="48" x2="211" y2="62" stroke="#1E293B" stroke-width="1.5"/>
+        <line x1="263" y1="48" x2="263" y2="62" stroke="#1E293B" stroke-width="1.5"/>
+        <line x1="315" y1="45" x2="315" y2="65" stroke="#1E293B" stroke-width="2"/>
+        <line x1="367" y1="48" x2="367" y2="62" stroke="#1E293B" stroke-width="1.5"/>
+        <line x1="419" y1="48" x2="419" y2="62" stroke="#1E293B" stroke-width="1.5"/>
+        <line x1="471" y1="48" x2="471" y2="62" stroke="#1E293B" stroke-width="1.5"/>
+        <line x1="523" y1="48" x2="523" y2="62" stroke="#1E293B" stroke-width="1.5"/>
+        <!-- 数字 -->
+        <text x="55"  y="80" text-anchor="middle" font-size="12" fill="#64748B">−5</text>
+        <text x="159" y="80" text-anchor="middle" font-size="12" fill="#3B82F6" font-weight="bold">−3</text>
+        <text x="315" y="80" text-anchor="middle" font-size="13" fill="#1E293B" font-weight="bold">0</text>
+        <text x="523" y="80" text-anchor="middle" font-size="12" fill="#EF4444" font-weight="bold">+4</text>
+        <text x="535" y="80" text-anchor="middle" font-size="12" fill="#64748B">+5</text>
+        <!-- -3の点 -->
+        <circle cx="159" cy="55" r="7" fill="#3B82F6"/>
+        <text x="159" y="30" text-anchor="middle" font-size="13" fill="#3B82F6" font-weight="900">−3</text>
+        <!-- +4の点 -->
+        <circle cx="523" cy="55" r="7" fill="#EF4444"/>
+        <text x="523" y="30" text-anchor="middle" font-size="13" fill="#EF4444" font-weight="900">+4</text>
+        <!-- 距離3の矢印（-3〜0） -->
+        <line x1="159" y1="95" x2="315" y2="95" stroke="#3B82F6" stroke-width="2.5"/>
+        <polygon points="159,95 170,90 170,100" fill="#3B82F6"/>
+        <polygon points="315,95 304,90 304,100" fill="#3B82F6"/>
+        <text x="237" y="110" text-anchor="middle" font-size="12" fill="#3B82F6" font-weight="bold">距離 3</text>
+        <!-- 距離4の矢印（0〜+4）-->
+        <line x1="315" y1="70" x2="523" y2="70" stroke="#EF4444" stroke-width="2.5"/>
+        <polygon points="315,70 326,65 326,75" fill="#EF4444"/>
+        <polygon points="523,70 512,65 512,75" fill="#EF4444"/>
+        <text x="419" y="86" text-anchor="middle" font-size="12" fill="#EF4444" font-weight="bold">距離 4</text>
+      </svg>
+    </div>
+
+    <div class="point-box blue">
+      <div class="pt">絶対値の求め方</div>
+      符号をとりのぞいた数（プラス・マイナスを無視した数）が絶対値<br>
+      例：|−3| ＝ <b>3</b>　　|+4| ＝ <b>4</b>　　|0| ＝ <b>0</b>
+    </div>
+  </div>
+
+  <!-- ② 絶対値は必ず0以上 -->
+  <div class="card">
+    <span class="badge-important">重 要 ！</span>
+    <div class="card-title" style="color:var(--blue);">② 絶対値は必ず0以上</div>
+    <p class="explain-text">
+      絶対値は「距離」なので、<b>マイナスにはなりません</b>。かならず 0 以上になります。
+    </p>
+
+    <div class="abs-row red-border">
+      <div>
+        <div style="font-weight:900; color:var(--red);">+9 の絶対値</div>
+        <div class="abs-label">0から右に9の距離</div>
+      </div>
+      <div class="abs-val">9</div>
+    </div>
+    <div class="abs-row">
+      <div>
+        <div style="font-weight:900; color:var(--blue);">−6 の絶対値</div>
+        <div class="abs-label">0から左に6の距離</div>
+      </div>
+      <div class="abs-val">6</div>
+    </div>
+    <div class="abs-row gray-border">
+      <div>
+        <div style="font-weight:900; color:var(--gray);">0 の絶対値</div>
+        <div class="abs-label">0から0の距離</div>
+      </div>
+      <div class="abs-val">0</div>
+    </div>
+
+    <div class="summary-box">
+      ✅ 絶対値 ＝ 符号を外した数（マイナスがついていても外してしまえばOK！）
+    </div>
+  </div>
+
+  <!-- ③ 絶対値が等しい2つの数 -->
+  <div class="card">
+    <span class="badge-important">重 要 ！</span>
+    <div class="card-title" style="color:var(--blue);">③ 絶対値が等しい2つの数</div>
+    <p class="explain-text">
+      絶対値が同じ数は、<b>＋と−の2つ存在します</b>（0だけは1つ）。<br>
+      0から同じ距離にある2点は、0の両側に1つずつあるから。
+    </p>
+
+    <div class="abs-equal-box">
+      <div class="abs-equal-q">絶対値が6の数は？</div>
+      <div class="abs-equal-a">+6 と −6 の2つ</div>
+    </div>
+    <div class="abs-equal-box">
+      <div class="abs-equal-q">絶対値が2.5の数は？</div>
+      <div class="abs-equal-a">+2.5 と −2.5 の2つ</div>
+    </div>
+    <div class="abs-equal-box">
+      <div class="abs-equal-q">絶対値が0の数は？</div>
+      <div class="abs-equal-a">0 の1つだけ</div>
+    </div>
+
+    <div class="point-box orange" style="margin-top:12px;">
+      <div class="pt">覚え方</div>
+      絶対値が n の数 → <b>+n と −n の2つ</b>（ただし n=0 のときは 0 だけ）
+    </div>
+  </div>
+
+  <!-- 練習問題 -->
+  <div class="section-label">練習問題</div>
+  <div class="practice-header">練　習　問　題</div>
+  <div class="practice-body">
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num">(1)</div>
+        <div class="q-content">
+          <div class="q-text">次の絶対値を求めよ。<br>① +9　　② −6　　③ 0　　④ −2.5</div>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="answer-box">① 9　　② 6　　③ 0　　④ 2.5</div>
+        </div>
+      </div>
+    </div>
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num">(2)</div>
+        <div class="q-content">
+          <div class="q-text">絶対値が5の数をすべて答えよ。</div>
+          <button class="ans-btn hint" onclick="toggleHint(this)">ヒントを見る</button>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="hint-box">0から距離5の数は、右と左に1つずつある。</div>
+          <div class="answer-box">+5 と −5</div>
+        </div>
+      </div>
+    </div>
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num">(3)</div>
+        <div class="q-content">
+          <div class="q-text">絶対値が大きいのはどちらか答えよ。<br>　−8 と +5</div>
+          <button class="ans-btn hint" onclick="toggleHint(this)">ヒントを見る</button>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="hint-box">それぞれの絶対値を求めてから比べよう。</div>
+          <div class="answer-box">
+            −8の絶対値は 8、+5の絶対値は 5<br>
+            8 ＞ 5 なので、絶対値が大きいのは <b>−8</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 追加問題 -->
+  <div class="extra-header">🔥 もっと練習しよう！</div>
+  <div class="extra-body">
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num" style="background:#7C3AED;">(4)</div>
+        <div class="q-content">
+          <div class="q-text">次の絶対値を求めよ。<span class="diff-badge diff-easy">かんたん</span><br>
+          ① −100　　② +0.3　　③ −<span style="display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 2px;"><span style="border-bottom:2px solid currentColor;padding:0 3px;font-size:0.85em;">1</span><span style="padding:0 3px;font-size:0.85em;">2</span></span></div>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="answer-box">① 100　　② 0.3　　③ 1/2（2分の1）</div>
+        </div>
+      </div>
+    </div>
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num" style="background:#7C3AED;">(5)</div>
+        <div class="q-content">
+          <div class="q-text">絶対値が3の数と絶対値が7の数をすべて答えよ。<span class="diff-badge diff-easy">かんたん</span></div>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="answer-box">
+            絶対値が3の数：+3 と −3<br>
+            絶対値が7の数：+7 と −7
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num" style="background:#7C3AED;">(6)</div>
+        <div class="q-content">
+          <div class="q-text">次の文が正しければ○、間違っていれば✕と答えよ。<span class="diff-badge diff-easy">かんたん</span><br>
+          ① 絶対値は必ず正の数になる。<br>
+          ② −7 の絶対値は −7 である。<br>
+          ③ 絶対値が等しい2つの数は必ず存在する。</div>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="answer-box">
+            ① ✕（0の絶対値は0なので、正の数とは限らない。0以上が正しい）<br>
+            ② ✕（−7の絶対値は7。絶対値は負にならない）<br>
+            ③ ✕（絶対値が0の数は0だけ。0に対応する「もう1つの数」はない）
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num" style="background:#7C3AED;">(7)</div>
+        <div class="q-content">
+          <div class="q-text">−4、+6、−2、+1 を絶対値の大きい順に並べよ。<span class="diff-badge diff-mid">中級</span></div>
+          <button class="ans-btn hint" onclick="toggleHint(this)">ヒントを見る</button>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="hint-box">まず各数の絶対値を求めてみよう。−4→4、+6→6、−2→2、+1→1</div>
+          <div class="answer-box">
+            各絶対値：|+6|=6、|−4|=4、|−2|=2、|+1|=1<br>
+            絶対値の大きい順：+6、−4、−2、+1
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="q-block">
+      <div class="q-row">
+        <div class="q-num" style="background:#7C3AED;">(8)</div>
+        <div class="q-content">
+          <div class="q-text">絶対値が4より小さい整数をすべて答えよ。<span class="diff-badge diff-mid">中級</span></div>
+          <button class="ans-btn hint" onclick="toggleHint(this)">ヒントを見る</button>
+          <button class="ans-btn" onclick="toggleAnswer(this)">答えを見る</button>
+          <div class="hint-box">絶対値が4より小さい → 0からの距離が4未満。数直線で0の近くにある整数を探そう。</div>
+          <div class="answer-box">−3、−2、−1、0、+1、+2、+3（7個）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="unit-nav">
+    <a href="units_math1.html" class="nav-btn primary">← 単元一覧にもどる<small>中1数学</small></a>
+    <a href="unit1-2_math1.html" class="nav-btn">← 前の単元<small>1-2 数直線と符号の表し方</small></a>
+    <a href="unit1-4_math1.html" class="nav-btn">次の単元 →<small>1-4 整数・自然数</small></a>
+  </div>
+
+</div>
+
+<div id="ad-space-bottom"></div>
+
+<footer>
+  <strong>サクッと復習</strong>
+  個別指導塾 トライアンフ｜中学生のための無料学習アプリ<br>
+  <a href="index.html">TOP</a>
+  <a href="units_math1.html">中1数学</a>
+  <a href="privacy.html">プライバシーポリシー</a>
+  © 2025 Triumph Juku.
+</footer>
+
+<script src="ad.js"></script>
+<script>
+  function toggleAnswer(btn) {
+    const block = btn.parentElement;
+    const box = block.querySelector(".answer-box");
+    if (!box) return;
+    box.classList.toggle("show");
+    btn.textContent = box.classList.contains("show") ? "答えを隠す" : "答えを見る";
+  }
+  function toggleHint(btn) {
+    const block = btn.parentElement;
+    const box = block.querySelector(".hint-box");
+    if (!box) return;
+    box.classList.toggle("show");
+    btn.textContent = box.classList.contains("show") ? "ヒントを隠す" : "ヒントを見る";
+  }
+</script>
+</body>
+</html>
