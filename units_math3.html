@@ -3,132 +3,376 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>中3数学 単元一覧 | サクッと復習</title>
-  <meta name="description" content="中学3年生の数学単元一覧。多項式・平方根・二次方程式・二乗に比例する関数・図形・標本調査を学べます。">
+  <title>📐 中3数学 単元一覧 | サクッと復習</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
-    :root { --math-color: #1D4ED8; --math-light: #DBEAFE; --dark: #1E293B; }
+    :root {
+      --main: #3B82F6;
+      --main-dark: #1D4ED8;
+      --main-light: #DBEAFE;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --bg: #F8FAFC;
+      --white: #FFFFFF;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Noto Sans JP', sans-serif; background: #F0F7FF; color: var(--dark); }
-    .page-header { background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 60%, #3B82F6 100%); padding: 40px 20px 60px; text-align: center; position: relative; overflow: hidden; }
-    .page-header::before { content: ''; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%; }
-    .back-link { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.85rem; font-weight: 700; margin-bottom: 16px; }
-    .back-link:hover { color: white; }
-    .header-badge { background: rgba(255,255,255,0.25); color: white; font-size: 0.75rem; font-weight: 900; padding: 4px 14px; border-radius: 999px; display: inline-block; margin-bottom: 10px; letter-spacing: 0.1em; }
-    .page-title { font-family: 'Nunito', sans-serif; font-size: clamp(1.8rem, 6vw, 3rem); font-weight: 900; color: white; text-shadow: 2px 3px 0 rgba(0,0,0,0.1); }
-    .page-sub { color: rgba(255,255,255,0.85); font-size: 0.85rem; font-weight: 700; margin-top: 6px; }
-    .toc { background: white; max-width: 680px; margin: 16px auto 0; border-radius: 20px; padding: 24px; box-shadow: 0 8px 32px rgba(29,78,216,0.15); position: relative; z-index: 1; }
-    .toc-title { font-size: 0.8rem; font-weight: 900; color: var(--math-color); letter-spacing: 0.15em; margin-bottom: 14px; }
-    .toc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    @media (min-width: 480px) { .toc-grid { grid-template-columns: repeat(3, 1fr); } }
-    .toc-item { background: var(--math-light); border-radius: 10px; padding: 8px 12px; text-decoration: none; color: var(--math-color); font-size: 0.8rem; font-weight: 700; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
-    .toc-item:hover { background: var(--math-color); color: white; transform: translateY(-2px); }
-    .content { max-width: 680px; margin: 0 auto; padding: 32px 20px 60px; }
-    .chapter { background: white; border-radius: 20px; margin-bottom: 24px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
-    .chapter-header { background: linear-gradient(135deg, #1D4ED8, #2563EB); padding: 18px 24px; display: flex; align-items: center; gap: 14px; }
-    .chapter-num { background: rgba(255,255,255,0.3); color: white; font-family: 'Nunito', sans-serif; font-size: 0.75rem; font-weight: 900; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .chapter-title { color: white; font-size: 1.1rem; font-weight: 900; }
-    .chapter-icon { margin-left: auto; font-size: 1.8rem; }
-    .unit-list { padding: 16px; display: flex; flex-direction: column; gap: 8px; }
-    .unit-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 12px; text-decoration: none; color: var(--dark); background: #F8FAFF; border: 1px solid #E0EAFF; transition: all 0.2s; }
-    .unit-item:hover { background: var(--math-light); border-color: var(--math-color); transform: translateX(4px); }
-    .unit-item.coming { background: #F8FAFC; border-color: #E2E8F0; cursor: default; pointer-events: none; }
-    .unit-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--math-color); flex-shrink: 0; }
-    .unit-item.coming .unit-dot { background: #CBD5E1; }
-    .unit-name { font-size: 0.9rem; font-weight: 700; flex: 1; }
-    .unit-item.coming .unit-name { color: #94A3B8; }
-    .unit-tag { font-size: 0.65rem; font-weight: 900; padding: 3px 10px; border-radius: 999px; background: var(--math-light); color: var(--math-color); }
-    .unit-item.coming .unit-tag { background: #F1F5F9; color: #94A3B8; }
-    footer { background: var(--dark); color: rgba(255,255,255,0.6); text-align: center; padding: 28px 20px; font-size: 0.8rem; }
-    footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 10px; font-size: 0.75rem; }
-    footer strong { display: block; color: white; margin-bottom: 6px; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* HEADER */
+    .page-header {
+      background: var(--main);
+      padding: 20px 16px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .back-top {
+      position: absolute; top: 16px; left: 16px;
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      background: rgba(255,255,255,0.2); padding: 5px 12px;
+      border-radius: 20px; border: 1px solid rgba(255,255,255,0.35);
+      transition: background 0.2s;
+    }
+    .back-top:hover { background: rgba(255,255,255,0.35); }
+    .grade-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2); color: white;
+      font-size: 12px; font-weight: 700; padding: 3px 12px;
+      border-radius: 20px; margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .page-title {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: 28px; color: white; margin-bottom: 4px;
+    }
+    .page-subtitle { color: rgba(255,255,255,0.8); font-size: 13px; }
+
+    /* TOC */
+    .toc {
+      background: white; border-bottom: 1px solid var(--border);
+      padding: 12px 16px; overflow-x: auto;
+      display: flex; gap: 8px; align-items: center;
+    }
+    .toc a {
+      white-space: nowrap; text-decoration: none;
+      color: var(--main); font-size: 13px; font-weight: 700;
+      padding: 4px 10px; border-radius: 16px;
+      border: 1px solid var(--main-light);
+      transition: all 0.2s;
+    }
+    .toc a:hover { background: var(--main-light); }
+
+    /* MAIN */
+    main { max-width: 760px; margin: 0 auto; padding: 24px 16px 60px; }
+
+    /* CHAPTER */
+    .chapter {
+      background: white; border-radius: 16px;
+      border: 1px solid var(--border); margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .chapter-header {
+      background: var(--main); color: white;
+      padding: 12px 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .ch-icon {
+      font-size: 20px; width: 36px; height: 36px;
+      background: rgba(255,255,255,0.2); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ch-info { flex: 1; }
+    .ch-label { font-size: 11px; opacity: 0.8; margin-bottom: 2px; }
+    .ch-title { font-weight: 900; font-size: 17px; }
+    .unit-list { padding: 8px; display: flex; flex-direction: column; gap: 4px; }
+
+    /* UNIT ITEM */
+    .unit-item {
+      display: flex; align-items: center;
+      padding: 12px 14px; border-radius: 10px;
+      text-decoration: none; color: var(--text);
+      transition: all 0.2s; gap: 10px;
+      border: 1px solid transparent;
+    }
+    .unit-item:hover { background: var(--main-light); border-color: var(--main-light); }
+    .unit-item.coming {
+      color: var(--text-muted); pointer-events: none;
+    }
+    .unit-num {
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: 13px; color: var(--main);
+      min-width: 28px;
+    }
+    .unit-name { flex: 1; font-weight: 700; font-size: 15px; }
+    .unit-tag {
+      font-size: 11px; font-weight: 700; padding: 3px 9px;
+      border-radius: 12px; white-space: nowrap;
+    }
+    .unit-item:not(.coming) .unit-tag {
+      background: #DCFCE7; color: #15803D; border: 1px solid #86EFAC;
+    }
+    .unit-item.coming .unit-tag {
+      background: #F1F5F9; color: #94A3B8; border: 1px solid var(--border);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 24px 16px;
+      font-size: 12px; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--main); text-decoration: none; margin: 0 8px; }
   </style>
 </head>
 <body>
-  <div class="page-header">
-    <div><a href="index.html" class="back-link">← TOPにもどる</a></div>
-    <div class="header-badge">GRADE 3 · 数学</div>
-    <h1 class="page-title">📐 中3数学</h1>
-    <p class="page-sub">全6章 · 単元一覧</p>
-  </div>
-  <div id="ad-space"></div>
-  <div class="toc">
-    <p class="toc-title">📋 目次 · CONTENTS</p>
-    <div class="toc-grid">
-      <a href="#ch1" class="toc-item">① 多項式</a>
-      <a href="#ch2" class="toc-item">② 平方根</a>
-      <a href="#ch3" class="toc-item">③ 二次方程式</a>
-      <a href="#ch4" class="toc-item">④ 関数y=ax²</a>
-      <a href="#ch5" class="toc-item">⑤ 図形</a>
-      <a href="#ch6" class="toc-item">⑥ 標本調査</a>
-    </div>
-  </div>
-  <div class="content">
-    <div class="chapter" id="ch1">
-      <div class="chapter-header"><div class="chapter-num">第1章</div><div class="chapter-title">多項式</div><div class="chapter-icon">🔢</div></div>
-      <div class="unit-list">
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">多項式の乗法</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">乗法公式</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">因数分解（共通因数）</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">因数分解（公式の利用）</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">式の計算の利用</div><span class="unit-tag">準備中</span></a>
+
+<div class="page-header">
+  <a href="https://adsadas00-dotcom.github.io/math-app/index.html" class="back-top">← TOPにもどる</a>
+  <div class="grade-badge">GRADE 3 · 数学</div>
+  <div class="page-title">📐 中3数学</div>
+  <div class="page-subtitle">全6章 · 単元一覧</div>
+</div>
+
+<nav class="toc">
+  <span style="font-size:12px;color:var(--text-muted);font-weight:700;">📋 目次</span>
+  <a href="#ch1">① 多項式</a>
+  <a href="#ch2">② 平方根</a>
+  <a href="#ch3">③ 二次方程式</a>
+  <a href="#ch4">④ 関数y=ax²</a>
+  <a href="#ch5">⑤ 図形</a>
+  <a href="#ch6">⑥ 標本調査</a>
+</nav>
+
+<main>
+
+  <!-- 第1章 多項式 -->
+  <div class="chapter" id="ch1">
+    <div class="chapter-header">
+      <div class="ch-icon">🔢</div>
+      <div class="ch-info">
+        <div class="ch-label">第1章</div>
+        <div class="ch-title">多項式</div>
       </div>
     </div>
-    <div class="chapter" id="ch2">
-      <div class="chapter-header"><div class="chapter-num">第2章</div><div class="chapter-title">平方根</div><div class="chapter-icon">√</div></div>
-      <div class="unit-list">
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">平方根とは</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">有理数と無理数</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">根号の計算（乗法・除法）</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">根号の計算（加法・減法）</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">平方根の利用</div><span class="unit-tag">準備中</span></a>
-      </div>
-    </div>
-    <div class="chapter" id="ch3">
-      <div class="chapter-header"><div class="chapter-num">第3章</div><div class="chapter-title">二次方程式</div><div class="chapter-icon">⚖️</div></div>
-      <div class="unit-list">
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">二次方程式とは</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">平方根を使った解き方</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">因数分解を使った解き方</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">解の公式</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">二次方程式の利用</div><span class="unit-tag">準備中</span></a>
-      </div>
-    </div>
-    <div class="chapter" id="ch4">
-      <div class="chapter-header"><div class="chapter-num">第4章</div><div class="chapter-title">関数 y = ax²</div><div class="chapter-icon">📈</div></div>
-      <div class="unit-list">
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">y = ax² とは</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">y = ax² のグラフ</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">変化の割合</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">いろいろな関数の利用</div><span class="unit-tag">準備中</span></a>
-      </div>
-    </div>
-    <div class="chapter" id="ch5">
-      <div class="chapter-header"><div class="chapter-num">第5章</div><div class="chapter-title">図形と相似・三平方</div><div class="chapter-icon">📐</div></div>
-      <div class="unit-list">
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">相似な図形・相似条件</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">平行線と線分の比</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">相似な図形の面積比・体積比</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">円周角の定理</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">三平方の定理</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">三平方の定理の利用</div><span class="unit-tag">準備中</span></a>
-      </div>
-    </div>
-    <div class="chapter" id="ch6">
-      <div class="chapter-header"><div class="chapter-num">第6章</div><div class="chapter-title">標本調査</div><div class="chapter-icon">📊</div></div>
-      <div class="unit-list">
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">全数調査と標本調査</div><span class="unit-tag">準備中</span></a>
-        <a href="#" class="unit-item coming"><div class="unit-dot"></div><div class="unit-name">標本調査の利用</div><span class="unit-tag">準備中</span></a>
-      </div>
+    <div class="unit-list">
+      <a href="unit1-1_math3.html" class="unit-item">
+        <div class="unit-num">1-1</div>
+        <div class="unit-name">式の展開①（分配法則と展開）</div>
+        <span class="unit-tag">公開中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">1-2</div>
+        <div class="unit-name">乗法公式</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">1-3</div>
+        <div class="unit-name">因数分解（共通因数）</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">1-4</div>
+        <div class="unit-name">因数分解（公式の利用）</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">1-5</div>
+        <div class="unit-name">式の計算の利用</div>
+        <span class="unit-tag">準備中</span>
+      </a>
     </div>
   </div>
-  <div id="ad-space-bottom"></div>
-  <footer>
-    <strong>サクッと復習</strong>
-    個別指導塾 トライアンフ｜中学生のための無料学習アプリ<br>
-    <a href="index.html">TOP</a><a href="privacy.html">プライバシーポリシー</a>
-    © 2025 Triumph Juku.
-  </footer>
-  <script src="ad.js"></script>
+
+  <!-- 第2章 平方根 -->
+  <div class="chapter" id="ch2">
+    <div class="chapter-header">
+      <div class="ch-icon">√</div>
+      <div class="ch-info">
+        <div class="ch-label">第2章</div>
+        <div class="ch-title">平方根</div>
+      </div>
+    </div>
+    <div class="unit-list">
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">2-1</div>
+        <div class="unit-name">平方根とは</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">2-2</div>
+        <div class="unit-name">有理数と無理数</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">2-3</div>
+        <div class="unit-name">根号の計算（乗法・除法）</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">2-4</div>
+        <div class="unit-name">根号の計算（加法・減法）</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">2-5</div>
+        <div class="unit-name">平方根の利用</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 第3章 二次方程式 -->
+  <div class="chapter" id="ch3">
+    <div class="chapter-header">
+      <div class="ch-icon">⚖️</div>
+      <div class="ch-info">
+        <div class="ch-label">第3章</div>
+        <div class="ch-title">二次方程式</div>
+      </div>
+    </div>
+    <div class="unit-list">
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">3-1</div>
+        <div class="unit-name">二次方程式とは</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">3-2</div>
+        <div class="unit-name">平方根を使った解き方</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">3-3</div>
+        <div class="unit-name">因数分解を使った解き方</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">3-4</div>
+        <div class="unit-name">解の公式</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">3-5</div>
+        <div class="unit-name">二次方程式の利用</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 第4章 関数y=ax² -->
+  <div class="chapter" id="ch4">
+    <div class="chapter-header">
+      <div class="ch-icon">📈</div>
+      <div class="ch-info">
+        <div class="ch-label">第4章</div>
+        <div class="ch-title">関数 y = ax²</div>
+      </div>
+    </div>
+    <div class="unit-list">
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">4-1</div>
+        <div class="unit-name">y = ax² とは</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">4-2</div>
+        <div class="unit-name">y = ax² のグラフ</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">4-3</div>
+        <div class="unit-name">変化の割合</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">4-4</div>
+        <div class="unit-name">いろいろな関数の利用</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 第5章 図形 -->
+  <div class="chapter" id="ch5">
+    <div class="chapter-header">
+      <div class="ch-icon">📐</div>
+      <div class="ch-info">
+        <div class="ch-label">第5章</div>
+        <div class="ch-title">図形と相似・三平方</div>
+      </div>
+    </div>
+    <div class="unit-list">
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">5-1</div>
+        <div class="unit-name">相似な図形・相似条件</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">5-2</div>
+        <div class="unit-name">平行線と線分の比</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">5-3</div>
+        <div class="unit-name">相似な図形の面積比・体積比</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">5-4</div>
+        <div class="unit-name">円周角の定理</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">5-5</div>
+        <div class="unit-name">三平方の定理</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">5-6</div>
+        <div class="unit-name">三平方の定理の利用</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 第6章 標本調査 -->
+  <div class="chapter" id="ch6">
+    <div class="chapter-header">
+      <div class="ch-icon">📊</div>
+      <div class="ch-info">
+        <div class="ch-label">第6章</div>
+        <div class="ch-title">標本調査</div>
+      </div>
+    </div>
+    <div class="unit-list">
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">6-1</div>
+        <div class="unit-name">全数調査と標本調査</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+      <a href="#" class="unit-item coming">
+        <div class="unit-num">6-2</div>
+        <div class="unit-name">標本調査の利用</div>
+        <span class="unit-tag">準備中</span>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <strong>サクッと復習</strong> by 個別指導トライアンフ<br>
+  <a href="https://adsadas00-dotcom.github.io/math-app/index.html">TOP</a>
+  <a href="https://adsadas00-dotcom.github.io/math-app/privacy.html">プライバシーポリシー</a><br>
+  © 2025 Triumph Juku.
+</footer>
+
 </body>
 </html>
