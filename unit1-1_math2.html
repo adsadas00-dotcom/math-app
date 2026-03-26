@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>単項式と多項式 | 中2数学 | サクッと復習</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main: #3B82F6;
+      --main-dark: #1D4ED8;
+      --main-light: #DBEAFE;
+      --main-lighter: #EFF6FF;
+      --accent: #F59E0B;
+      --accent-light: #FEF3C7;
+      --correct: #22C55E;
+      --correct-light: #DCFCE7;
+      --danger: #EF4444;
+      --danger-light: #FEE2E2;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --bg: #F8FAFC;
+      --step-bg: #F1F5F9;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); padding-top:70px; }
+
+    header {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      background:var(--main); height:60px;
+      display:flex; align-items:center; justify-content:space-between; padding:0 16px;
+      box-shadow:0 2px 12px rgba(59,130,246,0.25);
+    }
+    .header-left { display:flex; align-items:center; gap:10px; }
+    .unit-badge { background:white; color:var(--main); font-family:'Nunito',sans-serif; font-weight:900; font-size:13px; padding:3px 10px; border-radius:20px; white-space:nowrap; }
+    .header-title { color:white; font-weight:700; font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:200px; }
+    .back-btn { background:rgba(255,255,255,0.2); color:white; text-decoration:none; font-size:12px; font-weight:700; padding:6px 12px; border-radius:20px; white-space:nowrap; border:1px solid rgba(255,255,255,0.4); transition:background 0.2s; }
+    .back-btn:hover { background:rgba(255,255,255,0.35); }
+
+    main { max-width:760px; margin:0 auto; padding:24px 16px 60px; }
+
+    .section-title {
+      font-family:'Nunito',sans-serif; font-weight:900; font-size:22px; color:var(--main);
+      text-align:center; margin:32px 0 16px;
+      display:flex; align-items:center; justify-content:center; gap:8px;
+    }
+    .section-title::before, .section-title::after { content:''; flex:1; height:2px; background:var(--main-light); }
+
+    .video-wrap { position:relative; padding-bottom:56.25%; background:#000; border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.15); margin-bottom:8px; }
+    .video-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .video-caption { text-align:center; font-size:12px; color:var(--text-muted); margin-bottom:24px; }
+
+    .point-card { background:white; border-radius:16px; border:2px solid var(--main-light); overflow:hidden; margin-bottom:20px; box-shadow:0 2px 8px rgba(59,130,246,0.08); }
+    .point-header { background:var(--main); color:white; display:flex; align-items:center; gap:10px; padding:12px 18px; }
+    .point-num { background:white; color:var(--main); font-family:'Nunito',sans-serif; font-weight:900; font-size:16px; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .point-header-title { font-weight:900; font-size:17px; }
+    .point-body { padding:16px 18px; }
+
+    .important-box { background:var(--main-lighter); border-left:4px solid var(--main); border-radius:0 8px 8px 0; padding:12px 16px; margin-bottom:12px; font-weight:700; font-size:15px; }
+    .important-box .formula { font-size:18px; color:var(--main-dark); font-weight:900; margin:4px 0; }
+
+    .point-box { background:#F0F9FF; border-left:4px solid #38BDF8; border-radius:0 8px 8px 0; padding:10px 14px; margin-bottom:14px; font-size:14px; }
+    .point-box .point-label { font-weight:900; color:#0284C7; font-size:13px; margin-bottom:4px; }
+    .point-blue { color:#0284C7; font-weight:700; }
+    .point-red { color:#DC2626; font-weight:700; }
+
+    /* 注意ボックス */
+    .caution-box { background:#FFF7ED; border-left:4px solid #F97316; border-radius:0 8px 8px 0; padding:10px 14px; margin-bottom:14px; font-size:14px; }
+    .caution-box .caution-label { font-weight:900; color:#C2410C; font-size:13px; margin-bottom:4px; }
+
+    /* 例題グリッド */
+    .example-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:12px 0; }
+    .example-card { background:var(--step-bg); border-radius:12px; padding:14px 16px; border:1px solid var(--border); }
+    .ex-formula { font-size:22px; font-weight:900; color:var(--text); text-align:center; margin-bottom:8px; }
+    .ex-tag { display:inline-block; font-size:11px; font-weight:700; border-radius:6px; padding:2px 8px; margin-bottom:4px; }
+    .tag-tan { background:#DBEAFE; color:#1D4ED8; border:1px solid #93C5FD; }
+    .tag-desc { font-size:13px; color:var(--text-muted); text-align:center; }
+
+    /* 見分け方ボックス */
+    .classify-wrap { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px 0; }
+    .classify-card { border-radius:12px; overflow:hidden; border:2px solid; }
+    .classify-card.tan { border-color:#93C5FD; }
+    .classify-card.ta { border-color:#86EFAC; }
+    .classify-head { padding:10px 14px; font-weight:900; font-size:16px; text-align:center; }
+    .classify-card.tan .classify-head { background:var(--main-light); color:var(--main-dark); }
+    .classify-card.ta .classify-head { background:#DCFCE7; color:#15803D; }
+    .classify-body { padding:12px 14px; font-size:13px; background:white; line-height:1.8; }
+    .classify-ex { font-size:13px; font-weight:700; color:#0284C7; margin-top:6px; }
+
+    /* 次数・係数 テーブル */
+    .styled-table { width:100%; border-collapse:collapse; margin:12px 0; font-size:14px; }
+    .styled-table th { background:var(--main); color:white; padding:9px 12px; text-align:center; font-weight:700; }
+    .styled-table td { padding:10px 12px; border-bottom:1px solid var(--border); text-align:center; vertical-align:middle; }
+    .styled-table tr:last-child td { border-bottom:none; }
+    .styled-table tr:nth-child(even) td { background:var(--main-lighter); }
+    .td-formula { font-size:17px; font-weight:900; }
+    .td-blue { color:#2563EB; font-weight:700; }
+    .td-red { color:#DC2626; font-weight:700; }
+    .jisuu-badge { display:inline-block; background:var(--main); color:white; font-size:12px; font-weight:900; padding:3px 10px; border-radius:20px; }
+
+    /* 分数 */
+    .frac { display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; margin:0 2px; }
+    .frac .num { border-bottom:1.5px solid currentColor; padding:0 3px 1px; font-size:0.9em; line-height:1.2; }
+    .frac .den { padding:1px 3px 0; font-size:0.9em; line-height:1.2; }
+
+    /* 練習問題 */
+    .practice-section { background:white; border-radius:16px; overflow:hidden; border:2px solid var(--main-light); margin-bottom:24px; box-shadow:0 2px 8px rgba(59,130,246,0.08); }
+    .practice-header { background:var(--main); color:white; padding:12px 20px; font-weight:900; font-size:18px; letter-spacing:0.15em; text-align:center; }
+    .practice-body { padding:16px; display:flex; flex-direction:column; gap:16px; }
+    .q-block { border-radius:12px; border:1px solid var(--border); overflow:hidden; }
+    .q-header { background:var(--main); color:white; padding:8px 14px; font-weight:700; font-size:14px; display:flex; align-items:center; gap:8px; }
+    .q-num { background:white; color:var(--main); font-family:'Nunito',sans-serif; font-weight:900; font-size:13px; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .q-body { padding:14px 16px; }
+    .q-text { font-size:15px; font-weight:700; margin-bottom:12px; }
+    .q-choices { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:10px; }
+    .q-choice { background:var(--step-bg); border:1px solid var(--border); border-radius:8px; padding:7px 16px; font-size:15px; font-weight:700; }
+    .btn-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .hint-btn { background:var(--accent-light); color:#92400E; border:1px solid #FCD34D; border-radius:8px; padding:7px 14px; font-size:13px; font-weight:700; cursor:pointer; transition:all 0.2s; }
+    .hint-btn:hover { background:#FDE68A; }
+    .answer-btn { background:var(--main-light); color:var(--main-dark); border:1px solid #93C5FD; border-radius:8px; padding:7px 14px; font-size:13px; font-weight:700; cursor:pointer; transition:all 0.2s; }
+    .answer-btn:hover { background:#BFDBFE; }
+    .hint-box { display:none; background:var(--accent-light); border:1px solid #FCD34D; border-radius:8px; padding:10px 14px; margin-top:10px; font-size:14px; }
+    .hint-box.show { display:block; }
+    .answer-box { display:none; background:var(--correct-light); border:1px solid #86EFAC; border-radius:8px; padding:12px 14px; margin-top:10px; }
+    .answer-box.show { display:block; }
+    .answer-label { font-size:12px; color:#15803D; font-weight:700; margin-bottom:4px; }
+    .answer-val { font-size:18px; color:#15803D; font-weight:900; }
+    .answer-val-sm { font-size:14px; color:#15803D; font-weight:700; line-height:2; }
+
+    /* 追加問題 */
+    .extra-section { background:white; border-radius:16px; overflow:hidden; border:2px solid #E9D5FF; margin-bottom:32px; box-shadow:0 2px 8px rgba(139,92,246,0.08); }
+    .extra-header { background:linear-gradient(135deg,#7C3AED,#8B5CF6); color:white; padding:12px 20px; font-weight:900; font-size:16px; text-align:center; }
+    .extra-body { padding:16px; display:flex; flex-direction:column; gap:16px; }
+    .level-badge { display:inline-block; font-size:11px; font-weight:900; border-radius:20px; padding:2px 10px; margin-bottom:8px; }
+    .badge-easy { background:#DCFCE7; color:#15803D; border:1px solid #86EFAC; }
+    .badge-mid { background:#FEF3C7; color:#92400E; border:1px solid #FCD34D; }
+
+    /* ナビ */
+    .unit-nav { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:24px; }
+    .nav-btn { display:flex; flex-direction:column; align-items:center; text-decoration:none; border-radius:12px; padding:12px 8px; font-size:12px; font-weight:700; border:2px solid; transition:all 0.2s; text-align:center; gap:4px; }
+    .nav-btn.prev { border-color:var(--border); color:var(--text-muted); background:white; }
+    .nav-btn.prev:hover { border-color:var(--main); color:var(--main); }
+    .nav-btn.list { border-color:var(--main); color:var(--main); background:var(--main-light); }
+    .nav-btn.list:hover { background:#BFDBFE; }
+    .nav-btn.next { border-color:var(--main); color:white; background:var(--main); }
+    .nav-btn.next:hover { background:var(--main-dark); }
+    .nav-btn span.nav-icon { font-size:18px; }
+    .nav-btn.disabled { opacity:0.4; pointer-events:none; }
+
+    footer { text-align:center; padding:24px 16px; font-size:12px; color:var(--text-muted); border-top:1px solid var(--border); }
+
+    @media(max-width:480px){
+      .example-grid { grid-template-columns:1fr; }
+      .classify-wrap { grid-template-columns:1fr; }
+      .header-title { font-size:13px; max-width:140px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="unit-badge">2年 1-1</div>
+    <div class="header-title">単項式と多項式</div>
+  </div>
+  <a href="units_math2.html" class="back-btn">← 単元一覧へ</a>
+</header>
+
+<main>
+
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/NARsyUFQ62g" allowfullscreen loading="lazy"></iframe>
+  </div>
+  <p class="video-caption">📺 まずは動画で流れをつかもう！</p>
+
+  <div class="section-title">📖 解説</div>
+
+  <!-- 重要① 単項式とは -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">①</div>
+      <div class="point-header-title">単項式（たんこうしき）とは</div>
+    </div>
+    <div class="point-body">
+      <div class="important-box">
+        <div class="formula">単項式 ＝ 数や文字の<u>かけ算だけ</u>でできた式</div>
+        ＋や−（加法・減法）を含まないものが単項式！
+      </div>
+      <div class="point-box">
+        <div class="point-label">📌 ポイント</div>
+        <div>÷はそのままでは単項式にならない → <strong>×に直す</strong>！</div>
+        <div class="point-blue" style="margin-top:4px;">例：÷2 ＝ ×<span class="frac"><span class="num">1</span><span class="den">2</span></span>　→ かけ算になるので単項式OK</div>
+      </div>
+
+      <!-- 4つの例 -->
+      <div class="example-grid">
+        <div class="example-card">
+          <div class="ex-formula">3x</div>
+          <div style="text-align:center;"><span class="ex-tag tag-tan">単項式</span></div>
+          <div class="ex-desc" style="font-size:13px;color:var(--text-muted);text-align:center;">数×文字のかけ算のみ</div>
+        </div>
+        <div class="example-card">
+          <div class="ex-formula">−5a²b</div>
+          <div style="text-align:center;"><span class="ex-tag tag-tan">単項式</span></div>
+          <div class="ex-desc" style="font-size:13px;color:var(--text-muted);text-align:center;">数と文字のかけ算のみ</div>
+        </div>
+        <div class="example-card">
+          <div class="ex-formula">7</div>
+          <div style="text-align:center;"><span class="ex-tag tag-tan">単項式</span></div>
+          <div class="ex-desc" style="font-size:13px;color:var(--text-muted);text-align:center;">数だけでも単項式</div>
+        </div>
+        <div class="example-card">
+          <div class="ex-formula" style="font-size:18px;">x÷2 ＝ x×<span class="frac"><span class="num">1</span><span class="den">2</span></span></div>
+          <div style="text-align:center;"><span class="ex-tag tag-tan">単項式</span></div>
+          <div class="ex-desc" style="font-size:13px;color:var(--text-muted);text-align:center;">÷を×に直す → かけ算のみ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 重要② 多項式とは -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">②</div>
+      <div class="point-header-title">多項式（たこうしき）とは</div>
+    </div>
+    <div class="point-body">
+      <div class="important-box">
+        <div class="formula">多項式 ＝ 単項式の和（たし算）で表した式</div>
+        多項式のひとつひとつを「<strong>項（こう）</strong>」という！
+      </div>
+      <div class="point-box">
+        <div class="point-label">📌 ポイント</div>
+        <div class="point-red">−のついた項もそのままの符号で項になる！</div>
+      </div>
+
+      <!-- 例1: 2x+3 -->
+      <div style="background:var(--step-bg);border-radius:12px;padding:16px;margin-bottom:12px;border:1px solid var(--border);">
+        <div style="font-size:24px;font-weight:900;text-align:center;margin-bottom:12px;">2x ＋ 3</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div style="background:white;border-radius:8px;padding:10px;text-align:center;border:1px solid var(--border);">
+            <div style="font-size:18px;font-weight:900;color:#16A34A;">2x</div>
+            <div style="font-size:12px;color:var(--text-muted);">1つ目の項</div>
+          </div>
+          <div style="background:white;border-radius:8px;padding:10px;text-align:center;border:1px solid var(--border);">
+            <div style="font-size:18px;font-weight:900;color:#16A34A;">＋3</div>
+            <div style="font-size:12px;color:var(--text-muted);">2つ目の項</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 例2: a²-4b+1 -->
+      <div style="background:var(--step-bg);border-radius:12px;padding:16px;border:1px solid var(--border);">
+        <div style="font-size:22px;font-weight:900;text-align:center;margin-bottom:12px;">a² − 4b ＋ 1</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+          <div style="background:white;border-radius:8px;padding:10px;text-align:center;border:1px solid var(--border);">
+            <div style="font-size:17px;font-weight:900;color:#16A34A;">a²</div>
+            <div style="font-size:12px;color:var(--text-muted);">1つ目</div>
+          </div>
+          <div style="background:white;border-radius:8px;padding:10px;text-align:center;border:1px solid var(--border);">
+            <div style="font-size:17px;font-weight:900;color:#DC2626;">−4b</div>
+            <div style="font-size:12px;color:var(--text-muted);">2つ目</div>
+          </div>
+          <div style="background:white;border-radius:8px;padding:10px;text-align:center;border:1px solid var(--border);">
+            <div style="font-size:17px;font-weight:900;color:#16A34A;">＋1</div>
+            <div style="font-size:12px;color:var(--text-muted);">3つ目</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 重要③ 見分け方まとめ -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">③</div>
+      <div class="point-header-title">単項式と多項式の見分け方</div>
+    </div>
+    <div class="point-body">
+      <div class="important-box">
+        ＋や−が入っているかどうかで判断する！
+      </div>
+      <div class="classify-wrap">
+        <div class="classify-card tan">
+          <div class="classify-head">単項式</div>
+          <div class="classify-body">
+            <div>＋や−を<strong>含まない</strong></div>
+            <div>数や文字のかけ算だけ</div>
+            <div class="classify-ex">例：3x　／　−5a²b　／　7</div>
+          </div>
+        </div>
+        <div class="classify-card ta">
+          <div class="classify-head">多項式</div>
+          <div class="classify-body">
+            <div>＋や−で<strong>つながっている</strong></div>
+            <div>単項式の和で表した式</div>
+            <div class="classify-ex">例：2x＋3　／　a²−4b＋1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 重要④ 次数とは -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">④</div>
+      <div class="point-header-title">次数（じすう）とは</div>
+    </div>
+    <div class="point-body">
+      <div class="important-box">
+        <div class="formula">単項式の次数 ＝ かけ合わせた文字の個数</div>
+      </div>
+      <div class="caution-box">
+        <div class="caution-label">⚠️ 注意</div>
+        多項式の次数 ＝ 各項の次数のうち<strong>最も大きいもの</strong>
+      </div>
+
+      <table class="styled-table">
+        <tr>
+          <th style="width:35%;">式</th>
+          <th>次数</th>
+          <th>理由</th>
+        </tr>
+        <tr>
+          <td class="td-formula">3x</td>
+          <td><span class="jisuu-badge">次数 1</span></td>
+          <td class="td-blue">x が1個</td>
+        </tr>
+        <tr>
+          <td class="td-formula">−5a²b</td>
+          <td><span class="jisuu-badge">次数 3</span></td>
+          <td class="td-blue">a が2個、b が1個 → 計3個</td>
+        </tr>
+        <tr>
+          <td class="td-formula">7</td>
+          <td><span class="jisuu-badge">次数 0</span></td>
+          <td class="td-blue">文字なし → 次数0（定数）</td>
+        </tr>
+        <tr>
+          <td class="td-formula" style="font-size:15px;">2x²−3x＋1</td>
+          <td><span class="jisuu-badge">次数 2</span></td>
+          <td class="td-blue">最大の次数は2x²の2 → 2次式</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 重要⑤ 係数とは -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">⑤</div>
+      <div class="point-header-title">係数（けいすう）とは</div>
+    </div>
+    <div class="point-body">
+      <div class="important-box">
+        <div class="formula">係数 ＝ 項において文字にかかっている数</div>
+      </div>
+      <div class="caution-box">
+        <div class="caution-label">⚠️ 注意</div>
+        <div>文字だけの <strong>x</strong> の係数は <strong>1</strong>（1×x だから）</div>
+        <div class="point-red" style="margin-top:4px;">符号もこみで　<strong>−x</strong> の係数は <strong>−1</strong>（(−1)×x だから）</div>
+      </div>
+
+      <table class="styled-table">
+        <tr>
+          <th style="width:35%;">式</th>
+          <th>係数</th>
+          <th>説明</th>
+        </tr>
+        <tr>
+          <td class="td-formula">3x</td>
+          <td><span class="jisuu-badge">係数 3</span></td>
+          <td>3 が x にかかっている</td>
+        </tr>
+        <tr>
+          <td class="td-formula">−5a²b</td>
+          <td><span class="jisuu-badge" style="background:#EF4444;">係数 −5</span></td>
+          <td class="td-red">−5 が a²b にかかっている</td>
+        </tr>
+        <tr>
+          <td class="td-formula">x</td>
+          <td><span class="jisuu-badge">係数 1</span></td>
+          <td>1×x　文字だけ → 係数は1</td>
+        </tr>
+        <tr>
+          <td class="td-formula">−y</td>
+          <td><span class="jisuu-badge" style="background:#EF4444;">係数 −1</span></td>
+          <td class="td-red">(−1)×y　符号も含む → 係数は−1</td>
+        </tr>
+      </table>
+
+      <!-- 多項式の次数・各項の係数 まとめ例 -->
+      <div style="background:var(--main-lighter);border-radius:12px;padding:16px;margin-top:14px;border:1px solid var(--main-light);">
+        <div style="font-size:18px;font-weight:900;text-align:center;margin-bottom:12px;">3x² − 2xy ＋ 5</div>
+        <table class="styled-table" style="margin:0;">
+          <tr>
+            <th>項</th>
+            <th>次数</th>
+            <th>係数</th>
+          </tr>
+          <tr>
+            <td class="td-formula">3x²</td>
+            <td class="td-blue">2（x が2個）</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td class="td-formula td-red">−2xy</td>
+            <td class="td-blue">2（x と y で2個）</td>
+            <td class="td-red">−2</td>
+          </tr>
+          <tr>
+            <td class="td-formula">5</td>
+            <td class="td-blue">0（定数）</td>
+            <td>5</td>
+          </tr>
+        </table>
+        <div style="margin-top:10px;font-size:14px;font-weight:700;color:var(--main-dark);">
+          → 多項式の次数：各項の中で最大 ＝ <span style="color:#DC2626;font-size:16px;">2次式</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 練習問題 -->
+  <div class="practice-section">
+    <div class="practice-header">練　習　問　題</div>
+    <div class="practice-body">
+
+      <!-- Q1 -->
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">1</div>次の式を単項式と多項式に分けよ。</div>
+        <div class="q-body">
+          <div class="q-choices">
+            <span class="q-choice">① 4a²b</span>
+            <span class="q-choice">② 2x−y</span>
+            <span class="q-choice">③ −7</span>
+            <span class="q-choice">④ a＋b−3</span>
+          </div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint1')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans1')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint1">＋や−が式の中に入っているかどうかを確認しよう。数だけの式は単項式。</div>
+          <div class="answer-box" id="ans1">
+            <div class="answer-label">答え</div>
+            <div class="answer-val-sm">
+              単項式：① 4a²b　③ −7<br>
+              多項式：② 2x−y　④ a＋b−3
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">2</div>次の問いに答えよ。</div>
+        <div class="q-body">
+          <div class="q-text">4a²b は単項式か多項式か？　また何項か？</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint2')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans2')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint2">4×a²×b のかけ算のみかどうか確認。多項式の場合は項の数が答えになる。</div>
+          <div class="answer-box" id="ans2">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">単項式　1項</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">3</div>次の問いに答えよ。</div>
+        <div class="q-body">
+          <div class="q-text">3x − 2y ＋ 1 の各項を答えよ。</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint3')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans3')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint3">−のついた項もそのままの符号で項になる。「−2y」がひとつの項。</div>
+          <div class="answer-box" id="ans3">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">3x　−2y　＋1　（3項）</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">4</div>次の問いに答えよ。</div>
+        <div class="q-body">
+          <div class="q-text">−6x²y の次数と係数を答えよ。</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint4')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans4')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint4">次数：かけ合わせた文字の個数（x が2個、y が1個）<br>係数：文字にかかっている数（符号も含む）</div>
+          <div class="answer-box" id="ans4">
+            <div class="answer-label">答え</div>
+            <div class="answer-val-sm">次数：3　（x が2個、y が1個 → 合計3個）<br>係数：−6</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">5</div>次の問いに答えよ。</div>
+        <div class="q-body">
+          <div class="q-text">3x²−2xy＋5 の次数と、各項の係数を答えよ。</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint5')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans5')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint5">多項式の次数 → 各項の次数のうち最大のもの。<br>3x²：次数2・係数3　−2xy：次数2・係数−2　5：次数0・係数5</div>
+          <div class="answer-box" id="ans5">
+            <div class="answer-label">答え</div>
+            <div class="answer-val-sm">次数：2（2次式）<br>各項の係数：3、−2、5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">6</div>次の問いに答えよ。</div>
+        <div class="q-body">
+          <div class="q-text">−x の係数と、<span class="frac"><span class="num">y</span><span class="den">3</span></span> の係数を答えよ。</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint6')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans6')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint6">−x は (−1)×x　符号もこみの係数になる。<br><span class="frac"><span class="num">y</span><span class="den">3</span></span> は <span class="frac"><span class="num">1</span><span class="den">3</span></span>×y　÷3はかけ算に直す。</div>
+          <div class="answer-box" id="ans6">
+            <div class="answer-label">答え</div>
+            <div class="answer-val-sm">
+              −x の係数：−1<br>
+              <span class="frac"><span class="num">y</span><span class="den">3</span></span> の係数：<span class="frac"><span class="num">1</span><span class="den">3</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 追加問題 -->
+  <div class="extra-section">
+    <div class="extra-header">🌟 追加問題でさらに定着！</div>
+    <div class="extra-body">
+
+      <!-- かんたん1 -->
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+1</div>次の問いに答えよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-easy">かんたん</span>
+          <div class="q-text">次の中から単項式をすべて選べ。<br>　ア. 5ab　　イ. x＋2　　ウ. −3　　エ. a−b＋1</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ex1')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ex1">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">ア、ウ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- かんたん2 -->
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+2</div>次の問いに答えよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-easy">かんたん</span>
+          <div class="q-text">4x²y の次数を答えよ。</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ex2')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ex2">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">3　（x が2個、y が1個）</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- かんたん3 -->
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+3</div>次の問いに答えよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-easy">かんたん</span>
+          <div class="q-text">−8xy の係数を答えよ。</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ex3')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ex3">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">−8</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 中級1 -->
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+4</div>次の問いに答えよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-mid">中級</span>
+          <div class="q-text">多項式 5x³ − 3x²y ＋ 2x − 7 の次数と、項の数を答えよ。</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('exh4')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('exa4')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="exh4">各項の次数を調べて最大を探す。<br>5x³：次数3　−3x²y：次数3　2x：次数1　−7：次数0</div>
+          <div class="answer-box" id="exa4">
+            <div class="answer-label">答え</div>
+            <div class="answer-val-sm">次数：3（3次式）<br>項の数：4項</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 中級2 -->
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+5</div>次の問いに答えよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-mid">中級</span>
+          <div class="q-text">x÷4 を単項式の形に直し、係数と次数を答えよ。</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('exh5')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('exa5')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="exh5">÷4 は ×<span class="frac"><span class="num">1</span><span class="den">4</span></span> に直す。単項式になったら係数と次数を読み取る。</div>
+          <div class="answer-box" id="exa5">
+            <div class="answer-label">答え</div>
+            <div class="answer-val-sm">
+              x÷4 ＝ <span class="frac"><span class="num">1</span><span class="den">4</span></span>x<br>
+              係数：<span class="frac"><span class="num">1</span><span class="den">4</span></span>　次数：1
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ナビゲーション -->
+  <div class="unit-nav">
+    <a href="#" class="nav-btn prev disabled">
+      <span class="nav-icon">←</span>
+      <span>前の単元</span>
+    </a>
+    <a href="units_math2.html" class="nav-btn list">
+      <span class="nav-icon">📋</span>
+      <span>単元一覧</span>
+    </a>
+    <a href="unit1-2_math2.html" class="nav-btn next">
+      <span class="nav-icon">→</span>
+      <span>次の単元</span>
+      <span style="font-size:10px;">多項式の加法・減法</span>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <strong>サクッと復習</strong> by 個別指導トライアンフ<br>
+  © 2025 Triumph Juku. All rights reserved.
+</footer>
+
+<script>
+  function toggleBox(id) {
+    document.getElementById(id).classList.toggle('show');
+  }
+</script>
+</body>
+</html>
