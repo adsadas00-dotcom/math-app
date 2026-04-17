@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>be動詞（肯定文・否定文） | 中1英語 | サクッと復習</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main: #EC4899;
+      --main-dark: #9D174D;
+      --main-mid: #BE185D;
+      --main-light: #FCE7F3;
+      --main-lighter: #FDF2F8;
+      --navy: #1E3A5F;
+      --navy-light: #DBEAFE;
+      --navy-lighter: #EFF6FF;
+      --gold: #F59E0B;
+      --gold-light: #FEF3C7;
+      --correct-light: #DCFCE7;
+      --red: #EF4444;
+      --red-light: #FEE2E2;
+      --green: #22C55E;
+      --green-light: #DCFCE7;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --bg: #F8FAFC;
+      --step-bg: #F1F5F9;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); padding-top:70px; }
+
+    header { position:fixed; top:0; left:0; right:0; z-index:100; background:var(--main); height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 16px; box-shadow:0 2px 12px rgba(236,72,153,0.3); }
+    .header-left { display:flex; align-items:center; gap:10px; }
+    .unit-badge { background:white; color:var(--main); font-family:'Nunito',sans-serif; font-weight:900; font-size:13px; padding:3px 10px; border-radius:20px; white-space:nowrap; }
+    .header-title { color:white; font-weight:700; font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:200px; }
+    .back-btn { background:rgba(255,255,255,0.2); color:white; text-decoration:none; font-size:12px; font-weight:700; padding:6px 12px; border-radius:20px; white-space:nowrap; border:1px solid rgba(255,255,255,0.4); transition:background 0.2s; }
+    .back-btn:hover { background:rgba(255,255,255,0.35); }
+
+    main { max-width:760px; margin:0 auto; padding:24px 16px 60px; }
+
+    .section-title { font-family:'Nunito',sans-serif; font-weight:900; font-size:22px; color:var(--main); text-align:center; margin:32px 0 16px; display:flex; align-items:center; justify-content:center; gap:8px; }
+    .section-title::before, .section-title::after { content:''; flex:1; height:2px; background:var(--main-light); }
+
+    .video-wrap { position:relative; padding-bottom:56.25%; background:#000; border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.15); margin-bottom:8px; }
+    .video-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .video-caption { text-align:center; font-size:12px; color:var(--text-muted); margin-bottom:24px; }
+
+    /* ポイントカード */
+    .point-card { background:white; border-radius:16px; border:2px solid var(--main-light); overflow:hidden; margin-bottom:20px; box-shadow:0 2px 8px rgba(236,72,153,0.08); }
+    .point-header { background:var(--main); color:white; display:flex; align-items:center; gap:10px; padding:12px 18px; }
+    .point-num { background:white; color:var(--main); font-family:'Nunito',sans-serif; font-weight:900; font-size:16px; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .point-header-title { font-weight:900; font-size:17px; }
+    .point-body { padding:16px 18px; }
+
+    /* ボックス類 */
+    .important-box { background:var(--navy); color:white; border-radius:10px; padding:14px 18px; margin-bottom:14px; font-weight:900; font-size:16px; text-align:center; }
+    .sub-box { background:var(--navy-lighter); border-left:4px solid #60A5FA; border-radius:0 8px 8px 0; padding:11px 14px; margin-bottom:12px; font-size:15px; font-weight:700; color:var(--navy); }
+    .gold-box { background:var(--gold-light); border-radius:10px; padding:12px 16px; margin-bottom:12px; font-size:14px; font-weight:700; color:#92400E; text-align:center; }
+    .red-warn { background:#FFF1F2; border:1px solid #FECDD3; border-radius:8px; padding:10px 14px; margin-bottom:12px; font-size:14px; color:#BE123C; font-weight:700; }
+
+    /* am/are/is 3カード */
+    .be-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin:12px 0; }
+    .be-card { border-radius:12px; overflow:hidden; text-align:center; border:2px solid var(--gold-light); }
+    .be-card-top { background:var(--gold); padding:14px 8px; }
+    .be-word { font-family:'Nunito',sans-serif; font-weight:900; font-size:28px; color:var(--navy); }
+    .be-kana { font-size:13px; color:var(--navy); font-weight:700; }
+    .be-card-bot { background:white; padding:8px 6px; font-size:12px; color:var(--text-muted); }
+
+    /* 主語対応テーブル */
+    .be-table { width:100%; border-collapse:collapse; margin:12px 0; font-size:15px; }
+    .be-table th { background:var(--navy); color:white; padding:10px 14px; text-align:center; font-weight:700; }
+    .be-table td { padding:11px 14px; border-bottom:1px solid var(--border); text-align:center; vertical-align:middle; font-weight:700; }
+    .be-table tr:last-child td { border-bottom:none; }
+    .be-table .row-i { background:#FFF9C4; }
+    .be-table .row-you { background:var(--navy-lighter); }
+    .be-table .row-he { background:#F0FDF4; }
+    .be-table .be-val { font-family:'Nunito',sans-serif; font-weight:900; font-size:20px; color:var(--navy); }
+    .be-table .arrow { color:var(--main); font-size:18px; }
+
+    /* 例文カード */
+    .example-card { border-radius:12px; border:2px solid var(--navy); overflow:hidden; margin-bottom:12px; }
+    .ex-sentence { background:white; padding:14px 16px; text-align:center; }
+    .ex-en { font-family:'Nunito',sans-serif; font-weight:900; font-size:22px; color:var(--navy); }
+    .ex-ja { font-size:14px; color:var(--text-muted); margin-top:4px; }
+    .ex-note { background:var(--navy-lighter); padding:10px 14px; font-size:14px; font-weight:700; color:var(--navy); text-align:center; }
+    .ex-pair { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
+    .ex-correct { background:#F0FDF4; border:2px solid #86EFAC; border-radius:10px; padding:12px; text-align:center; }
+    .ex-wrong { background:var(--red-light); border:2px solid #FCA5A5; border-radius:10px; padding:12px; text-align:center; }
+    .ex-label { font-size:12px; font-weight:700; margin-bottom:6px; }
+    .ex-label.ok { color:var(--green); }
+    .ex-label.ng { color:var(--red); }
+    .ex-sent { font-family:'Nunito',sans-serif; font-weight:900; font-size:17px; }
+    .ex-sent.ok { color:#15803D; }
+    .ex-sent.ng { color:#DC2626; }
+    .rule-bar { background:var(--gold); border-radius:8px; padding:10px 14px; text-align:center; font-size:14px; font-weight:900; color:var(--navy); margin-bottom:14px; }
+
+    /* 短縮形テーブル */
+    .contraction-table { width:100%; border-collapse:collapse; margin:12px 0; font-size:15px; }
+    .contraction-table th { background:var(--navy); color:white; padding:9px 12px; text-align:center; font-weight:700; }
+    .contraction-table td { padding:12px 14px; border-bottom:1px solid var(--border); text-align:center; font-weight:700; }
+    .contraction-table tr:last-child td { border-bottom:none; }
+    .contraction-table tr:nth-child(even) td { background:var(--main-lighter); }
+    .ct-from { font-family:'Nunito',sans-serif; font-size:17px; color:var(--navy); }
+    .ct-arrow { color:var(--main); font-size:16px; }
+    .ct-to { font-family:'Nunito',sans-serif; font-size:19px; font-weight:900; color:#DC2626; }
+    .ct-yomi { color:var(--text-muted); font-size:13px; }
+
+    /* 文の形まとめ */
+    .structure-cards { display:flex; flex-direction:column; gap:10px; margin:12px 0; }
+    .structure-card { border-radius:10px; padding:14px 16px; border:1px solid var(--border); }
+    .structure-card.positive { background:var(--navy-lighter); border-color:#93C5FD; }
+    .structure-card.contraction { background:var(--main-lighter); border-color:#F9A8D4; }
+    .structure-card.negative { background:#FEF2F2; border-color:#FECACA; }
+    .sc-label { font-size:12px; font-weight:900; margin-bottom:6px; }
+    .sc-label.pos { color:#1D4ED8; }
+    .sc-label.con { color:var(--main); }
+    .sc-label.neg { color:#DC2626; }
+    .sc-formula { font-family:'Nunito',sans-serif; font-weight:900; font-size:17px; color:var(--navy); }
+
+    /* よくある間違い */
+    .mistake-section { background:white; border-radius:16px; overflow:hidden; border:2px solid #FECACA; margin-bottom:24px; box-shadow:0 2px 8px rgba(239,68,68,0.08); }
+    .mistake-header { background:var(--red); color:white; padding:12px 18px; font-weight:900; font-size:16px; display:flex; align-items:center; gap:8px; }
+    .mistake-body { padding:16px; display:flex; flex-direction:column; gap:14px; }
+    .mistake-item { border-radius:10px; overflow:hidden; border:1px solid var(--border); }
+    .mistake-title { background:#FEF2F2; color:#DC2626; font-weight:900; font-size:14px; padding:8px 12px; border-bottom:1px solid #FECACA; }
+    .mistake-content { padding:10px 12px; font-size:14px; }
+    .m-wrong { color:#DC2626; margin-bottom:4px; }
+    .m-right { color:#15803D; font-weight:700; }
+    .m-rule { background:#F0FDF4; border:1px solid #86EFAC; border-radius:6px; padding:6px 10px; margin-top:6px; font-size:13px; color:#15803D; font-weight:700; }
+
+    /* a のルール */
+    .a-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin:12px 0; }
+    .a-card { background:#F0FDF4; border:2px solid #86EFAC; border-radius:10px; padding:12px 8px; text-align:center; }
+    .a-word { font-family:'Nunito',sans-serif; font-weight:900; font-size:16px; color:#15803D; }
+    .a-ja { font-size:12px; color:#15803D; margin-top:4px; }
+
+    /* 練習問題 */
+    .practice-section { background:white; border-radius:16px; overflow:hidden; border:2px solid var(--main-light); margin-bottom:24px; box-shadow:0 2px 8px rgba(236,72,153,0.08); }
+    .practice-header { background:var(--main); color:white; padding:12px 20px; font-weight:900; font-size:18px; letter-spacing:0.15em; text-align:center; }
+    .practice-body { padding:16px; display:flex; flex-direction:column; gap:16px; }
+    .q-block { border-radius:12px; border:1px solid var(--border); overflow:hidden; }
+    .q-header { background:var(--main); color:white; padding:8px 14px; font-weight:700; font-size:14px; display:flex; align-items:center; gap:8px; }
+    .q-num { background:white; color:var(--main); font-family:'Nunito',sans-serif; font-weight:900; font-size:13px; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .q-body { padding:14px 16px; }
+    .q-text { font-size:15px; font-weight:700; margin-bottom:8px; }
+    .q-en { font-family:'Nunito',sans-serif; font-size:18px; font-weight:900; color:var(--navy); margin-bottom:6px; }
+    .q-ja { font-size:13px; color:var(--text-muted); margin-bottom:10px; }
+    .btn-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .hint-btn { background:var(--gold-light); color:#92400E; border:1px solid #FCD34D; border-radius:8px; padding:7px 14px; font-size:13px; font-weight:700; cursor:pointer; transition:all 0.2s; }
+    .hint-btn:hover { background:#FDE68A; }
+    .answer-btn { background:var(--main-light); color:var(--main-dark); border:1px solid #F9A8D4; border-radius:8px; padding:7px 14px; font-size:13px; font-weight:700; cursor:pointer; transition:all 0.2s; }
+    .answer-btn:hover { background:#FBCFE8; }
+    .hint-box { display:none; background:var(--gold-light); border:1px solid #FCD34D; border-radius:8px; padding:10px 14px; margin-top:10px; font-size:14px; }
+    .hint-box.show { display:block; }
+    .answer-box { display:none; background:var(--correct-light); border:1px solid #86EFAC; border-radius:8px; padding:12px 14px; margin-top:10px; }
+    .answer-box.show { display:block; }
+    .answer-label { font-size:12px; color:#15803D; font-weight:700; margin-bottom:4px; }
+    .answer-val { font-family:'Nunito',sans-serif; font-size:20px; color:#15803D; font-weight:900; }
+    .answer-val-sm { font-size:14px; color:#15803D; font-weight:700; line-height:2; }
+
+    /* 追加問題 */
+    .extra-section { background:white; border-radius:16px; overflow:hidden; border:2px solid #E9D5FF; margin-bottom:32px; box-shadow:0 2px 8px rgba(139,92,246,0.08); }
+    .extra-header { background:linear-gradient(135deg,#7C3AED,#8B5CF6); color:white; padding:12px 20px; font-weight:900; font-size:16px; text-align:center; }
+    .extra-body { padding:16px; display:flex; flex-direction:column; gap:16px; }
+    .level-badge { display:inline-block; font-size:11px; font-weight:900; border-radius:20px; padding:2px 10px; margin-bottom:8px; }
+    .badge-easy { background:#DCFCE7; color:#15803D; border:1px solid #86EFAC; }
+    .badge-mid { background:var(--gold-light); color:#92400E; border:1px solid #FCD34D; }
+
+    /* ナビ */
+    .unit-nav { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:24px; }
+    .nav-btn { display:flex; flex-direction:column; align-items:center; text-decoration:none; border-radius:12px; padding:12px 8px; font-size:12px; font-weight:700; border:2px solid; transition:all 0.2s; text-align:center; gap:4px; }
+    .nav-btn.prev { border-color:var(--border); color:var(--text-muted); background:white; }
+    .nav-btn.prev:hover { border-color:var(--main); color:var(--main); }
+    .nav-btn.list { border-color:var(--main); color:var(--main); background:var(--main-light); }
+    .nav-btn.list:hover { background:#FBCFE8; }
+    .nav-btn.next { border-color:var(--main); color:white; background:var(--main); }
+    .nav-btn.next:hover { background:var(--main-mid); }
+    .nav-btn.disabled { opacity:0.4; pointer-events:none; }
+    .nav-icon { font-size:18px; }
+
+    footer { text-align:center; padding:24px 16px; font-size:12px; color:var(--text-muted); border-top:1px solid var(--border); }
+
+    @media(max-width:520px) {
+      .be-grid { grid-template-columns:1fr 1fr 1fr; }
+      .ex-pair { grid-template-columns:1fr; }
+      .a-grid { grid-template-columns:1fr 1fr 1fr; }
+      .header-title { font-size:13px; max-width:130px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="unit-badge">中1英語 1-1</div>
+    <div class="header-title">be動詞（肯定文・否定文）</div>
+  </div>
+  <a href="units_english1.html" class="back-btn">← 単元一覧へ</a>
+</header>
+
+<main>
+
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/JAtX-J3_yFo" allowfullscreen loading="lazy"></iframe>
+  </div>
+  <p class="video-caption">📺 まずは動画で流れをつかもう！</p>
+
+  <div class="section-title">📖 解説</div>
+
+  <!-- ① be動詞とは -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">①</div>
+      <div class="point-header-title">be動詞とは</div>
+    </div>
+    <div class="point-body">
+      <div class="important-box">be動詞 ＝ 主語の「状態」を表す動詞<br><span style="font-size:14px;font-weight:400;opacity:0.85;">「〜です」「〜にいます」を表すときに使う特別な動詞</span></div>
+      <div class="be-grid">
+        <div class="be-card">
+          <div class="be-card-top"><div class="be-word">am</div><div class="be-kana">アム</div></div>
+          <div class="be-card-bot">I のとき</div>
+        </div>
+        <div class="be-card">
+          <div class="be-card-top"><div class="be-word">are</div><div class="be-kana">アー</div></div>
+          <div class="be-card-bot">You のとき</div>
+        </div>
+        <div class="be-card">
+          <div class="be-card-top"><div class="be-word">is</div><div class="be-kana">イズ</div></div>
+          <div class="be-card-bot">He/She/It のとき</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② am/are/is の使い分け -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">②</div>
+      <div class="point-header-title">am / are / is の使い分け</div>
+    </div>
+    <div class="point-body">
+      <div class="sub-box">主語によって使うbe動詞が変わる！　この対応を丸暗記しよう！</div>
+      <table class="be-table">
+        <tr><th style="width:55%;">主 語</th><th>be動詞</th></tr>
+        <tr class="row-i">
+          <td><strong>I</strong>（私は）</td>
+          <td><span class="be-val">am</span></td>
+        </tr>
+        <tr class="row-you">
+          <td><strong>You</strong>（あなたは）</td>
+          <td><span class="be-val">are</span></td>
+        </tr>
+        <tr class="row-he">
+          <td><strong>He / She / It</strong>（彼・彼女・それは）</td>
+          <td><span class="be-val">is</span></td>
+        </tr>
+        <tr class="row-he">
+          <td><strong>This / That</strong>（これ・あれは）</td>
+          <td><span class="be-val">is</span></td>
+        </tr>
+      </table>
+
+      <!-- 3つの例文 -->
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px;">
+        <!-- I am -->
+        <div class="example-card">
+          <div class="ex-sentence">
+            <div class="ex-en">I am Ken.</div>
+            <div class="ex-ja">私はケンです。</div>
+          </div>
+          <div class="ex-note">「I（私は）」のbe動詞は必ず「am」。「are」や「is」は使えない！</div>
+        </div>
+        <div class="ex-pair">
+          <div class="ex-correct"><div class="ex-label ok">○ 正しい</div><div class="ex-sent ok">I am Ken.</div></div>
+          <div class="ex-wrong"><div class="ex-label ng">× 間違い</div><div class="ex-sent ng">I is Ken.</div></div>
+        </div>
+        <div class="rule-bar">「I」のbe動詞は「am」だけ！　are / is は使えない。</div>
+
+        <!-- You are -->
+        <div class="example-card">
+          <div class="ex-sentence">
+            <div class="ex-en">You are a student.</div>
+            <div class="ex-ja">あなたは生徒です。</div>
+          </div>
+          <div class="ex-note">「You（あなたは）」のbe動詞は必ず「are」。am / is は使えない！</div>
+        </div>
+        <div class="ex-pair">
+          <div class="ex-correct"><div class="ex-label ok">○ 正しい</div><div class="ex-sent ok">You are a student.</div></div>
+          <div class="ex-wrong"><div class="ex-label ng">× 間違い</div><div class="ex-sent ng">You am a student.</div></div>
+        </div>
+        <div class="rule-bar">「You」のbe動詞は「are」だけ！　am / is は使えない。</div>
+
+        <!-- He/She/This/That is -->
+        <div class="example-card">
+          <div class="ex-sentence">
+            <div class="ex-en">He is Ken.</div>
+            <div class="ex-ja">彼はケンです。</div>
+          </div>
+          <div class="ex-note">「He / She / It / This / That」のbe動詞は必ず「is」。</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px;">
+          <div style="background:var(--navy-lighter);border-radius:8px;padding:10px 8px;text-align:center;">
+            <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">She is</div>
+            <div style="font-family:'Nunito',sans-serif;font-weight:900;font-size:14px;color:var(--navy);">She is Sakura.<br><span style="font-weight:400;font-size:11px;">彼女はサクラです。</span></div>
+          </div>
+          <div style="background:var(--navy-lighter);border-radius:8px;padding:10px 8px;text-align:center;">
+            <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">This is</div>
+            <div style="font-family:'Nunito',sans-serif;font-weight:900;font-size:14px;color:var(--navy);">This is a pen.<br><span style="font-weight:400;font-size:11px;">これはペンです。</span></div>
+          </div>
+          <div style="background:var(--navy-lighter);border-radius:8px;padding:10px 8px;text-align:center;">
+            <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">That is</div>
+            <div style="font-family:'Nunito',sans-serif;font-weight:900;font-size:14px;color:var(--navy);">That is a book.<br><span style="font-weight:400;font-size:11px;">あれは本です。</span></div>
+          </div>
+        </div>
+        <div class="rule-bar">「is」は1人・1つの単数の主語（I・You 以外）に使う！</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ③ 短縮形 -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">③</div>
+      <div class="point-header-title">短縮形（たんしゅくけい）</div>
+    </div>
+    <div class="point-body">
+      <div class="sub-box">be動詞は主語と一緒に短く書ける！　これを<strong>短縮形</strong>という。</div>
+      <div class="red-warn">⚠️ 「'」（アポストロフィ）を書き忘れると別の単語になる！　Im は間違い、I'm が正しい。</div>
+      <table class="contraction-table">
+        <tr><th>もとの形</th><th></th><th>短縮形</th><th>読み方</th></tr>
+        <tr>
+          <td class="ct-from">I am</td>
+          <td class="ct-arrow">→</td>
+          <td class="ct-to">I'm</td>
+          <td class="ct-yomi">アイム</td>
+        </tr>
+        <tr>
+          <td class="ct-from">You are</td>
+          <td class="ct-arrow">→</td>
+          <td class="ct-to">You're</td>
+          <td class="ct-yomi">ユアー</td>
+        </tr>
+        <tr>
+          <td class="ct-from">He is</td>
+          <td class="ct-arrow">→</td>
+          <td class="ct-to">He's</td>
+          <td class="ct-yomi">ヒーズ</td>
+        </tr>
+        <tr>
+          <td class="ct-from">She is</td>
+          <td class="ct-arrow">→</td>
+          <td class="ct-to">She's</td>
+          <td class="ct-yomi">シーズ</td>
+        </tr>
+      </table>
+      <div class="gold-box">アポストロフィ「'」を必ずつける！</div>
+    </div>
+  </div>
+
+  <!-- ④ 否定文 -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">④</div>
+      <div class="point-header-title">否定文（〜ではありません）の作り方</div>
+    </div>
+    <div class="point-body">
+      <div class="important-box">be動詞のすぐあとに「not」を入れるだけ！</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px;">
+        <!-- I am not -->
+        <div style="background:var(--navy-lighter);border-radius:10px;padding:14px 16px;border:1px solid #93C5FD;">
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">肯定文 → 否定文</div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:700;font-size:16px;color:#64748B;">I am Ken.</span>
+            <span style="color:var(--main);font-size:18px;">→</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;color:#DC2626;">I am not Ken.</span>
+          </div>
+          <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">私はケンではありません。</div>
+          <div style="margin-top:8px;background:var(--gold-light);border-radius:6px;padding:6px 10px;font-size:13px;font-weight:700;color:#92400E;">短縮形：I'm not Ken.</div>
+        </div>
+        <!-- You are not -->
+        <div style="background:var(--navy-lighter);border-radius:10px;padding:14px 16px;border:1px solid #93C5FD;">
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">肯定文 → 否定文</div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:700;font-size:16px;color:#64748B;">You are a student.</span>
+            <span style="color:var(--main);font-size:18px;">→</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;color:#DC2626;">You are not a student.</span>
+          </div>
+          <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">あなたは生徒ではありません。</div>
+          <div style="margin-top:8px;background:var(--gold-light);border-radius:6px;padding:6px 10px;font-size:13px;font-weight:700;color:#92400E;">短縮形：You're not a student.</div>
+        </div>
+        <!-- He is not -->
+        <div style="background:var(--navy-lighter);border-radius:10px;padding:14px 16px;border:1px solid #93C5FD;">
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">肯定文 → 否定文</div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:700;font-size:16px;color:#64748B;">He is Ken.</span>
+            <span style="color:var(--main);font-size:18px;">→</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;color:#DC2626;">He is not Ken.</span>
+          </div>
+          <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">彼はケンではありません。</div>
+          <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <div style="background:var(--gold-light);border-radius:6px;padding:6px 10px;font-size:13px;font-weight:700;color:#92400E;">He's not Ken.</div>
+            <div style="background:var(--gold-light);border-radius:6px;padding:6px 10px;font-size:13px;font-weight:700;color:#92400E;">She's not Sakura.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 文の形まとめ -->
+      <div class="structure-cards">
+        <div class="structure-card positive">
+          <div class="sc-label pos">肯定文（〜です）</div>
+          <div class="sc-formula">主語 ＋ be動詞 ＋ _____ .</div>
+        </div>
+        <div class="structure-card contraction">
+          <div class="sc-label con">短縮形</div>
+          <div class="sc-formula">I'm / You're / He's / She's ＋ _____ .</div>
+        </div>
+        <div class="structure-card negative">
+          <div class="sc-label neg">否定文（〜ではありません）</div>
+          <div class="sc-formula">主語 ＋ be動詞 ＋ not ＋ _____ .</div>
+        </div>
+      </div>
+      <div class="gold-box" style="margin-top:10px;">be動詞の順番さえ覚えれば、すべての文が作れる！</div>
+    </div>
+  </div>
+
+  <!-- ⑤ 「a」のルール -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">⑤</div>
+      <div class="point-header-title">「a」のルール</div>
+    </div>
+    <div class="point-body">
+      <div class="important-box">「a」＝ 1つの・1人の（単数）という意味</div>
+      <div class="sub-box">人や物を表す言葉が1人・1つのとき、その前に「a」をつける。</div>
+      <div class="a-grid">
+        <div class="a-card">
+          <div class="a-word">a student</div>
+          <div class="a-ja">1人の生徒</div>
+        </div>
+        <div class="a-card">
+          <div class="a-word">a teacher</div>
+          <div class="a-ja">1人の先生</div>
+        </div>
+        <div class="a-card">
+          <div class="a-word">a pen</div>
+          <div class="a-ja">1本のペン</div>
+        </div>
+      </div>
+      <div class="red-warn">⚠️ 名前（Ken / Sakura）の前には「a」は不要！　"a Ken" とは言わない。</div>
+      <div style="background:#FEF2F2;border-radius:8px;padding:8px 12px;font-size:13px;color:#64748B;">※ 2つ以上（複数）のときは「a」を使わない。これは後で学ぶ。</div>
+    </div>
+  </div>
+
+  <!-- よくある間違い -->
+  <div class="mistake-section">
+    <div class="mistake-header">⚠️ よくある間違い</div>
+    <div class="mistake-body">
+      <div class="mistake-item">
+        <div class="mistake-title">❌ I のときに are / is を使う！</div>
+        <div class="mistake-content">
+          <div class="m-wrong">I are a student. / I is a student.　← 間違い！</div>
+          <div class="m-right">✅ I am a student.　（I のときは am だけ！）</div>
+          <div class="m-rule">「I」のbe動詞は「am」のみ。are / is は使えない。</div>
+        </div>
+      </div>
+      <div class="mistake-item">
+        <div class="mistake-title">❌ She / He のときに am を使う！</div>
+        <div class="mistake-content">
+          <div class="m-wrong">She am Sakura.　← 間違い！</div>
+          <div class="m-right">✅ She is Sakura.　（She / He / It のときは is！）</div>
+          <div class="m-rule">「She / He / It」のbe動詞は「is」だけ。am / are は使えない。</div>
+        </div>
+      </div>
+      <div class="mistake-item">
+        <div class="mistake-title">❌ You のときに is を使う！</div>
+        <div class="mistake-content">
+          <div class="m-wrong">You is a teacher.　← 間違い！</div>
+          <div class="m-right">✅ You are a teacher.　（You のときは are！）</div>
+          <div class="m-rule">「You」のbe動詞は「are」だけ。am / is は使えない。</div>
+        </div>
+      </div>
+      <div class="mistake-item">
+        <div class="mistake-title">❌ 短縮形でアポストロフィ「'」を忘れる！</div>
+        <div class="mistake-content">
+          <div class="m-wrong">Im Ken. / Youre a student.　← 間違い！</div>
+          <div class="m-right">✅ I'm Ken. / You're a student.　（「'」を必ずつける！）</div>
+          <div class="m-rule">「'」を書き忘れると別の単語になる！</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 練習問題 -->
+  <div class="practice-section">
+    <div class="practice-header">練　習　問　題</div>
+    <div class="practice-body">
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">1</div>（　）に入るbe動詞を選べ。</div>
+        <div class="q-body">
+          <div class="q-en">I (　　) Ken.</div>
+          <div class="q-ja">私はケンです。</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ans1')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ans1">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">am</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">2</div>（　）に入るbe動詞を選べ。</div>
+        <div class="q-body">
+          <div class="q-en">You (　　) a student.</div>
+          <div class="q-ja">あなたは生徒です。</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ans2')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ans2">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">are</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">3</div>（　）に入るbe動詞を選べ。</div>
+        <div class="q-body">
+          <div class="q-en">She (　　) Sakura.</div>
+          <div class="q-ja">彼女はサクラです。</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ans3')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ans3">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">is</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">4</div>否定文を完成させよ。</div>
+        <div class="q-body">
+          <div class="q-en">I (　　) (　　) Ken.</div>
+          <div class="q-ja">私はケンではありません。</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ans4')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ans4">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">am　not</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">5</div>否定文を完成させよ。</div>
+        <div class="q-body">
+          <div class="q-en">He (　　) (　　) Ken.</div>
+          <div class="q-ja">彼はケンではありません。</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ans5')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ans5">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">is　not</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">6</div>短縮形に書きかえよ。</div>
+        <div class="q-body">
+          <div class="q-en">He is Ken.　→　(　　　　　) Ken.</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint6')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans6')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint6">He is → He's　「i」が省略される。「'」を忘れずに！</div>
+          <div class="answer-box" id="ans6">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">He's Ken.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 追加問題 -->
+  <div class="extra-section">
+    <div class="extra-header">🌟 追加問題でさらに定着！</div>
+    <div class="extra-body">
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+1</div>（　）に入るbe動詞を答えよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-easy">かんたん</span>
+          <div class="q-en">This (　　) a pen.</div>
+          <div class="q-ja">これはペンです。</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ex1')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ex1">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">is</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+2</div>短縮形に書きかえよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-easy">かんたん</span>
+          <div class="q-en">You are a student.　→　(　　　　　　　) a student.</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ex2')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ex2">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">You're a student.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+3</div>（　）に入るbe動詞を答えよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-easy">かんたん</span>
+          <div class="q-en">That (　　) a book.</div>
+          <div class="q-ja">あれは本です。</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ex3')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ex3">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">is</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+4</div>日本語に合う英文を完成させよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-mid">中級</span>
+          <div class="q-text">彼女はサクラではありません。（短縮形で）</div>
+          <div class="q-en">（　　　　　）not Sakura.</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('exh4')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('exa4')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="exh4">She is の短縮形は？　「is」の「i」が省略される。</div>
+          <div class="answer-box" id="exa4">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">She's not Sakura.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+5</div>間違いを直せ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-mid">中級</span>
+          <div class="q-text">次の文の間違いを直して正しい英文にしよう。</div>
+          <div class="q-en">You is a teacher.</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('exh5')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('exa5')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="exh5">You のときに使えるbe動詞は何？　is は使えない。</div>
+          <div class="answer-box" id="exa5">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">You are a teacher.</div>
+            <div style="font-size:13px;color:#15803D;margin-top:4px;">You のbe動詞は「are」だけ！</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ナビゲーション -->
+  <div class="unit-nav">
+    <a href="#" class="nav-btn prev disabled">
+      <span class="nav-icon">←</span>
+      <span>前の単元</span>
+    </a>
+    <a href="units_english1.html" class="nav-btn list">
+      <span class="nav-icon">📋</span>
+      <span>単元一覧</span>
+    </a>
+    <a href="unit1-2_english1.html" class="nav-btn next">
+      <span class="nav-icon">→</span>
+      <span>次の単元</span>
+      <span style="font-size:10px;">be動詞の疑問文</span>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <strong>サクッと復習</strong> by 個別指導トライアンフ<br>
+  © 2025 Triumph Juku. All rights reserved.
+</footer>
+
+<script>
+  function toggleBox(id) {
+    document.getElementById(id).classList.toggle('show');
+  }
+</script>
+</body>
+</html>
