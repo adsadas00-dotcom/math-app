@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多項式の加法・減法 | 中2数学 | サクッと復習</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main: #3B82F6; --main-dark: #1D4ED8; --main-mid: #2563EB;
+      --main-light: #DBEAFE; --main-lighter: #EFF6FF;
+      --accent: #F59E0B; --accent-light: #FEF3C7;
+      --correct-light: #DCFCE7;
+      --red: #EF4444; --red-light: #FEE2E2;
+      --green: #22C55E;
+      --text: #1E293B; --text-muted: #64748B;
+      --border: #E2E8F0; --bg: #F8FAFC; --step-bg: #F1F5F9;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); padding-top:70px; }
+
+    header { position:fixed; top:0; left:0; right:0; z-index:100; background:var(--main); height:60px; display:flex; align-items:center; justify-content:space-between; padding:0 16px; box-shadow:0 2px 12px rgba(59,130,246,0.25); }
+    .header-left { display:flex; align-items:center; gap:10px; }
+    .unit-badge { background:white; color:var(--main); font-family:'Nunito',sans-serif; font-weight:900; font-size:13px; padding:3px 10px; border-radius:20px; white-space:nowrap; }
+    .header-title { color:white; font-weight:700; font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:200px; }
+    .back-btn { background:rgba(255,255,255,0.2); color:white; text-decoration:none; font-size:12px; font-weight:700; padding:6px 12px; border-radius:20px; white-space:nowrap; border:1px solid rgba(255,255,255,0.4); transition:background 0.2s; }
+    .back-btn:hover { background:rgba(255,255,255,0.35); }
+
+    main { max-width:760px; margin:0 auto; padding:24px 16px 60px; }
+
+    .section-title { font-family:'Nunito',sans-serif; font-weight:900; font-size:22px; color:var(--main); text-align:center; margin:32px 0 16px; display:flex; align-items:center; justify-content:center; gap:8px; }
+    .section-title::before, .section-title::after { content:''; flex:1; height:2px; background:var(--main-light); }
+
+    .video-wrap { position:relative; padding-bottom:56.25%; background:#000; border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.15); margin-bottom:8px; }
+    .video-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .video-caption { text-align:center; font-size:12px; color:var(--text-muted); margin-bottom:24px; }
+
+    .point-card { background:white; border-radius:16px; border:2px solid var(--main-light); overflow:hidden; margin-bottom:20px; box-shadow:0 2px 8px rgba(59,130,246,0.08); }
+    .point-header { background:var(--main); color:white; display:flex; align-items:center; gap:10px; padding:12px 18px; }
+    .point-num { background:white; color:var(--main); font-family:'Nunito',sans-serif; font-weight:900; font-size:16px; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .point-header-title { font-weight:900; font-size:17px; }
+    .point-body { padding:16px 18px; }
+
+    .important-box { background:var(--main-lighter); border-left:4px solid var(--main); border-radius:0 8px 8px 0; padding:12px 16px; margin-bottom:12px; font-weight:700; font-size:15px; }
+    .point-box { background:#F0F9FF; border-left:4px solid #38BDF8; border-radius:0 8px 8px 0; padding:10px 14px; margin-bottom:12px; font-size:14px; }
+    .point-label { font-weight:900; color:#0284C7; font-size:13px; margin-bottom:4px; }
+    .caution-box { background:var(--red-light); border-left:4px solid var(--red); border-radius:0 8px 8px 0; padding:10px 14px; margin-bottom:12px; font-size:14px; }
+    .caution-label { font-weight:900; color:#DC2626; font-size:13px; margin-bottom:4px; }
+
+    /* 同類項グリッド */
+    .dorui-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:12px 0; }
+    .dorui-card { border-radius:10px; padding:12px 14px; text-align:center; }
+    .dorui-card.ok { background:#EFF6FF; border:2px solid #93C5FD; }
+    .dorui-card.ng { background:var(--red-light); border:2px solid #FCA5A5; }
+    .dorui-label { font-size:11px; font-weight:700; border-radius:12px; padding:2px 10px; display:inline-block; margin-bottom:6px; }
+    .dorui-label.ok { background:var(--main); color:white; }
+    .dorui-label.ng { background:var(--red); color:white; }
+    .dorui-expr { font-size:19px; font-weight:900; color:var(--text); margin-bottom:4px; }
+    .dorui-desc { font-size:12px; color:var(--text-muted); }
+
+    /* 手順ステップ */
+    .steps-row { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+    .step-pill { background:var(--main); color:white; border-radius:20px; padding:4px 14px; font-size:13px; font-weight:700; }
+
+    /* 例題ブロック */
+    .ex-block { background:var(--step-bg); border-radius:12px; padding:14px 16px; margin-bottom:12px; border:1px solid var(--border); }
+    .ex-row { display:flex; align-items:baseline; gap:8px; margin:6px 0; font-size:15px; flex-wrap:wrap; }
+    .ex-tag { font-size:11px; font-weight:700; border-radius:6px; padding:2px 8px; white-space:nowrap; flex-shrink:0; }
+    .tag-q { background:#1E40AF; color:white; }
+    .tag-step { background:var(--main); color:white; }
+    .tag-x2 { background:#7C3AED; color:white; }
+    .tag-x { background:#DC2626; color:white; }
+    .tag-ans { background:#15803D; color:white; }
+    .tag-matome { background:#16A34A; color:white; }
+    .ex-blue { color:#2563EB; font-weight:700; }
+    .ex-red { color:#DC2626; font-weight:700; }
+    .ex-green { color:#16A34A; font-weight:900; }
+    .ex-ans { font-size:20px; color:#DC2626; font-weight:900; margin-top:6px; }
+    .ex-note { font-size:12px; color:#DC2626; font-weight:700; margin-left:4px; }
+
+    /* 符号変化 図 */
+    .sign-change { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:10px 0; font-size:15px; font-weight:700; }
+    .sc-before { color:var(--text-muted); }
+    .sc-arrow { color:var(--main); font-size:18px; }
+    .sc-after { color:#DC2626; font-weight:900; }
+    .sc-note { font-size:12px; color:#DC2626; background:var(--red-light); border-radius:6px; padding:2px 8px; }
+
+    /* よくある間違い */
+    .mistake-section { background:white; border-radius:16px; overflow:hidden; border:2px solid #FECACA; margin-bottom:24px; box-shadow:0 2px 8px rgba(239,68,68,0.08); }
+    .mistake-header { background:var(--red); color:white; padding:12px 18px; font-weight:900; font-size:16px; display:flex; align-items:center; gap:8px; }
+    .mistake-body { padding:16px; display:flex; flex-direction:column; gap:14px; }
+    .mistake-item { border-radius:10px; overflow:hidden; border:1px solid var(--border); }
+    .mistake-title { background:#FEF2F2; color:#DC2626; font-weight:900; font-size:14px; padding:8px 12px; border-bottom:1px solid #FECACA; }
+    .mistake-content { padding:10px 12px; font-size:14px; }
+    .m-wrong { color:#DC2626; margin-bottom:4px; }
+    .m-right { color:#15803D; font-weight:700; }
+    .m-rule { background:#F0FDF4; border:1px solid #86EFAC; border-radius:6px; padding:6px 10px; margin-top:6px; font-size:13px; color:#15803D; font-weight:700; }
+
+    /* 練習問題 */
+    .practice-section { background:white; border-radius:16px; overflow:hidden; border:2px solid var(--main-light); margin-bottom:24px; box-shadow:0 2px 8px rgba(59,130,246,0.08); }
+    .practice-header { background:var(--main); color:white; padding:12px 20px; font-weight:900; font-size:18px; letter-spacing:0.15em; text-align:center; }
+    .practice-body { padding:16px; display:flex; flex-direction:column; gap:16px; }
+    .q-block { border-radius:12px; border:1px solid var(--border); overflow:hidden; }
+    .q-header { background:var(--main); color:white; padding:8px 14px; font-weight:700; font-size:14px; display:flex; align-items:center; gap:8px; }
+    .q-num { background:white; color:var(--main); font-family:'Nunito',sans-serif; font-weight:900; font-size:13px; width:24px; height:24px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .q-body { padding:14px 16px; }
+    .q-text { font-size:16px; font-weight:700; margin-bottom:12px; }
+    .btn-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .hint-btn { background:var(--accent-light); color:#92400E; border:1px solid #FCD34D; border-radius:8px; padding:7px 14px; font-size:13px; font-weight:700; cursor:pointer; transition:all 0.2s; }
+    .hint-btn:hover { background:#FDE68A; }
+    .answer-btn { background:var(--main-light); color:var(--main-dark); border:1px solid #93C5FD; border-radius:8px; padding:7px 14px; font-size:13px; font-weight:700; cursor:pointer; transition:all 0.2s; }
+    .answer-btn:hover { background:#BFDBFE; }
+    .hint-box { display:none; background:var(--accent-light); border:1px solid #FCD34D; border-radius:8px; padding:10px 14px; margin-top:10px; font-size:14px; }
+    .hint-box.show { display:block; }
+    .answer-box { display:none; background:var(--correct-light); border:1px solid #86EFAC; border-radius:8px; padding:12px 14px; margin-top:10px; }
+    .answer-box.show { display:block; }
+    .answer-label { font-size:12px; color:#15803D; font-weight:700; margin-bottom:4px; }
+    .answer-val { font-size:20px; color:#15803D; font-weight:900; }
+    .answer-val-sm { font-size:15px; color:#15803D; font-weight:700; line-height:2; }
+
+    /* 追加問題 */
+    .extra-section { background:white; border-radius:16px; overflow:hidden; border:2px solid #E9D5FF; margin-bottom:32px; box-shadow:0 2px 8px rgba(139,92,246,0.08); }
+    .extra-header { background:linear-gradient(135deg,#7C3AED,#8B5CF6); color:white; padding:12px 20px; font-weight:900; font-size:16px; text-align:center; }
+    .extra-body { padding:16px; display:flex; flex-direction:column; gap:16px; }
+    .level-badge { display:inline-block; font-size:11px; font-weight:900; border-radius:20px; padding:2px 10px; margin-bottom:8px; }
+    .badge-easy { background:#DCFCE7; color:#15803D; border:1px solid #86EFAC; }
+    .badge-mid { background:var(--accent-light); color:#92400E; border:1px solid #FCD34D; }
+
+    /* ナビ */
+    .unit-nav { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:24px; }
+    .nav-btn { display:flex; flex-direction:column; align-items:center; text-decoration:none; border-radius:12px; padding:12px 8px; font-size:12px; font-weight:700; border:2px solid; transition:all 0.2s; text-align:center; gap:4px; }
+    .nav-btn.prev { border-color:var(--border); color:var(--text-muted); background:white; }
+    .nav-btn.prev:hover { border-color:var(--main); color:var(--main); }
+    .nav-btn.list { border-color:var(--main); color:var(--main); background:var(--main-light); }
+    .nav-btn.list:hover { background:#BFDBFE; }
+    .nav-btn.next { border-color:var(--main); color:white; background:var(--main); }
+    .nav-btn.next:hover { background:var(--main-dark); }
+    .nav-icon { font-size:18px; }
+
+    footer { text-align:center; padding:24px 16px; font-size:12px; color:var(--text-muted); border-top:1px solid var(--border); }
+
+    @media(max-width:480px) {
+      .dorui-grid { grid-template-columns:1fr 1fr; }
+      .header-title { font-size:13px; max-width:140px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="unit-badge">2年 1-2</div>
+    <div class="header-title">多項式の加法・減法</div>
+  </div>
+  <a href="units_math2.html" class="back-btn">← 単元一覧へ</a>
+</header>
+
+<main>
+
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/ofzKNX521zo" allowfullscreen loading="lazy"></iframe>
+  </div>
+  <p class="video-caption">📺 まずは動画で流れをつかもう！</p>
+
+  <div class="section-title">📖 解説</div>
+
+  <!-- 重要① 同類項とは -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">①</div>
+      <div class="point-header-title">同類項（どうるいこう）とは</div>
+    </div>
+    <div class="point-body">
+      <div class="important-box">同類項 ＝ 文字の部分がまったく同じ項</div>
+      <div class="point-box">
+        <div class="point-label">📌 ポイント</div>
+        <div>文字の種類と次数が両方同じなら同類項！</div>
+        <div style="color:#0284C7;font-weight:700;margin-top:4px;">係数が違っても文字部分が同じなら同類項！</div>
+      </div>
+      <div class="dorui-grid">
+        <div class="dorui-card ok">
+          <span class="dorui-label ok">同類項 ✅</span>
+          <div class="dorui-expr">3x と −5x</div>
+          <div class="dorui-desc">文字部分がどちらも x</div>
+        </div>
+        <div class="dorui-card ok">
+          <span class="dorui-label ok">同類項 ✅</span>
+          <div class="dorui-expr">2x² と 7x²</div>
+          <div class="dorui-desc">文字部分がどちらも x²</div>
+        </div>
+        <div class="dorui-card ng">
+          <span class="dorui-label ng">同類項でない ❌</span>
+          <div class="dorui-expr">3x と 2x²</div>
+          <div class="dorui-desc">x と x² で次数が違う</div>
+        </div>
+        <div class="dorui-card ng">
+          <span class="dorui-label ng">同類項でない ❌</span>
+          <div class="dorui-expr">4x と 4y</div>
+          <div class="dorui-desc">文字の種類が違う</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 重要② 同類項のまとめ方 -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">②</div>
+      <div class="point-header-title">同類項のまとめ方</div>
+    </div>
+    <div class="point-body">
+      <div class="important-box">同類項は係数どうしを計算してまとめられる！</div>
+      <div class="point-box">
+        <div class="point-label">📌 手順</div>
+        <div>同類項を見つけて → 係数を計算 → 文字はそのまま</div>
+      </div>
+      <div class="ex-block">
+        <div class="ex-row"><span class="ex-tag tag-q">式</span><span style="font-size:18px;font-weight:900;">3x ＋ 5x</span></div>
+        <div class="ex-row"><span class="ex-tag tag-step">同類項を確認</span><span class="ex-blue">3x と 5x → 文字部分が両方 x → 同類項！</span></div>
+        <div class="ex-row"><span class="ex-tag tag-step">係数を計算</span><span class="ex-blue">（3＋5）× x ＝ 8x</span></div>
+        <div class="ex-ans"><span class="ex-tag tag-matome">まとめた結果</span> 3x＋5x ＝ 8x</div>
+      </div>
+      <div class="ex-block">
+        <div class="ex-row"><span class="ex-tag tag-q">式</span><span style="font-size:17px;font-weight:900;">4x²−x²＋2x−3x</span></div>
+        <div class="ex-row"><span class="ex-tag tag-x2">x²の同類項</span><span class="ex-blue">4x² と −x² → （4−1）x² ＝ 3x²</span></div>
+        <div class="ex-row"><span class="ex-tag tag-x">xの同類項</span><span class="ex-red">2x と −3x → （2−3）x ＝ −x</span></div>
+        <div class="ex-ans"><span class="ex-tag tag-matome">まとめた結果</span> 3x²−x</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 重要③ 多項式の加法 -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">③</div>
+      <div class="point-header-title">多項式の加法（たし算）</div>
+    </div>
+    <div class="point-body">
+      <div class="important-box">多項式の加法 → かっこを外して同類項をまとめる</div>
+      <div class="steps-row">
+        <span class="step-pill">手順① かっこを外す</span>
+        <span class="step-pill">手順② 同類項を集める</span>
+        <span class="step-pill">手順③ まとめる</span>
+      </div>
+      <div class="ex-block">
+        <div class="ex-row"><span class="ex-tag tag-q">問題式</span><span style="font-size:17px;font-weight:900;">（2x＋3）＋（4x−5）</span></div>
+        <div class="ex-row"><span class="ex-tag tag-step">①かっこ外す</span><span class="ex-blue">2x＋3＋4x−5</span></div>
+        <div class="ex-row"><span class="ex-tag tag-step">②同類項を集める</span><span class="ex-blue">2x＋4x＋3−5</span></div>
+        <div class="ex-row"><span class="ex-tag tag-step">③まとめる</span><span class="ex-blue">（2＋4）x＋（3−5）</span></div>
+        <div class="ex-ans">答え：6x−2</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 重要④ 多項式の減法 -->
+  <div class="point-card">
+    <div class="point-header">
+      <div class="point-num">④</div>
+      <div class="point-header-title">多項式の減法（ひき算）</div>
+    </div>
+    <div class="point-body">
+      <div class="important-box">減法 → 引く式の符号を全部変えてからたす！</div>
+      <div class="caution-box">
+        <div class="caution-label">⚠️ 注意！符号の変化</div>
+        <div class="sign-change">
+          <span class="sc-before">−（A＋B）</span>
+          <span class="sc-arrow">→</span>
+          <span class="sc-after">−A−B</span>
+          <span class="sc-note">全部符号が変わる！</span>
+        </div>
+        <div class="sign-change">
+          <span class="sc-before">−（A−B）</span>
+          <span class="sc-arrow">→</span>
+          <span class="sc-after">−A＋B</span>
+          <span class="sc-note">引き算もプラスになる！</span>
+        </div>
+      </div>
+      <div class="ex-block">
+        <div class="ex-row"><span class="ex-tag tag-q">問題式</span><span style="font-size:17px;font-weight:900;">（3x＋1）−（x−4）</span></div>
+        <div class="ex-row"><span class="ex-tag tag-step" style="background:#DC2626;">①符号を変える</span>
+          <span class="ex-red">3x＋1−x＋4</span>
+          <span class="ex-note">← −（x−4）＝−x＋4</span>
+        </div>
+        <div class="ex-row"><span class="ex-tag tag-step">②同類項を集める</span><span class="ex-blue">3x−x＋1＋4</span></div>
+        <div class="ex-row"><span class="ex-tag tag-step">③まとめる</span><span class="ex-blue">（3−1）x＋（1＋4）</span></div>
+        <div class="ex-ans">答え：2x＋5</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- よくある間違い -->
+  <div class="mistake-section">
+    <div class="mistake-header">⚠️ よくある間違い</div>
+    <div class="mistake-body">
+      <div class="mistake-item">
+        <div class="mistake-title">❌ 減法で符号を変え忘れる！</div>
+        <div class="mistake-content">
+          <div class="m-wrong">（3x＋1）−（x−4）＝ 3x＋1−x−4　← 間違い！</div>
+          <div class="m-right">✅ −（x−4）は −x＋4 になる！　答え：2x＋5</div>
+          <div class="m-rule">引く式のかっこ内は全ての符号が変わる！</div>
+        </div>
+      </div>
+      <div class="mistake-item">
+        <div class="mistake-title">❌ 同類項でない項をまとめてしまう！</div>
+        <div class="mistake-content">
+          <div class="m-wrong">3x＋2x² ＝ 5x²　← 間違い！</div>
+          <div class="m-right">✅ 3x（1次）と 2x²（2次）は同類項でない！　まとめられない。</div>
+          <div class="m-rule">文字の種類と次数が同じものだけまとめられる！</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 練習問題 -->
+  <div class="practice-section">
+    <div class="practice-header">練　習　問　題</div>
+    <div class="practice-body">
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">1</div>次の式を計算せよ。</div>
+        <div class="q-body">
+          <div class="q-text">（3x−2）＋（x＋5）</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint1')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans1')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint1">加法はかっこをそのまま外す。<br>かっこを外す：3x−2＋x＋5<br>同類項：xの項どうし、定数どうし</div>
+          <div class="answer-box" id="ans1">
+            <div class="answer-label">答え（途中式）</div>
+            <div style="font-size:14px;color:#15803D;margin-bottom:4px;">3x−2＋x＋5 ＝ （3＋1）x＋（−2＋5）</div>
+            <div class="answer-val">4x＋3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">2</div>次の式を計算せよ。</div>
+        <div class="q-body">
+          <div class="q-text">（5a＋b）＋（−2a−3b）</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint2')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans2')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint2">かっこを外す：5a＋b−2a−3b<br>aの同類項、bの同類項をそれぞれまとめる。</div>
+          <div class="answer-box" id="ans2">
+            <div class="answer-label">答え（途中式）</div>
+            <div style="font-size:14px;color:#15803D;margin-bottom:4px;">a：5−2＝3　b：1−3＝−2</div>
+            <div class="answer-val">3a−2b</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">3</div>次の式を計算せよ。</div>
+        <div class="q-body">
+          <div class="q-text">（4x−3）−（2x＋1）</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint3')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans3')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint3">−（2x＋1）の符号を全部変える。<br>→ −2x−1　（プラスもマイナスになる！）</div>
+          <div class="answer-box" id="ans3">
+            <div class="answer-label">答え（途中式）</div>
+            <div style="font-size:14px;color:#15803D;margin-bottom:4px;">4x−3−2x−1 ＝ （4−2）x＋（−3−1）</div>
+            <div class="answer-val">2x−4</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">4</div>次の式を計算せよ。</div>
+        <div class="q-body">
+          <div class="q-text">（3x²＋2x−1）−（x²−x＋3）</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint4')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans4')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint4">−（x²−x＋3）の符号を全部変える。<br>→ −x²＋x−3<br>x²・x・定数の3種類の同類項をそれぞれまとめる。</div>
+          <div class="answer-box" id="ans4">
+            <div class="answer-label">答え（途中式）</div>
+            <div style="font-size:14px;color:#15803D;margin-bottom:4px;">x²：3−1＝2　x：2＋1＝3　定数：−1−3＝−4</div>
+            <div class="answer-val">2x²＋3x−4</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">5</div>次の式を計算せよ。</div>
+        <div class="q-body">
+          <div class="q-text">（2x²−3x＋4）＋（x²＋5x−2）</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint5')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans5')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint5">加法なのでかっこをそのまま外す。<br>x²・x・定数の3種類をそれぞれまとめる。</div>
+          <div class="answer-box" id="ans5">
+            <div class="answer-label">答え（途中式）</div>
+            <div style="font-size:14px;color:#15803D;margin-bottom:4px;">x²：2＋1＝3　x：−3＋5＝2　定数：4−2＝2</div>
+            <div class="answer-val">3x²＋2x＋2</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">6</div>次の式を計算せよ。</div>
+        <div class="q-body">
+          <div class="q-text">（4a−2b）−（a＋3b）＋（−2a＋b）</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('hint6')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('ans6')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="hint6">−（a＋3b）の符号を変える → −a−3b<br>3つのかっこを全部外してからa・bをまとめる。</div>
+          <div class="answer-box" id="ans6">
+            <div class="answer-label">答え（途中式）</div>
+            <div style="font-size:14px;color:#15803D;margin-bottom:4px;">a：4−1−2＝1　b：−2−3＋1＝−4</div>
+            <div class="answer-val">a−4b</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 追加問題 -->
+  <div class="extra-section">
+    <div class="extra-header">🌟 追加問題でさらに定着！</div>
+    <div class="extra-body">
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+1</div>次の式を計算せよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-easy">かんたん</span>
+          <div class="q-text">（2x＋7）＋（3x−4）</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ex1')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ex1">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">5x＋3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+2</div>次の式を計算せよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-easy">かんたん</span>
+          <div class="q-text">（6x−1）−（4x＋3）</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ex2')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ex2">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">2x−4</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+3</div>次の式を計算せよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-easy">かんたん</span>
+          <div class="q-text">（−3a＋5b）＋（2a−b）</div>
+          <div class="btn-row">
+            <button class="answer-btn" onclick="toggleBox('ex3')">✅ 答えを見る</button>
+          </div>
+          <div class="answer-box" id="ex3">
+            <div class="answer-label">答え</div>
+            <div class="answer-val">−a＋4b</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+4</div>次の式を計算せよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-mid">中級</span>
+          <div class="q-text">（x²−3x＋2）−（2x²＋x−5）</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('exh4')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('exa4')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="exh4">−（2x²＋x−5）の符号を全部変える。<br>→ −2x²−x＋5<br>x²・x・定数の3種類を別々にまとめる。</div>
+          <div class="answer-box" id="exa4">
+            <div class="answer-label">答え（途中式）</div>
+            <div style="font-size:14px;color:#15803D;margin-bottom:4px;">x²：1−2＝−1　x：−3−1＝−4　定数：2＋5＝7</div>
+            <div class="answer-val">−x²−4x＋7</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-header"><div class="q-num">+5</div>次の式を計算せよ。</div>
+        <div class="q-body">
+          <span class="level-badge badge-mid">中級</span>
+          <div class="q-text">（3a＋b）−（a−2b）＋（−a＋3b）</div>
+          <div class="btn-row">
+            <button class="hint-btn" onclick="toggleBox('exh5')">💡 ヒント</button>
+            <button class="answer-btn" onclick="toggleBox('exa5')">✅ 答えを見る</button>
+          </div>
+          <div class="hint-box" id="exh5">−（a−2b）の符号を変える → −a＋2b<br>（−a＋3b）はそのまま外す。<br>全部並べてa・bをまとめる。</div>
+          <div class="answer-box" id="exa5">
+            <div class="answer-label">答え（途中式）</div>
+            <div style="font-size:14px;color:#15803D;margin-bottom:4px;">a：3−1−1＝1　b：1＋2＋3＝6</div>
+            <div class="answer-val">a＋6b</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ナビゲーション -->
+  <div class="unit-nav">
+    <a href="unit1-1_math2.html" class="nav-btn prev">
+      <span class="nav-icon">←</span>
+      <span>前の単元</span>
+      <span style="font-size:10px;">単項式と多項式</span>
+    </a>
+    <a href="units_math2.html" class="nav-btn list">
+      <span class="nav-icon">📋</span>
+      <span>単元一覧</span>
+    </a>
+    <a href="unit1-3_math2.html" class="nav-btn next">
+      <span class="nav-icon">→</span>
+      <span>次の単元</span>
+      <span style="font-size:10px;">単項式の乗法・除法</span>
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <strong>サクッと復習</strong> by 個別指導トライアンフ<br>
+  © 2025 Triumph Juku. All rights reserved.
+</footer>
+
+<script>
+  function toggleBox(id) {
+    document.getElementById(id).classList.toggle('show');
+  }
+</script>
+</body>
+</html>
